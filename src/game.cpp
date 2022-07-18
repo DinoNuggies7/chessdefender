@@ -16,6 +16,9 @@ bool Game::running() {
 
 void Game::update() {
 	this->pollEvents();
+	this->updateDelta();
+
+	this->player.update(this->dt);
 }
 
 void Game::render() {
@@ -33,14 +36,17 @@ void Game::initWindow() {
 	this->videoMode = sf::VideoMode(Global::WIN_WIDTH, Global::WIN_HEIGHT);
 	this->window = new sf::RenderWindow(this->videoMode, "Chess Defender", sf::Style::Titlebar | sf::Style::Close);
 	this->window->setView(this->view);
-	this->window->setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width / 2 - Global::WIN_HEIGHT / 2 - 49, sf::VideoMode::getDesktopMode().height / 2 - Global::WIN_HEIGHT / 2));
-
+	this->window->setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width / 2 - Global::WIN_WIDTH / 2, sf::VideoMode::getDesktopMode().height / 2 - Global::WIN_HEIGHT / 2));
 	this->window->setKeyRepeatEnabled(false);
-	this->window->setFramerateLimit(60);
 }
 
 void Game::initEntities() {
 	this->player.init("assets/player.png");
+}
+
+void Game::updateDelta() {
+	this->delta = this->clock.restart().asSeconds();
+	this->dt = delta * Global::FRAMERATE;
 }
 
 void Game::pollEvents() {

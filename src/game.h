@@ -21,11 +21,16 @@ public:
 private:
 	void initWindow();
 	void initEntities();
+	void updateDelta();
 	void pollEvents();
+
 	sf::RenderWindow* window;
 	sf::VideoMode videoMode;
 	sf::View view;
 	sf::Event ev;
+
+	sf::Clock clock;
+	float delta, dt;
 
 	Entity player;
 };

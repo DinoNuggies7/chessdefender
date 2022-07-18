@@ -3,7 +3,7 @@
 
 namespace Global {
 	const int WIDTH = 480, HEIGHT = 270, WIN_SCALE = 2, WIN_WIDTH = WIDTH * WIN_SCALE, WIN_HEIGHT = HEIGHT * WIN_SCALE;
-	//const char* WIN_NAME = "Chess Defender";
+	const float FRAMERATE = 60;
 };
 
 #endif

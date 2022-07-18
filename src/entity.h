@@ -1,17 +1,24 @@
 #include <SFML/Graphics.hpp>
 
-class Entity {
+#include "input.h"
+
+class Entity : public Input {
 public:
 	void init(const char* _spritePath);
 	void update(float _dt);
 	void render(sf::RenderWindow* _window);
 protected:
-	void initSprite(const char* _spritePath);
-	void setAnimation();
+	void physics(float _dt);
+	void collision(float _dt);
 
-	float x, y, vx, vy;
+	void initSprite(const char* _spritePath);
+	void clipTexture(int _x, int _y, int _w, int _h, bool _flip);
+	void setAnimation(const char* _animation);
 
 	sf::Image image;
 	sf::Texture texture;
 	sf::Sprite sprite;
+
+	int frame;
+	float x, y, vx, vy;
 };
