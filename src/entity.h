@@ -12,8 +12,8 @@ protected:
 	void collision(float _dt);
 
 	void initSprite(const char* _spritePath);
-	void clipTexture(int _x, int _y, int _w, int _h, bool _flip);
 	void setAnimation(const char* _animation);
+	void clipTexture(int _x, int _y, int _w, int _h, bool _flip);
 
 	sf::Image image;
 	sf::Texture texture;

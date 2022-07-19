@@ -41,7 +41,7 @@ void Game::initWindow() {
 }
 
 void Game::initEntities() {
-	this->player.init("assets/player.png");
+	this->player.init("assets/pieces.png");
 }
 
 void Game::updateDelta() {
