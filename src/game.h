@@ -7,7 +7,8 @@
 #include <STP/TMXLoader.hpp>
 
 #include "globals.h"
-#include "entity.h"
+#include "player.h"
+#include "enemy.h"
 
 class Game {
 public:
@@ -28,11 +29,13 @@ private:
 	sf::VideoMode videoMode;
 	sf::View view;
 	sf::Event ev;
-
 	sf::Clock clock;
-	float delta, dt;
 
-	Entity player;
+	float delta, dt;
+	int step;
+
+	Player player;
+	Enemy enemy;
 };
 
 #endif

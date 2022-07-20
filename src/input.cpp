@@ -1,6 +1,24 @@
 #include "input.h"
 
+// Protected Functions
 void Input::input() {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) and !this->kUp)
+		this->kUpP = true;
+	else
+		this->kUpP = false;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) and !this->kDown)
+		this->kDownP = true;
+	else
+		this->kDownP = false;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) and !this->kLeft)
+		this->kLeftP = true;
+	else
+		this->kLeftP = false;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) and !this->kRight)
+		this->kRightP = true;
+	else
+		this->kRightP = false;
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 		this->kUp = true;
 	else
@@ -22,21 +40,4 @@ void Input::input() {
 		this->kInput = true;
 	else
 		this->kInput = false;
-
-	if (this->kUp)
-		this->dir = 0;
-	else if (this->kUp and this->kRight)
-		this->dir = 1;
-	else if (this->kRight)
-		this->dir = 2;
-	else if (this->kRight and this->kDown)
-		this->dir = 3;
-	else if (this->kDown)
-		this->dir = 4;
-	else if (this->kDown and this->kLeft)
-		this->dir = 5;
-	else if (this->kLeft)
-		this->dir = 6;
-	else if (this->kLeft and this->kUp)
-		this->dir = 7;
 }

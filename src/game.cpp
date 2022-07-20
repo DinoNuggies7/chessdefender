@@ -2,6 +2,9 @@
 
 // Public Functions
 Game::Game() {
+	this->delta = 0;
+	this->dt = 0;
+	this->step = 0;
 	this->initWindow();
 	this->initEntities();
 }
@@ -19,12 +22,14 @@ void Game::update() {
 	this->updateDelta();
 
 	this->player.update(this->dt);
+	this->enemy.update(this->dt);
 }
 
 void Game::render() {
 	this->window->clear(sf::Color::Black);
 
 	this->player.render(this->window);
+	this->enemy.render(this->window);
 
 	this->window->display();
 }
@@ -41,7 +46,8 @@ void Game::initWindow() {
 }
 
 void Game::initEntities() {
-	this->player.init("assets/pieces.png");
+	this->player.init();
+	this->enemy.init();
 }
 
 void Game::updateDelta() {

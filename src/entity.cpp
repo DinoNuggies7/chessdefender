@@ -1,14 +1,16 @@
 #include "entity.h"
 
 // Public Functions
-void Entity::init(const char* _spritePath) {
+void Entity::init() {
 	this->x = 0;
 	this->y = 0;
 	this->vx = 0;
 	this->vy = 0;
 	this->frame = 0;
+	this->initiative = 0;
+	std::srand(time(NULL));
 
-	this->initSprite(_spritePath);
+	this->initSprite();
 	this->setAnimation("stand");
 }
 
@@ -26,20 +28,20 @@ void Entity::physics(float _dt) {
 	this->x += this->vx;
 	this->y += this->vy;
 	this->sprite.setPosition(this->x, this->y);
-
+	this->movement(_dt);
 	this->collision(_dt);
+}
+
+void Entity::movement(float _dt) {
+
 }
 
 void Entity::collision(float _dt) {
 
 }
 
-void Entity::initSprite(const char* _spritePath) {
-	this->image.loadFromFile(_spritePath);
-	this->image.createMaskFromColor(sf::Color(0x6f6d51ff));
-	this->image.createMaskFromColor(sf::Color(0xf9303dff));
-	this->texture.loadFromImage(this->image);
-	this->sprite.setTexture(this->texture);
+void Entity::initSprite() {
+
 }
 
 void Entity::setAnimation(const char* _animation) {
