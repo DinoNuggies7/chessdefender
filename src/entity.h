@@ -13,7 +13,8 @@ public:
 	void update(float _dt);
 	void render(sf::RenderWindow* _window);
 
-	int initiative = 0;
+	bool doStep, turn;
+	int initiative;
 protected:
 	void physics(float _dt);
 	virtual void movement(float _dt);

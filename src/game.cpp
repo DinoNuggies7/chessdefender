@@ -5,6 +5,9 @@ Game::Game() {
 	this->delta = 0;
 	this->dt = 0;
 	this->step = 0;
+	this->entities = 2;
+	this->entity[0] = new Player();
+	this->entity[1] = new Enemy();
 	this->initWindow();
 	this->initEntities();
 }
@@ -21,15 +24,39 @@ void Game::update() {
 	this->pollEvents();
 	this->updateDelta();
 
-	this->player.update(this->dt);
-	this->enemy.update(this->dt);
+	this->updateStepLogic();
+
+	for (int i = 0; i < this->entities - 1; i++) {
+		this->entity[i]->update(this->dt);
+
+		if (this->step == this->entity[i]->initiative)
+			this->entity[i]->turn = true;
+
+		if (this->entity[i]->doStep) {
+			this->step++;
+			this->entity[i]->doStep = false;
+			this->entity[i]->turn = false;
+		}
+	}
+
+	//this->entity[0]->update(this->dt);
+	//this->entity[1]->update(this->dt);
+
+	//if (this->step == this->entity[1]->initiative)
+	//	this->entity[1]->turn = true;
+
+	//if (this->entity[1]->doStep) {
+	//	this->step++;
+	//	this->entity[1]->doStep = false;
+	//	this->entity[0]->turn = false;
+	//}
 }
 
 void Game::render() {
 	this->window->clear(sf::Color::Black);
 
-	this->player.render(this->window);
-	this->enemy.render(this->window);
+	this->entity[0]->render(this->window);
+	this->entity[1]->render(this->window);
 
 	this->window->display();
 }
@@ -46,8 +73,12 @@ void Game::initWindow() {
 }
 
 void Game::initEntities() {
-	this->player.init();
-	this->enemy.init();
+	this->entity[0]->init();
+	this->entity[1]->init();
+}
+
+void Game::updateStepLogic() {
+
 }
 
 void Game::updateDelta() {

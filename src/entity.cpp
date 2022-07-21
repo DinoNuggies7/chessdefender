@@ -2,11 +2,13 @@
 
 // Public Functions
 void Entity::init() {
-	this->x = 0;
+	this->x = 2;
 	this->y = 0;
 	this->vx = 0;
 	this->vy = 0;
 	this->frame = 0;
+	this->doStep = 0;
+	this->turn = false;
 	this->initiative = 0;
 	std::srand(time(NULL));
 
@@ -28,7 +30,8 @@ void Entity::physics(float _dt) {
 	this->x += this->vx;
 	this->y += this->vy;
 	this->sprite.setPosition(this->x, this->y);
-	this->movement(_dt);
+	if (this->turn)
+		this->movement(_dt);
 	this->collision(_dt);
 }
 
@@ -45,10 +48,7 @@ void Entity::initSprite() {
 }
 
 void Entity::setAnimation(const char* _animation) {
-	frame = 0;
-	if (_animation == "stand") {
-		this->clipTexture(85, 61, 12, 28, false);
-	}
+
 }
 
 void Entity::clipTexture(int _x, int _y, int _w, int _h, bool _flip = false) {

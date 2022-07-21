@@ -1,14 +1,14 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <SFML/Graphics.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Window.hpp>
-#include <STP/TMXLoader.hpp>
-
 #include "globals.h"
 #include "player.h"
 #include "enemy.h"
+
+#include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
+#include <SFML/Window.hpp>
+#include <vector>
 
 class Game {
 public:
@@ -22,6 +22,7 @@ public:
 private:
 	void initWindow();
 	void initEntities();
+	void updateStepLogic();
 	void updateDelta();
 	void pollEvents();
 
@@ -34,8 +35,8 @@ private:
 	float delta, dt;
 	int step;
 
-	Player player;
-	Enemy enemy;
+	int entities;
+	Entity* entity[16];
 };
 
 #endif

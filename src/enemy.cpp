@@ -25,4 +25,11 @@ void Enemy::initSprite() {
 	this->image.createMaskFromColor(sf::Color(0xf9303dff));
 	this->texture.loadFromImage(this->image);
 	this->sprite.setTexture(this->texture);
+
+	this->initiative = 2;
+}
+
+void Enemy::setAnimation(const char* _animation) {
+	frame = 0;
+	this->clipTexture(85, 31, 12, 28, false);
 }
