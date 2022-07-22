@@ -23,14 +23,14 @@ bool Game::running() {
 void Game::update() {
 	this->pollEvents();
 	this->updateDelta();
-
-	this->updateStepLogic();
-
+	
 	for (int i = 0; i < this->entities - 1; i++) {
 		this->entity[i]->update(this->dt);
 
 		if (this->step == this->entity[i]->initiative)
 			this->entity[i]->turn = true;
+		else
+			this->step++;
 
 		if (this->entity[i]->doStep) {
 			this->step++;
@@ -38,25 +38,14 @@ void Game::update() {
 			this->entity[i]->turn = false;
 		}
 	}
-
-	//this->entity[0]->update(this->dt);
-	//this->entity[1]->update(this->dt);
-
-	//if (this->step == this->entity[1]->initiative)
-	//	this->entity[1]->turn = true;
-
-	//if (this->entity[1]->doStep) {
-	//	this->step++;
-	//	this->entity[1]->doStep = false;
-	//	this->entity[0]->turn = false;
-	//}
 }
 
 void Game::render() {
 	this->window->clear(sf::Color::Black);
 
-	this->entity[0]->render(this->window);
-	this->entity[1]->render(this->window);
+	for (int i = 0; i < this->entities; i++) {
+		this->entity[i]->render(this->window);
+	}
 
 	this->window->display();
 }
@@ -73,12 +62,9 @@ void Game::initWindow() {
 }
 
 void Game::initEntities() {
-	this->entity[0]->init();
-	this->entity[1]->init();
-}
-
-void Game::updateStepLogic() {
-
+	for (int i = 0; i < this->entities; i++) {
+		this->entity[i]->init();
+	}
 }
 
 void Game::updateDelta() {

@@ -22,7 +22,6 @@ public:
 private:
 	void initWindow();
 	void initEntities();
-	void updateStepLogic();
 	void updateDelta();
 	void pollEvents();
 

@@ -17,6 +17,7 @@ void Enemy::movement(float _dt) {
 			this->x += 16;
 			break;
 	}
+	this->doStep = true;
 }
 
 void Enemy::initSprite() {
