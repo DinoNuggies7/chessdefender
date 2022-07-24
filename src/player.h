@@ -4,6 +4,8 @@
 #include "entity.h"
 
 class Player : public Entity {
+public:
+	Player();
 protected:
 	void movement(float _dt);
 	void initSprite();

@@ -1,21 +1,38 @@
 #include "player.h"
 
-// Protected Functions
+// ==================
+//  Public Functions
+// ==================
+
+Player::Player() {
+	this->team = "Player";
+	this->x = 1;
+	this->y = 1;
+}
+
+// =====================
+//  Protected Functions
+// =====================
+
 void Player::movement(float _dt) {	
 	if (this->kUpP) {
-		this->y -= 16;
+		this->dir = 0;
+		//this->y--;
 		this->doStep = true;
 	}
 	else if (this->kDownP) {
-		this->y += 16;
+		this->dir = 1;
+		//this->y++;
 		this->doStep = true;
 	}
 	else if (this->kLeftP) {
-		this->x -= 16;
+		this->dir = 2;
+		//this->x--;
 		this->doStep = true;
 	}
 	else if (this->kRightP) {
-		this->x += 16;
+		this->dir = 3;
+		//this->x++;
 		this->doStep = true;
 	}
 }
@@ -26,8 +43,6 @@ void Player::initSprite() {
 	this->image.createMaskFromColor(sf::Color(0xf9303dff));
 	this->texture.loadFromImage(this->image);
 	this->sprite.setTexture(this->texture);
-
-	this->initiative = 1;
 }
 
 void Player::setAnimation(const char* _animation) {

@@ -1,6 +1,9 @@
 #include "input.h"
 
-// Protected Functions
+// =====================
+//  Protected Functions
+// =====================
+
 void Input::input() {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) and !this->kUp)
 		this->kUpP = true;

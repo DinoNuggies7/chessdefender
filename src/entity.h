@@ -13,8 +13,10 @@ public:
 	void update(float _dt);
 	void render(sf::RenderWindow* _window);
 
-	bool doStep, turn;
-	int initiative;
+	bool doStep, turn, inCheck;
+	int initiative, dir;
+	char* team;
+	float x, y, vx, vy;
 protected:
 	void physics(float _dt);
 	virtual void movement(float _dt);
@@ -29,7 +31,6 @@ protected:
 	sf::Sprite sprite;
 
 	int frame;
-	float x, y, vx, vy;
 };
 
 #endif

@@ -1,0 +1,16 @@
+		#=================================#
+		|  _______          _____         |
+		| |__   __|        |  __ \        |
+		|    | | ___ ______| |  | | ___   |
+		|    | |/ _ \______| |  | |/ _ \  |
+		|    | | (_) |     | |__| | (_) | |
+		|    |_|\___/      |_____/ \___/  |
+		#=================================#
+			-- (Done!) Add Player Class (Player1 basically)
+			-- (Done!) Add dummy Enemy Class (for testing collision and such)
+			-- (Done!) Add Basic Collision for Entities ('capturing' pieces and such)
+			-- Add Map Support (Level Class with tmxparser)
+			-- Add Multiplayer (Player2 Class, Player3 Class, etc.)
+			-- Add Enemy AI (probably just gonna look some up online :P)
+			-- Port to Android (Add touchscreen controls and such)
+			-- Compile for Android (Yes this is a seperate step)

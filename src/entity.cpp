@@ -1,16 +1,19 @@
 #include "entity.h"
 
-// Public Functions
+// ==================
+//  Public Functions
+// ==================
+
 void Entity::init() {
-	this->x = 2;
-	this->y = 0;
+	//this->x = 1;
+	//this->y = 1;
+	this->dir = -1;
 	this->vx = 0;
 	this->vy = 0;
 	this->frame = 0;
 	this->doStep = 0;
 	this->turn = false;
-	this->initiative = 0;
-	std::srand(time(NULL));
+	this->initiative = std::rand() % 15 + 1;
 
 	this->initSprite();
 	this->setAnimation("stand");
@@ -25,11 +28,14 @@ void Entity::render(sf::RenderWindow* _window) {
 	_window->draw(this->sprite);
 }
 
-// Protected Functions
+// =====================
+//  Protected Functions
+// =====================
+
 void Entity::physics(float _dt) {
 	this->x += this->vx;
 	this->y += this->vy;
-	this->sprite.setPosition(this->x, this->y);
+	this->sprite.setPosition(this->x * 16 + 2, this->y * 16 + 1);
 	if (this->turn)
 		this->movement(_dt);
 	this->collision(_dt);

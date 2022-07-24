@@ -8,6 +8,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
+#include <random>
 #include <vector>
 
 class Game {
@@ -20,8 +21,8 @@ public:
 	void update();
 	void render();
 private:
-	void initWindow();
 	void initEntities();
+	void initWindow();
 	void updateDelta();
 	void pollEvents();
 
@@ -32,10 +33,8 @@ private:
 	sf::Clock clock;
 
 	float delta, dt;
-	int step;
-
-	int entities;
-	Entity* entity[16];
+	int step, entities, entityCounter;
+	std::vector<Entity*> entity;
 };
 
 #endif

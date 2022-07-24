@@ -4,6 +4,8 @@
 #include "entity.h"
 
 class Enemy : public Entity {
+public:
+	Enemy();
 protected:
 	void movement(float _dt);
 	void initSprite();
