@@ -9,8 +9,14 @@
 			-- (Done!) Add Player Class (Player1 basically)
 			-- (Done!) Add dummy Enemy Class (for testing collision and such)
 			-- (Done!) Add Basic Collision for Entities ('capturing' pieces and such)
-			-- Add Map Support (Level Class with tmxparser)
-			-- Add Multiplayer (Player2 Class, Player3 Class, etc.)
+
+			-- (Working...) Draw Entities with Higher Y Values on Top of Entities with Lower Y Values
+			-- (Working...) Add Map Support (Level Class with tmxparser)
+				-- (Done!) Drawing Maps
+				-- Collision for Map Elements
+				-- Wrapped in a Level Class
+
 			-- Add Enemy AI (probably just gonna look some up online :P)
+			-- Add Multiplayer (Player2 Class, Player3 Class, etc.)
 			-- Port to Android (Add touchscreen controls and such)
 			-- Compile for Android (Yes this is a seperate step)

@@ -5,15 +5,12 @@
 // ==================
 
 void Entity::init() {
-	//this->x = 1;
-	//this->y = 1;
-	this->dir = -1;
 	this->vx = 0;
 	this->vy = 0;
+	this->dir = -1;
 	this->frame = 0;
 	this->doStep = 0;
 	this->turn = false;
-	this->initiative = std::rand() % 15 + 1;
 
 	this->initSprite();
 	this->setAnimation("stand");

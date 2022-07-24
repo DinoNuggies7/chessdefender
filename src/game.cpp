@@ -12,14 +12,22 @@ Game::Game() {
 	this->delta = 0;
 	this->dt = 0;
 	this->step = 0;
-	this->entities = 0;
 	this->entityCounter = 0;
+	this->mapLayersLoaded = false;
 
-	// Spawning entities
+	// Spawning entities (not permanent, should move to level class)
 	this->entity.push_back(new Player);
 	this->entity.push_back(new Enemy);
 	this->entity.push_back(new Enemy);
 	this->entity.push_back(new Enemy);
+
+	this->entities = this->entity.size();
+
+	// Setting up the map (also not permanent, should move to level class)
+	this->map.load("assets/test_map.tmx");
+	this->mapLayerFloor.init(this->map, 0);
+	this->mapLayerCollision.init(this->map, 1);
+	this->mapLayerCeiling.init(this->map, 2);
 
 	// More initialization
 	this->initWindow();
@@ -62,7 +70,7 @@ void Game::update() {
 		switch (this->entity[i]->dir) {
 			case 0:
 				for (int j = 0; j < this->entities; j++) {
-					if (i != j) {
+					if (i != j and this->entity[i]->team != this->entity[j]->team) {
 						if (this->entity[i]->y - 1 == this->entity[j]->y and this->entity[i]->x == this->entity[j]->x)
 							this->entity.erase(this->entity.begin()+j);
 					}
@@ -72,7 +80,7 @@ void Game::update() {
 				break;
 			case 1:
 				for (int j = 0; j < this->entities; j++) {
-					if (i != j) {
+					if (i != j and this->entity[i]->team != this->entity[j]->team) {
 						if (this->entity[i]->y + 1 == this->entity[j]->y and this->entity[i]->x == this->entity[j]->x)
 							this->entity.erase(this->entity.begin()+j);
 					}
@@ -82,7 +90,7 @@ void Game::update() {
 				break;
 			case 2:
 				for (int j = 0; j < this->entities; j++) {
-					if (i != j) {
+					if (i != j and this->entity[i]->team != this->entity[j]->team) {
 						if (this->entity[i]->x - 1 == this->entity[j]->x and this->entity[i]->y == this->entity[j]->y)
 							this->entity.erase(this->entity.begin()+j);
 					}
@@ -92,7 +100,7 @@ void Game::update() {
 				break;
 			case 3:
 				for (int j = 0; j < this->entities; j++) {
-					if (i != j) {
+					if (i != j and this->entity[i]->team != this->entity[j]->team) {
 						if (this->entity[i]->x + 1 == this->entity[j]->x and this->entity[i]->y == this->entity[j]->y)
 							this->entity.erase(this->entity.begin()+j);
 					}
@@ -114,35 +122,23 @@ void Game::update() {
 			this->entity[i]->doStep = false;
 			this->entity[i]->turn = false;
 		}
-
-		/*		Code for roguelike combat
-		for (int j = 0; j < this->entities; j++) {
-			if (i != j and this->entity[i]->team != this->entity[j]->team) {
-				if (this->entity[i]->x == this->entity[j]->x and this->entity[i]->y == this->entity[j]->y) {
-					if (this->entity[i]->initiative < this->entity[j]->initiative)
-						this->entity.erase(this->entity.begin()+j);
-					else if (this->entity[i]->initiative > this->entity[j]->initiative)
-						this->entity.erase(this->entity.begin()+i);
-					else {
-						if (std::rand() % 2)
-							this->entity.erase(this->entity.begin()+j);
-						else
-							this->entity.erase(this->entity.begin()+i);
-					}
-				}
-			}
-		}
-		*/
 	}
 }
 
 void Game::render() {
 	this->window->clear(sf::Color::Black);
 
+	// Rendering bottom map layers
+	this->window->draw(this->mapLayerFloor);
+	this->window->draw(this->mapLayerCollision);
+
 	// Rendering every entity
 	for (int i = 0; i < this->entities; i++) {
 		this->entity[i]->render(this->window);
 	}
+
+	// Rendering top map layers (for ceilings, etc.)
+	this->window->draw(this->mapLayerCeiling);
 
 	this->window->display();
 }
@@ -152,12 +148,13 @@ void Game::render() {
 // ===================
 
 void Game::initEntities() {
-	// Initializing every entity
+	// Initializing every entity and randomizing their initiative
 	for (int i = 0; i < this->entities; i++) {
 		this->entity[i]->init();
+		this->entity[i]->initiative = std::rand() % 15 + 1;
 	}
 
-	// Making sure that the player has a unique initiative
+	// Making sure that the player has a unique initiative (not permanent)
 	while (this->entity[0]->initiative == this->entity[1]->initiative or this->entity[0]->initiative == this->entity[2]->initiative or this->entity[0]->initiative == this->entity[3]->initiative)
 		this->entity[0]->initiative = std::rand() % 15 + 1;
 

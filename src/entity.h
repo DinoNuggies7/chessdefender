@@ -4,6 +4,7 @@
 #include "input.h"
 
 #include <SFML/Graphics.hpp>
+
 #include <random>
 #include <time.h>
 

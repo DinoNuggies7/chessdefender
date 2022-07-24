@@ -4,10 +4,12 @@
 #include "globals.h"
 #include "player.h"
 #include "enemy.h"
+#include "SFMLOrthogonalLayer.hpp"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
+
 #include <random>
 #include <vector>
 
@@ -32,6 +34,12 @@ private:
 	sf::Event ev;
 	sf::Clock clock;
 
+	tmx::Map map;
+	MapLayer mapLayerFloor;
+	MapLayer mapLayerCollision;
+	MapLayer mapLayerCeiling;
+
+	bool mapLayersLoaded;
 	float delta, dt;
 	int step, entities, entityCounter;
 	std::vector<Entity*> entity;
