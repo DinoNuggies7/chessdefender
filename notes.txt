@@ -13,7 +13,7 @@
 			-- (Working...) Draw Entities with Higher Y Values on Top of Entities with Lower Y Values
 			-- (Working...) Add Map Support (Level Class with tmxparser)
 				-- (Done!) Drawing Maps
-				-- Camera that Follows the Player (I have no idea how this would work with multiplayer x_x)
+				-- (Done!) Camera that Follows the Player (I have no idea how this would work with multiplayer x_x)
 				-- Collision for Map Elements
 				-- Wrapped in a Level Class
 
