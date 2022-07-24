@@ -7,6 +7,7 @@
 
 #include <random>
 #include <time.h>
+#include <string.h>
 
 class Entity : public Input {
 public:
@@ -16,7 +17,7 @@ public:
 
 	bool doStep, turn, inCheck;
 	int initiative, dir;
-	char* team;
+	std::string team;
 	float x, y, vx, vy;
 protected:
 	void physics(float _dt);

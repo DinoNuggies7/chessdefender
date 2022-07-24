@@ -140,6 +140,11 @@ void Game::render() {
 	// Rendering top map layers (for ceilings, etc.)
 	this->window->draw(this->mapLayerCeiling);
 
+	// Camera that follows the player
+	this->view.setCenter(this->entity[0]->x * 16, this->entity[0]->y * 16);
+	if (this->entity[0]->team == "Player")
+		this->window->setView(this->view);
+
 	this->window->display();
 }
 
