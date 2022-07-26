@@ -32,7 +32,7 @@ void Entity::render(sf::RenderWindow* _window) {
 void Entity::physics(float _dt) {
 	this->x += this->vx;
 	this->y += this->vy;
-	this->sprite.setPosition(this->x * 16 + 2, this->y * 16 + 1);
+	this->sprite.setPosition((this->x * 16) + 2, (this->y * 16) - 13);
 	if (this->turn)
 		this->movement(_dt);
 	this->collision(_dt);

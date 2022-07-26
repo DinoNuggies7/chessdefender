@@ -10,14 +10,20 @@
 			-- (Done!) Add dummy Enemy Class (for testing collision and such)
 			-- (Done!) Add Basic Collision for Entities ('capturing' pieces and such)
 
-			-- (Working...) Draw Entities with Higher Y Values on Top of Entities with Lower Y Values
-			-- (Working...) Add Map Support (Level Class with tmxparser)
+			-- (Done?) Add Map Support and Level Class
 				-- (Done!) Drawing Maps
 				-- (Done!) Camera that Follows the Player (I have no idea how this would work with multiplayer x_x)
-				-- Collision for Map Elements
-				-- Wrapped in a Level Class
+				-- (Done!) Collision for Map Elements
+				-- Wrapped in a Level Class (idk if this is a good idea or not)
 
+			-- (Done!) Draw Entities with Higher Y Values on Top of Entities with Lower Y Values
+
+			-- Add Randomly Generated Maps (Just a bunch pre-made maps strung together randomly);
+			-- Add More Playable Pieces
 			-- Add Enemy AI (probably just gonna look some up online :P)
 			-- Add Multiplayer (Player2 Class, Player3 Class, etc.)
+			-- Add Some Equipable Weapons >:)
+			-- Add Menu with Background Music
+			-- Add Ambient Sounds for Gameplay
 			-- Port to Android (Add touchscreen controls and such)
 			-- Compile for Android (Yes this is a seperate step)

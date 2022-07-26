@@ -1,0 +1,3451 @@
+
+79,454,454,454,454,454,454,454,454,454,454,454,454,454,454,454,454,454,454,454,454,454,454,455,70,
+274,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,259,
+274,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,259,
+274,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,259,
+274,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,195,210,0,0,0,0,0,259,
+274,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,259,274,0,0,0,0,0,259,
+274,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,323,338,0,0,0,0,0,259,
+274,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,387,402,0,0,0,0,0,259,
+274,0,0,346,0,0,0,350,0,0,0,0,0,0,0,0,0,451,466,0,0,0,0,0,259,
+274,0,0,410,0,0,0,414,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,259,
+274,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,259,
+338,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,259,
+402,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,259,
+338,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,195,210,0,0,0,0,0,0,259,
+402,0,0,0,0,195,198,199,200,210,0,0,0,0,0,0,451,466,0,0,0,0,0,0,259,
+274,0,0,0,0,387,264,264,264,402,0,0,0,0,0,0,0,0,0,0,0,0,0,0,259,
+274,0,0,0,0,451,455,456,457,466,0,0,0,0,0,0,0,0,0,0,0,0,0,0,259,
+274,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,259,
+212,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,216,
+73,198,198,198,198,198,198,198,198,198,198,198,198,198,198,198,198,198,199,200,201,199,200,201,76
+
+Putting into vector:
+9 | 7
+7 | 
+
+j: 2
+Inserting: 7
+Value AFTER: 7
+Inserting: 9
+Value AFTER: 79
+Putting into vector: 79
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+4 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 4
+Value AFTER: 454
+Putting into vector: 454
+5 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 5
+Value AFTER: 455
+Putting into vector: 455
+0 | 7
+7 | ,
+j: 2
+Inserting: 7
+Value AFTER: 7
+Inserting: 0
+Value AFTER: 70
+Putting into vector: 70
+Putting into vector: 
+4 | 7
+7 | 2
+2 | 
+
+
+ | ,
+j: 4
+Inserting: 
+
+Value AFTER: 
+
+Inserting: 2
+Value AFTER: 
+2
+Inserting: 7
+Value AFTER: 
+27
+Inserting: 4
+Value AFTER: 
+274
+Putting into vector: 
+274
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+9 | 5
+5 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 5
+Value AFTER: 25
+Inserting: 9
+Value AFTER: 259
+Putting into vector: 259
+Putting into vector: 
+4 | 7
+7 | 2
+2 | 
+
+
+ | ,
+j: 4
+Inserting: 
+
+Value AFTER: 
+
+Inserting: 2
+Value AFTER: 
+2
+Inserting: 7
+Value AFTER: 
+27
+Inserting: 4
+Value AFTER: 
+274
+Putting into vector: 
+274
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+9 | 5
+5 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 5
+Value AFTER: 25
+Inserting: 9
+Value AFTER: 259
+Putting into vector: 259
+Putting into vector: 
+4 | 7
+7 | 2
+2 | 
+
+
+ | ,
+j: 4
+Inserting: 
+
+Value AFTER: 
+
+Inserting: 2
+Value AFTER: 
+2
+Inserting: 7
+Value AFTER: 
+27
+Inserting: 4
+Value AFTER: 
+274
+Putting into vector: 
+274
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+9 | 5
+5 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 5
+Value AFTER: 25
+Inserting: 9
+Value AFTER: 259
+Putting into vector: 259
+Putting into vector: 
+4 | 7
+7 | 2
+2 | 
+
+
+ | ,
+j: 4
+Inserting: 
+
+Value AFTER: 
+
+Inserting: 2
+Value AFTER: 
+2
+Inserting: 7
+Value AFTER: 
+27
+Inserting: 4
+Value AFTER: 
+274
+Putting into vector: 
+274
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+5 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 5
+Value AFTER: 195
+Putting into vector: 195
+0 | 1
+1 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 1
+Value AFTER: 21
+Inserting: 0
+Value AFTER: 210
+Putting into vector: 210
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+9 | 5
+5 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 5
+Value AFTER: 25
+Inserting: 9
+Value AFTER: 259
+Putting into vector: 259
+Putting into vector: 
+4 | 7
+7 | 2
+2 | 
+
+
+ | ,
+j: 4
+Inserting: 
+
+Value AFTER: 
+
+Inserting: 2
+Value AFTER: 
+2
+Inserting: 7
+Value AFTER: 
+27
+Inserting: 4
+Value AFTER: 
+274
+Putting into vector: 
+274
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+9 | 5
+5 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 5
+Value AFTER: 25
+Inserting: 9
+Value AFTER: 259
+Putting into vector: 259
+4 | 7
+7 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 7
+Value AFTER: 27
+Inserting: 4
+Value AFTER: 274
+Putting into vector: 274
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+9 | 5
+5 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 5
+Value AFTER: 25
+Inserting: 9
+Value AFTER: 259
+Putting into vector: 259
+Putting into vector: 
+4 | 7
+7 | 2
+2 | 
+
+
+ | ,
+j: 4
+Inserting: 
+
+Value AFTER: 
+
+Inserting: 2
+Value AFTER: 
+2
+Inserting: 7
+Value AFTER: 
+27
+Inserting: 4
+Value AFTER: 
+274
+Putting into vector: 
+274
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+3 | 2
+2 | 3
+3 | ,
+j: 3
+Inserting: 3
+Value AFTER: 3
+Inserting: 2
+Value AFTER: 32
+Inserting: 3
+Value AFTER: 323
+Putting into vector: 323
+8 | 3
+3 | 3
+3 | ,
+j: 3
+Inserting: 3
+Value AFTER: 3
+Inserting: 3
+Value AFTER: 33
+Inserting: 8
+Value AFTER: 338
+Putting into vector: 338
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+9 | 5
+5 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 5
+Value AFTER: 25
+Inserting: 9
+Value AFTER: 259
+Putting into vector: 259
+Putting into vector: 
+4 | 7
+7 | 2
+2 | 
+
+
+ | ,
+j: 4
+Inserting: 
+
+Value AFTER: 
+
+Inserting: 2
+Value AFTER: 
+2
+Inserting: 7
+Value AFTER: 
+27
+Inserting: 4
+Value AFTER: 
+274
+Putting into vector: 
+274
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+7 | 8
+8 | 3
+3 | ,
+j: 3
+Inserting: 3
+Value AFTER: 3
+Inserting: 8
+Value AFTER: 38
+Inserting: 7
+Value AFTER: 387
+Putting into vector: 387
+2 | 0
+0 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 0
+Value AFTER: 40
+Inserting: 2
+Value AFTER: 402
+Putting into vector: 402
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+9 | 5
+5 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 5
+Value AFTER: 25
+Inserting: 9
+Value AFTER: 259
+Putting into vector: 259
+Putting into vector: 
+4 | 7
+7 | 2
+2 | 
+
+
+ | ,
+j: 4
+Inserting: 
+
+Value AFTER: 
+
+Inserting: 2
+Value AFTER: 
+2
+Inserting: 7
+Value AFTER: 
+27
+Inserting: 4
+Value AFTER: 
+274
+Putting into vector: 
+274
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+6 | 4
+4 | 3
+3 | ,
+j: 3
+Inserting: 3
+Value AFTER: 3
+Inserting: 4
+Value AFTER: 34
+Inserting: 6
+Value AFTER: 346
+Putting into vector: 346
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | 5
+5 | 3
+3 | ,
+j: 3
+Inserting: 3
+Value AFTER: 3
+Inserting: 5
+Value AFTER: 35
+Inserting: 0
+Value AFTER: 350
+Putting into vector: 350
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+1 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 1
+Value AFTER: 451
+Putting into vector: 451
+6 | 6
+6 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 6
+Value AFTER: 46
+Inserting: 6
+Value AFTER: 466
+Putting into vector: 466
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+9 | 5
+5 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 5
+Value AFTER: 25
+Inserting: 9
+Value AFTER: 259
+Putting into vector: 259
+Putting into vector: 
+4 | 7
+7 | 2
+2 | 
+
+
+ | ,
+j: 4
+Inserting: 
+
+Value AFTER: 
+
+Inserting: 2
+Value AFTER: 
+2
+Inserting: 7
+Value AFTER: 
+27
+Inserting: 4
+Value AFTER: 
+274
+Putting into vector: 
+274
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | 1
+1 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 1
+Value AFTER: 41
+Inserting: 0
+Value AFTER: 410
+Putting into vector: 410
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+4 | 1
+1 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 1
+Value AFTER: 41
+Inserting: 4
+Value AFTER: 414
+Putting into vector: 414
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+9 | 5
+5 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 5
+Value AFTER: 25
+Inserting: 9
+Value AFTER: 259
+Putting into vector: 259
+Putting into vector: 
+4 | 7
+7 | 2
+2 | 
+
+
+ | ,
+j: 4
+Inserting: 
+
+Value AFTER: 
+
+Inserting: 2
+Value AFTER: 
+2
+Inserting: 7
+Value AFTER: 
+27
+Inserting: 4
+Value AFTER: 
+274
+Putting into vector: 
+274
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+9 | 5
+5 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 5
+Value AFTER: 25
+Inserting: 9
+Value AFTER: 259
+Putting into vector: 259
+Putting into vector: 
+8 | 3
+3 | 3
+3 | 
+
+
+ | ,
+j: 4
+Inserting: 
+
+Value AFTER: 
+
+Inserting: 3
+Value AFTER: 
+3
+Inserting: 3
+Value AFTER: 
+33
+Inserting: 8
+Value AFTER: 
+338
+Putting into vector: 
+338
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+9 | 5
+5 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 5
+Value AFTER: 25
+Inserting: 9
+Value AFTER: 259
+Putting into vector: 259
+Putting into vector: 
+2 | 0
+0 | 4
+4 | 
+
+
+ | ,
+j: 4
+Inserting: 
+
+Value AFTER: 
+
+Inserting: 4
+Value AFTER: 
+4
+Inserting: 0
+Value AFTER: 
+40
+Inserting: 2
+Value AFTER: 
+402
+Putting into vector: 
+402
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+9 | 5
+5 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 5
+Value AFTER: 25
+Inserting: 9
+Value AFTER: 259
+Putting into vector: 259
+Putting into vector: 
+8 | 3
+3 | 3
+3 | 
+
+
+ | ,
+j: 4
+Inserting: 
+
+Value AFTER: 
+
+Inserting: 3
+Value AFTER: 
+3
+Inserting: 3
+Value AFTER: 
+33
+Inserting: 8
+Value AFTER: 
+338
+Putting into vector: 
+338
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+5 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 5
+Value AFTER: 195
+Putting into vector: 195
+0 | 1
+1 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 1
+Value AFTER: 21
+Inserting: 0
+Value AFTER: 210
+Putting into vector: 210
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+9 | 5
+5 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 5
+Value AFTER: 25
+Inserting: 9
+Value AFTER: 259
+Putting into vector: 259
+Putting into vector: 
+2 | 0
+0 | 4
+4 | 
+
+
+ | ,
+j: 4
+Inserting: 
+
+Value AFTER: 
+
+Inserting: 4
+Value AFTER: 
+4
+Inserting: 0
+Value AFTER: 
+40
+Inserting: 2
+Value AFTER: 
+402
+Putting into vector: 
+402
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+5 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 5
+Value AFTER: 195
+Putting into vector: 195
+8 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 8
+Value AFTER: 198
+Putting into vector: 198
+9 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 9
+Value AFTER: 199
+Putting into vector: 199
+0 | 0
+0 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 0
+Value AFTER: 20
+Inserting: 0
+Value AFTER: 200
+Putting into vector: 200
+0 | 1
+1 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 1
+Value AFTER: 21
+Inserting: 0
+Value AFTER: 210
+Putting into vector: 210
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+1 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 1
+Value AFTER: 451
+Putting into vector: 451
+6 | 6
+6 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 6
+Value AFTER: 46
+Inserting: 6
+Value AFTER: 466
+Putting into vector: 466
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+9 | 5
+5 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 5
+Value AFTER: 25
+Inserting: 9
+Value AFTER: 259
+Putting into vector: 259
+Putting into vector: 
+4 | 7
+7 | 2
+2 | 
+
+
+ | ,
+j: 4
+Inserting: 
+
+Value AFTER: 
+
+Inserting: 2
+Value AFTER: 
+2
+Inserting: 7
+Value AFTER: 
+27
+Inserting: 4
+Value AFTER: 
+274
+Putting into vector: 
+274
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+7 | 8
+8 | 3
+3 | ,
+j: 3
+Inserting: 3
+Value AFTER: 3
+Inserting: 8
+Value AFTER: 38
+Inserting: 7
+Value AFTER: 387
+Putting into vector: 387
+4 | 6
+6 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 6
+Value AFTER: 26
+Inserting: 4
+Value AFTER: 264
+Putting into vector: 264
+4 | 6
+6 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 6
+Value AFTER: 26
+Inserting: 4
+Value AFTER: 264
+Putting into vector: 264
+4 | 6
+6 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 6
+Value AFTER: 26
+Inserting: 4
+Value AFTER: 264
+Putting into vector: 264
+2 | 0
+0 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 0
+Value AFTER: 40
+Inserting: 2
+Value AFTER: 402
+Putting into vector: 402
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+9 | 5
+5 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 5
+Value AFTER: 25
+Inserting: 9
+Value AFTER: 259
+Putting into vector: 259
+Putting into vector: 
+4 | 7
+7 | 2
+2 | 
+
+
+ | ,
+j: 4
+Inserting: 
+
+Value AFTER: 
+
+Inserting: 2
+Value AFTER: 
+2
+Inserting: 7
+Value AFTER: 
+27
+Inserting: 4
+Value AFTER: 
+274
+Putting into vector: 
+274
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+1 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 1
+Value AFTER: 451
+Putting into vector: 451
+5 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 5
+Value AFTER: 455
+Putting into vector: 455
+6 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 6
+Value AFTER: 456
+Putting into vector: 456
+7 | 5
+5 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 5
+Value AFTER: 45
+Inserting: 7
+Value AFTER: 457
+Putting into vector: 457
+6 | 6
+6 | 4
+4 | ,
+j: 3
+Inserting: 4
+Value AFTER: 4
+Inserting: 6
+Value AFTER: 46
+Inserting: 6
+Value AFTER: 466
+Putting into vector: 466
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+9 | 5
+5 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 5
+Value AFTER: 25
+Inserting: 9
+Value AFTER: 259
+Putting into vector: 259
+Putting into vector: 
+4 | 7
+7 | 2
+2 | 
+
+
+ | ,
+j: 4
+Inserting: 
+
+Value AFTER: 
+
+Inserting: 2
+Value AFTER: 
+2
+Inserting: 7
+Value AFTER: 
+27
+Inserting: 4
+Value AFTER: 
+274
+Putting into vector: 
+274
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+9 | 5
+5 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 5
+Value AFTER: 25
+Inserting: 9
+Value AFTER: 259
+Putting into vector: 259
+Putting into vector: 
+2 | 1
+1 | 2
+2 | 
+
+
+ | ,
+j: 4
+Inserting: 
+
+Value AFTER: 
+
+Inserting: 2
+Value AFTER: 
+2
+Inserting: 1
+Value AFTER: 
+21
+Inserting: 2
+Value AFTER: 
+212
+Putting into vector: 
+212
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+0 | ,
+j: 1
+Inserting: 0
+Value AFTER: 0
+Putting into vector: 0
+6 | 1
+1 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 1
+Value AFTER: 21
+Inserting: 6
+Value AFTER: 216
+Putting into vector: 216
+Putting into vector: 
+3 | 7
+7 | 
+
+
+ | ,
+j: 3
+Inserting: 
+
+Value AFTER: 
+
+Inserting: 7
+Value AFTER: 
+7
+Inserting: 3
+Value AFTER: 
+73
+Putting into vector: 
+73
+8 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 8
+Value AFTER: 198
+Putting into vector: 198
+8 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 8
+Value AFTER: 198
+Putting into vector: 198
+8 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 8
+Value AFTER: 198
+Putting into vector: 198
+8 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 8
+Value AFTER: 198
+Putting into vector: 198
+8 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 8
+Value AFTER: 198
+Putting into vector: 198
+8 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 8
+Value AFTER: 198
+Putting into vector: 198
+8 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 8
+Value AFTER: 198
+Putting into vector: 198
+8 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 8
+Value AFTER: 198
+Putting into vector: 198
+8 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 8
+Value AFTER: 198
+Putting into vector: 198
+8 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 8
+Value AFTER: 198
+Putting into vector: 198
+8 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 8
+Value AFTER: 198
+Putting into vector: 198
+8 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 8
+Value AFTER: 198
+Putting into vector: 198
+8 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 8
+Value AFTER: 198
+Putting into vector: 198
+8 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 8
+Value AFTER: 198
+Putting into vector: 198
+8 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 8
+Value AFTER: 198
+Putting into vector: 198
+8 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 8
+Value AFTER: 198
+Putting into vector: 198
+8 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 8
+Value AFTER: 198
+Putting into vector: 198
+9 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 9
+Value AFTER: 199
+Putting into vector: 199
+0 | 0
+0 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 0
+Value AFTER: 20
+Inserting: 0
+Value AFTER: 200
+Putting into vector: 200
+1 | 0
+0 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 0
+Value AFTER: 20
+Inserting: 1
+Value AFTER: 201
+Putting into vector: 201
+9 | 9
+9 | 1
+1 | ,
+j: 3
+Inserting: 1
+Value AFTER: 1
+Inserting: 9
+Value AFTER: 19
+Inserting: 9
+Value AFTER: 199
+Putting into vector: 199
+0 | 0
+0 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 0
+Value AFTER: 20
+Inserting: 0
+Value AFTER: 200
+Putting into vector: 200
+1 | 0
+0 | 2
+2 | ,
+j: 3
+Inserting: 2
+Value AFTER: 2
+Inserting: 0
+Value AFTER: 20
+Inserting: 1
+Value AFTER: 201
+Putting into vector: 201
+Putting into vector: 76
+12 | 13 | 3 | 1 
+Deleted Entity, ID: 0
+Deleted Entity, ID: 1
+Deleted Entity, ID: 2
+Deleted Entity, ID: 3

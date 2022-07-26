@@ -6,8 +6,8 @@
 
 Enemy::Enemy() {
 	this->team = "Enemy";
-	this->x = 8;
-	this->y = 8;
+	this->x = 13;
+	this->y = 5;
 }
 
 // =====================
@@ -19,22 +19,18 @@ void Enemy::movement(float _dt) {
 	switch (_rand) {
 		case 0:
 			this->dir = 0;
-			//this->y--;
 			this->doStep = true;
 			break;
 		case 1:
 			this->dir = 1;
-			//this->y++;
 			this->doStep = true;
 			break;
 		case 2:
 			this->dir = 2;
-			//this->x--;
 			this->doStep = true;
 			break;
 		case 3:
 			this->dir = 3;
-			//this->x++;
 			this->doStep = true;
 			break;
 	}

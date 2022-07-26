@@ -11,9 +11,9 @@ Game::Game() {
 	// Initializing Game class variables
 	this->delta = 0;
 	this->dt = 0;
+	this->gameOver = false;
 	this->step = 0;
 	this->entityCounter = 0;
-	this->mapLayersLoaded = false;
 
 	// Spawning entities (not permanent, should move to level class)
 	this->entity.push_back(new Player);
@@ -26,8 +26,69 @@ Game::Game() {
 	// Setting up the map (also not permanent, should move to level class)
 	this->map.load("assets/test_map.tmx");
 	this->mapLayerFloor.init(this->map, 0);
-	this->mapLayerCollision.init(this->map, 1);
+	this->mapLayerWall.init(this->map, 1);
 	this->mapLayerCeiling.init(this->map, 2);
+
+	// Loading the collision tiles into the collision map layer
+	tinyxml2::XMLDocument doc;
+	doc.LoadFile("assets/test_map.tmx");
+
+	tinyxml2::XMLElement* mapNode = doc.FirstChildElement("map");
+	tinyxml2::XMLElement* pLayer = mapNode->FirstChildElement("layer");
+	tinyxml2::XMLElement* pData = nullptr;
+
+	while (pLayer != NULL) {
+		const char* name = pLayer->Attribute("name");
+		if (name == std::string("Walls"))
+			pData = pLayer->FirstChildElement("data");
+		pLayer = pLayer->NextSiblingElement("layer");
+	}
+
+	std::cout << pData->GetText() << std::endl;
+	std::string gid_list = pData->GetText();
+	this->value.str("");
+	int row = 0;
+	for(int i = 0; i < gid_list.length(); i++) {
+		if(gid_list[i] == ',') {
+			this->value.str("");
+			int j = 1;
+			while (gid_list[i-j] != ',' and i - j > 0) {
+				std::cout << gid_list[i-j] << " | ";
+				j++;
+				std::cout << gid_list[i-j] << std::endl;
+			}
+			j--;
+			this->value.str("");
+			std::cout << "j: " << j << std::endl;
+			while (j > 0) {
+				std::cout << "Inserting: " << gid_list[i-j] << std::endl;
+				this->value << gid_list[i-j];
+				std::cout << "Value AFTER: " << this->value.str() << std::endl;
+				j--;
+			}
+			std::cout << "Putting into vector: " << this->value.str() << std::endl;
+			//this->mapLayerCollision[row].push_back(this->value.str());
+			this->value.str("");
+		}
+		
+		else if(gid_list[i] == '\n') {
+			this->value.str("");
+			int j = 1;
+			while (gid_list[i-j] != ',') {
+				j++;
+			}
+			j--;
+			this->value.str("");
+			while (j > 0) {
+				this->value << gid_list[i-j];
+				j--;
+			}
+			std::cout << "Putting into vector: " << this->value.str() << std::endl;
+			//this->mapLayerCollision[row].push_back(this->value.str());
+			this->value.str("");
+			row++;
+		}
+	}
 
 	// More initialization
 	this->initWindow();
@@ -60,13 +121,22 @@ void Game::update() {
 	// Incrementing `step` if no entities have an initiative matching it
 	if (this->entityCounter == this->entities)
 		this->step++;
-	this->entityCounter = 0;
 
+	// Making sure the camera always follows the player regardless of it's vector position
+	this->playerID = -1;
+	for (int i = 0; i < this->entities; i++) {
+		if (this->entity[i]->team == "Player")
+			this->playerID = i;
+	}
+	if (this->playerID == -1)
+		this->gameOver = true;
+
+	this->entityCounter = 0;
 	for (int i = 0; i < this->entities; i++) {
 		// Call the update function for every entity
 		this->entity[i]->update(this->dt);
 
-		// Moving and capturing pieces
+		// Moving, capturing pieces, and collision detection
 		switch (this->entity[i]->dir) {
 			case 0:
 				for (int j = 0; j < this->entities; j++) {
@@ -75,7 +145,8 @@ void Game::update() {
 							this->entity.erase(this->entity.begin()+j);
 					}
 				}
-				this->entity[i]->y--;
+				if (this->_mapLayerCollision[this->entity[i]->y-1][this->entity[i]->x] == 0)
+					this->entity[i]->y--;
 				this->entity[i]->dir = -1;
 				break;
 			case 1:
@@ -85,7 +156,8 @@ void Game::update() {
 							this->entity.erase(this->entity.begin()+j);
 					}
 				}
-				this->entity[i]->y++;
+				if (this->_mapLayerCollision[this->entity[i]->y+1][this->entity[i]->x] == 0)
+					this->entity[i]->y++;
 				this->entity[i]->dir = -1;
 				break;
 			case 2:
@@ -95,7 +167,8 @@ void Game::update() {
 							this->entity.erase(this->entity.begin()+j);
 					}
 				}
-				this->entity[i]->x--;
+				if (this->_mapLayerCollision[this->entity[i]->y][this->entity[i]->x-1] == 0)
+					this->entity[i]->x--;
 				this->entity[i]->dir = -1;
 				break;
 			case 3:
@@ -105,7 +178,8 @@ void Game::update() {
 							this->entity.erase(this->entity.begin()+j);
 					}
 				}
-				this->entity[i]->x++;
+				if (this->_mapLayerCollision[this->entity[i]->y][this->entity[i]->x+1] == 0)
+					this->entity[i]->x++;
 				this->entity[i]->dir = -1;
 				break;
 		}
@@ -130,7 +204,12 @@ void Game::render() {
 
 	// Rendering bottom map layers
 	this->window->draw(this->mapLayerFloor);
-	this->window->draw(this->mapLayerCollision);
+	this->window->draw(this->mapLayerWall);
+
+	//Moving the entities around in the vector so that the ones with highest Y this->value get displayed last
+	std::sort(this->entity.begin(), this->entity.end(), [] (const auto& lhs, const auto& rhs) {
+		return lhs->y < rhs->y;
+	});
 
 	// Rendering every entity
 	for (int i = 0; i < this->entities; i++) {
@@ -141,9 +220,23 @@ void Game::render() {
 	this->window->draw(this->mapLayerCeiling);
 
 	// Camera that follows the player
-	this->view.setCenter(this->entity[0]->x * 16, this->entity[0]->y * 16);
-	if (this->entity[0]->team == "Player")
+	if (!this->gameOver) {
+		this->view.setCenter(this->entity[this->playerID]->x * 16, this->entity[this->playerID]->y * 16);
 		this->window->setView(this->view);
+	}
+	else {
+		for (static bool _first = true; _first; _first = false)
+			this->print("You Died", Global::WIN_WIDTH / 2 - 96, Global::WIN_HEIGHT / 2 - 16, 36, sf::Color(200, 20, 30, 255));
+	}
+
+	// Rendering all the stored text
+	if (this->text.size() > 0) {
+		this->window->setView(this->window->getDefaultView());
+		for (int i = 0; i < this->text.size(); i++) {
+			this->window->draw(this->text[i]);
+		}
+		this->window->setView(this->view);
+	}
 
 	this->window->display();
 }
@@ -160,11 +253,13 @@ void Game::initEntities() {
 	}
 
 	// Making sure that the player has a unique initiative (not permanent)
-	while (this->entity[0]->initiative == this->entity[1]->initiative or this->entity[0]->initiative == this->entity[2]->initiative or this->entity[0]->initiative == this->entity[3]->initiative)
-		this->entity[0]->initiative = std::rand() % 15 + 1;
+	if (this->entities > 3) {
+		while (this->entity[0]->initiative == this->entity[1]->initiative or this->entity[0]->initiative == this->entity[2]->initiative or this->entity[0]->initiative == this->entity[3]->initiative)
+			this->entity[0]->initiative = std::rand() % 15 + 1;
 
-	// Displaying every entity's initiative
-	printf("%d | %d | %d | %d \n", this->entity[0]->initiative, this->entity[1]->initiative, this->entity[2]->initiative, this->entity[3]->initiative);
+		// Displaying every entity's initiative
+		printf("%d | %d | %d | %d \n", this->entity[0]->initiative, this->entity[1]->initiative, this->entity[2]->initiative, this->entity[3]->initiative);
+	}
 }
 
 void Game::initWindow() {
@@ -175,6 +270,7 @@ void Game::initWindow() {
 	this->window->setView(this->view);
 	this->window->setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width / 2 - Global::WIN_WIDTH / 2, sf::VideoMode::getDesktopMode().height / 2 - Global::WIN_HEIGHT / 2));
 	this->window->setKeyRepeatEnabled(false);
+	this->font.loadFromFile("assets/Ravenna.ttf");
 }
 
 
@@ -195,4 +291,14 @@ void Game::pollEvents() {
 				break;
 		}
 	}
+}
+
+void Game::print(std::string _string, int _x, int _y, int _size, sf::Color _color) {
+	sf::Text _text;
+	_text.setFont(this->font);
+	_text.setString(_string);
+	_text.setPosition(_x, _y);
+	_text.setCharacterSize(_size);
+	_text.setFillColor(_color);
+	this->text.push_back(_text);
 }

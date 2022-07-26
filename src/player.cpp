@@ -6,8 +6,8 @@
 
 Player::Player() {
 	this->team = "Player";
-	this->x = 1;
-	this->y = 1;
+	this->x = 5;
+	this->y = 8;
 }
 
 // =====================
