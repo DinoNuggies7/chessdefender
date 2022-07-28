@@ -64,7 +64,7 @@ void Game::update() {
 
 		// Moving, capturing pieces, and collision detection
 		switch (this->level.entity[i]->dir) {
-			case 0:
+			case 0:		// ================ Up ================
 				for (int j = 0; j < this->level.entities; j++) {
 					if (i != j and this->level.entity[i]->team != this->level.entity[j]->team) {
 						if (this->level.entity[i]->y - 1 == this->level.entity[j]->y and this->level.entity[i]->x == this->level.entity[j]->x)
@@ -75,7 +75,7 @@ void Game::update() {
 					this->level.entity[i]->y--;
 				this->level.entity[i]->dir = -1;
 				break;
-			case 1:
+			case 1:		// ================ Down ================
 				for (int j = 0; j < this->level.entities; j++) {
 					if (i != j and this->level.entity[i]->team != this->level.entity[j]->team) {
 						if (this->level.entity[i]->y + 1 == this->level.entity[j]->y and this->level.entity[i]->x == this->level.entity[j]->x)
@@ -86,7 +86,7 @@ void Game::update() {
 					this->level.entity[i]->y++;
 				this->level.entity[i]->dir = -1;
 				break;
-			case 2:
+			case 2:		// ================ Left ================
 				for (int j = 0; j < this->level.entities; j++) {
 					if (i != j and this->level.entity[i]->team != this->level.entity[j]->team) {
 						if (this->level.entity[i]->x - 1 == this->level.entity[j]->x and this->level.entity[i]->y == this->level.entity[j]->y)
@@ -97,7 +97,7 @@ void Game::update() {
 					this->level.entity[i]->x--;
 				this->level.entity[i]->dir = -1;
 				break;
-			case 3:
+			case 3:		// ================ Right ================
 				for (int j = 0; j < this->level.entities; j++) {
 					if (i != j and this->level.entity[i]->team != this->level.entity[j]->team) {
 						if (this->level.entity[i]->x + 1 == this->level.entity[j]->x and this->level.entity[i]->y == this->level.entity[j]->y)
@@ -151,14 +151,14 @@ void Game::render() {
 	}
 	else {
 		for (static bool _first = true; _first; _first = false)
-			this->print("You Died", Global::WIN_WIDTH / 2 - 96, Global::WIN_HEIGHT / 2 - 16, 36, sf::Color(200, 20, 30, 255));
+			Global::print(this->textLayer, "You Died", Global::WIN_WIDTH / 2 - 96, Global::WIN_HEIGHT / 2 - 16, 36, sf::Color(200, 20, 30, 255));
 	}
 
 	// Rendering all the stored text
-	if (this->text.size() > 0) {
+	if (this->textLayer.size() > 0) {
 		this->window->setView(this->window->getDefaultView());
-		for (int i = 0; i < this->text.size(); i++) {
-			this->window->draw(this->text[i]);
+		for (int i = 0; i < this->textLayer.size(); i++) {
+			this->window->draw(this->textLayer[i]);
 		}
 		this->window->setView(this->view);
 	}
@@ -170,6 +170,7 @@ void Game::render() {
 //  		Private Functions
 // ===================================
 
+// Creates a new sf::RenderWindow, creates a view 3 times smaller and applys it along with other window settings, then finally initializes the global font
 void Game::initWindow() {
 	this->view.setSize(Global::WIDTH, Global::HEIGHT);
 	this->view.setCenter(Global::WIDTH / 2, Global::HEIGHT / 2);
@@ -178,15 +179,16 @@ void Game::initWindow() {
 	this->window->setView(this->view);
 	this->window->setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width / 2 - Global::WIN_WIDTH / 2, sf::VideoMode::getDesktopMode().height / 2 - Global::WIN_HEIGHT / 2));
 	this->window->setKeyRepeatEnabled(false);
-	this->font.loadFromFile("assets/Ravenna.ttf");
+	Global::font.loadFromFile("assets/Ravenna.ttf");
 }
 
-
+// Updated `dt` every frame, just in case I need frame independant animations
 void Game::updateDelta() {
 	this->delta = this->clock.restart().asSeconds();
 	this->dt = delta * Global::FRAMERATE;
 }
 
+// The regular SFML window events
 void Game::pollEvents() {
 	while (this->window->pollEvent(ev)) {
 		switch (this->ev.type) {
@@ -199,14 +201,4 @@ void Game::pollEvents() {
 				break;
 		}
 	}
-}
-
-void Game::print(std::string _string, int _x, int _y, int _size, sf::Color _color) {
-	sf::Text _text;
-	_text.setFont(this->font);
-	_text.setString(_string);
-	_text.setPosition(_x, _y);
-	_text.setCharacterSize(_size);
-	_text.setFillColor(_color);
-	this->text.push_back(_text);
 }
