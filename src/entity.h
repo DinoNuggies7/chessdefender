@@ -13,7 +13,7 @@ class Entity : public Input {
 public:
 	void init();
 	void update(float _dt);
-	void render(sf::RenderWindow* _window);
+	void render(sf::RenderWindow*& _window);
 
 	bool doStep, turn, inCheck;
 	int initiative, dir;

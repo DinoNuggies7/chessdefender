@@ -1,8 +1,8 @@
 #include "player.h"
 
-// ==================
-//  Public Functions
-// ==================
+// ==================================
+//  		Public Functions
+// ==================================
 
 Player::Player() {
 	this->team = "Player";
@@ -10,9 +10,9 @@ Player::Player() {
 	this->y = 8;
 }
 
-// =====================
-//  Protected Functions
-// =====================
+// ===================================
+//  		Private Functions
+// ===================================
 
 void Player::movement(float _dt) {	
 	if (this->kUpP) {

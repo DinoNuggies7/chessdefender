@@ -9,16 +9,15 @@
 			-- (Done!) Add Player Class (Player1 basically)
 			-- (Done!) Add dummy Enemy Class (for testing collision and such)
 			-- (Done!) Add Basic Collision for Entities ('capturing' pieces and such)
-
-			-- (Done?) Add Map Support and Level Class
+			-- (Done!) Add Map Support and Level Class
 				-- (Done!) Drawing Maps
 				-- (Done!) Camera that Follows the Player (I have no idea how this would work with multiplayer x_x)
 				-- (Done!) Collision for Map Elements
-				-- Wrapped in a Level Class (idk if this is a good idea or not)
-
+				-- (Done!) Wrapped in a Level Class
 			-- (Done!) Draw Entities with Higher Y Values on Top of Entities with Lower Y Values
 
 			-- Add Randomly Generated Maps (Just a bunch pre-made maps strung together randomly);
+			
 			-- Add More Playable Pieces
 			-- Add Enemy AI (probably just gonna look some up online :P)
 			-- Add Multiplayer (Player2 Class, Player3 Class, etc.)

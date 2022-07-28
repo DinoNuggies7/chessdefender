@@ -6,7 +6,7 @@
 class Enemy : public Entity {
 public:
 	Enemy();
-protected:
+private:
 	void movement(float _dt);
 	void initSprite();
 	void setAnimation(const char* _animation);

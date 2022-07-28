@@ -1,8 +1,8 @@
 #include "entity.h"
 
-// ==================
-//  Public Functions
-// ==================
+// ==================================
+//  		Public Functions
+// ==================================
 
 void Entity::init() {
 	this->vx = 0;
@@ -21,13 +21,13 @@ void Entity::update(float _dt) {
 	this->physics(_dt);
 }
 
-void Entity::render(sf::RenderWindow* _window) {
+void Entity::render(sf::RenderWindow*& _window) {
 	_window->draw(this->sprite);
 }
 
-// =====================
-//  Protected Functions
-// =====================
+// =====================================
+//  		Protected Functions
+// =====================================
 
 void Entity::physics(float _dt) {
 	this->x += this->vx;

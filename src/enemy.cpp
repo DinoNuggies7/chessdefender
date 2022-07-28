@@ -1,8 +1,8 @@
 #include "enemy.h"
 
-// ==================
-//  Public Functions
-// ==================
+// ==================================
+//  		Public Functions
+// ==================================
 
 Enemy::Enemy() {
 	this->team = "Enemy";
@@ -10,9 +10,10 @@ Enemy::Enemy() {
 	this->y = 5;
 }
 
-// =====================
-//  Protected Functions
-// =====================
+
+// ===================================
+//  		Private Functions
+// ===================================
 
 void Enemy::movement(float _dt) {
 	int _rand = std::rand() % 4;
