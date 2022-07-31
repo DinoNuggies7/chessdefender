@@ -6,8 +6,8 @@
 
 Enemy::Enemy() {
 	this->team = "Enemy";
-	this->x = 13;
-	this->y = 5;
+	this->x = 0;
+	this->y = 0;
 }
 
 

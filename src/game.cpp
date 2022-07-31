@@ -151,7 +151,7 @@ void Game::render() {
 	}
 	else {
 		for (static bool _first = true; _first; _first = false)
-			Global::print(this->textLayer, "You Died", Global::WIN_WIDTH / 2 - 96, Global::WIN_HEIGHT / 2 - 16, 36, sf::Color(200, 20, 30, 255));
+			this->print("You Died", Global::WIN_WIDTH / 2 - 96, Global::WIN_HEIGHT / 2 - 16, 36, sf::Color(200, 20, 30, 255));
 	}
 
 	// Rendering all the stored text
@@ -179,7 +179,7 @@ void Game::initWindow() {
 	this->window->setView(this->view);
 	this->window->setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width / 2 - Global::WIN_WIDTH / 2, sf::VideoMode::getDesktopMode().height / 2 - Global::WIN_HEIGHT / 2));
 	this->window->setKeyRepeatEnabled(false);
-	Global::font.loadFromFile("assets/Ravenna.ttf");
+	this->font.loadFromFile("assets/Ravenna.ttf");
 }
 
 // Updated `dt` every frame, just in case I need frame independant animations
@@ -201,4 +201,15 @@ void Game::pollEvents() {
 				break;
 		}
 	}
+}
+
+// Adds a text object to the text layer for displaying later (ONLY CALL ONCE)
+void Game::print(std::string _string, int _x, int _y, int _size, sf::Color _color) {
+	sf::Text _text;
+	_text.setFont(this->font);
+	_text.setString(_string);
+	_text.setPosition(_x, _y);
+	_text.setCharacterSize(_size);
+	_text.setFillColor(_color);
+	this->textLayer.push_back(_text);
 }

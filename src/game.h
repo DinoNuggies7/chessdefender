@@ -27,7 +27,8 @@ private:
 	void updateDelta();
 	void pollEvents();
 
-	//void print(std::string _string, int _x = 0, int _y = 0, int _size = 24, sf::Color _color = sf::Color::Black);
+	void print(std::string _string, int _x = 0, int _y = 0, int _size = 24, sf::Color _color = sf::Color::Black);
+	
 	std::vector<sf::Text> textLayer;
 
 	sf::RenderWindow* window;
@@ -35,6 +36,7 @@ private:
 	sf::View view;
 	sf::Event ev;
 	sf::Clock clock;
+	sf::Font font;
 
 	Level level;
 

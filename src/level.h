@@ -7,6 +7,8 @@
 
 #include <SFML/Graphics.hpp>
 #include <tinyxml2.h>
+#include <vector>
+#include <random>
 
 class Level {
 public:

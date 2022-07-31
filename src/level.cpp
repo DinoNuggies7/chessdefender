@@ -7,13 +7,12 @@
 void Level::init() {
 	// Spawning entities
 	this->entity.push_back(new Player);
-	this->entity.push_back(new Enemy);
-	this->entity.push_back(new Enemy);
-	this->entity.push_back(new Enemy);
-	this->entities = this->entity.size();
 
-	// Initializing enitities
-	this->initEntities();
+	int _rand = std::rand() % 4 + 1;
+	for (int i = 0; i < _rand; i++)
+		this->entity.push_back(new Enemy);
+
+	this->entities = this->entity.size();
 
 	// Setting up the map
 	this->map.load("assets/test_map.tmx");
@@ -75,6 +74,9 @@ void Level::init() {
 			row++;
 		}
 	}
+
+	// Initializing enitities
+	this->initEntities();
 }
 
 void Level::render(sf::RenderWindow* _window, int _layer) {
@@ -99,12 +101,30 @@ void Level::initEntities() {
 		this->entity[i]->initiative = std::rand() % 15 + 1;
 	}
 
-	// Making sure that the player has a unique initiative (not permanent)
-	if (this->entities > 3) {
-		while (this->entity[0]->initiative == this->entity[1]->initiative or this->entity[0]->initiative == this->entity[2]->initiative or this->entity[0]->initiative == this->entity[3]->initiative)
-			this->entity[0]->initiative = std::rand() % 15 + 1;
+	std::vector<int> _initiatives;
+	for (int i = 1; i < this->entities; i++) {
+		_initiatives.push_back(i);
 
-		// Displaying every entity's initiative
-		printf("%d | %d | %d | %d \n", this->entity[0]->initiative, this->entity[1]->initiative, this->entity[2]->initiative, this->entity[3]->initiative);
+		// Giving all enemies a random location
+		while (this->mapLayerCollision[this->entity[i]->y+1][this->entity[i]->x] != 0 or this->entity[i]->x == this->entity[0]->x and this->entity[i]->y == this->entity[i]->y) {
+			this->entity[i]->x = std::rand() % 25;
+			this->entity[i]->y = std::rand() % 20;
+		}
 	}
+
+	// Making sure that the player has a unique initiative (not permanent)
+	for (int i = 1; i < this->entities; i++) {
+		while (this->entity[0]->initiative == _initiatives[i])
+			this->entity[0]->initiative = std::rand() % 15 + 1;
+		while (this->entity[0]->initiative == _initiatives[i])
+			this->entity[0]->initiative = std::rand() % 15 + 1;
+		while (this->entity[0]->initiative == _initiatives[i])
+			this->entity[0]->initiative = std::rand() % 15 + 1;
+	}
+
+	// Displaying every entity's initiative
+	printf("| ");
+	for (int i = 0; i < this->entities; i++)
+		printf("%d | ", this->entity[i]->initiative);
+	printf("\n");
 }

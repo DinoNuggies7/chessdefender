@@ -16,7 +16,7 @@
 				-- (Done!) Wrapped in a Level Class
 			-- (Done!) Draw Entities with Higher Y Values on Top of Entities with Lower Y Values
 
-			-- Add Randomly Generated Maps (Just a bunch pre-made maps strung together randomly);
+			-- (Working...) Add Randomly Generated Maps (Randomly sized rooms strung together Zelda 1 style)
 			
 			-- Add More Playable Pieces
 			-- Add Enemy AI (probably just gonna look some up online :P)
