@@ -16,7 +16,7 @@ Game::Game() {
 
 	// More initialization
 	this->initWindow();
-	this->level.init();
+	this->level.init(0);
 }
 
 Game::~Game() {

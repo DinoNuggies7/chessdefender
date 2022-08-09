@@ -4,14 +4,17 @@
 //  		Public Functions
 // ==================================
 
-void Level::init() {
+void Level::init(int _levelID) {
 	// Spawning entities
-	this->entity.push_back(new Player);
+	switch (_levelID) {
+		case 0:
+			this->entity.push_back(new Player);
 
-	int _rand = std::rand() % 4 + 1;
-	for (int i = 0; i < _rand; i++)
-		this->entity.push_back(new Enemy);
-
+			int _rand = std::rand() % 4 + 1;
+			for (int i = 0; i < _rand; i++)
+				this->entity.push_back(new Enemy);
+			break;
+	}
 	this->entities = this->entity.size();
 
 	// Setting up the map
@@ -111,7 +114,7 @@ void Level::initEntities() {
 			this->entity[i]->y = std::rand() % 20;
 		}
 	}
-
+	 
 	// Making sure that the player has a unique initiative (not permanent)
 	for (int i = 1; i < this->entities; i++) {
 		while (this->entity[0]->initiative == _initiatives[i])
