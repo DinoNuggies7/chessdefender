@@ -8,8 +8,7 @@ public:
 	Player();
 private:
 	void movement(float _dt);
-	void initSprite();
-	void setAnimation(const char* _animation);
+	void setAnimation(std::string _animation);
 };
 
 #endif

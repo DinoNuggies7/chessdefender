@@ -9,10 +9,12 @@ void Level::init(int _levelID) {
 	switch (_levelID) {
 		case 0:
 			this->entity.push_back(new Player);
-
+			/*
 			int _rand = std::rand() % 4 + 1;
-			for (int i = 0; i < _rand; i++)
+			for (int i = 0; i < _rand; i++) {
 				this->entity.push_back(new Enemy);
+			}*/
+			this->entity.push_back(new Enemy);
 			break;
 	}
 	this->entities = this->entity.size();
@@ -100,7 +102,24 @@ void Level::render(sf::RenderWindow* _window, int _layer) {
 void Level::initEntities() {
 	// Initializing every entity and randomizing their initiative
 	for (int i = 0; i < this->entities; i++) {
-		this->entity[i]->init();
+		if (i == 0)
+			this->entity[i]->init("King");
+		else {/*
+			int _rand = std::rand() % 6;
+			if (_rand == 0)
+				this->entity[i]->init("King");
+			else if (_rand == 1)
+				this->entity[i]->init("Queen");
+			else if (_rand == 2)
+				this->entity[i]->init("Bishop");
+			else if (_rand == 3)
+				this->entity[i]->init("Knight");
+			else if (_rand == 4)
+				this->entity[i]->init("Rook");
+			else if (_rand == 5)
+				this->entity[i]->init("Pawn");*/
+			this->entity[i]->init("Queen");
+		}
 		this->entity[i]->initiative = std::rand() % 15 + 1;
 	}
 

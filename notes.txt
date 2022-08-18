@@ -16,13 +16,11 @@
 				-- (Done!) Wrapped in a Level Class
 			-- (Done!) Draw Entities with Higher Y Values on Top of Entities with Lower Y Values
 
-			-- (Working...) Add Randomly Generated Maps (Randomly sized rooms strung together Zelda 1 style)
-			
-			-- Add More Playable Pieces
+			-- (Working...) Add More Playable Pieces
+
+			-- Add Randomly Generated Maps (Randomly sized rooms strung together Zelda 1 style)
 			-- Add Enemy AI (probably just gonna look some up online :P)
 			-- Add Multiplayer (Player2 Class, Player3 Class, etc.)
 			-- Add Some Equipable Weapons >:)
 			-- Add Menu with Background Music
 			-- Add Ambient Sounds for Gameplay
-			-- Port to Android (Add touchscreen controls and such)
-			-- Compile for Android (Yes this is a seperate step)

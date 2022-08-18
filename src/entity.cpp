@@ -4,16 +4,39 @@
 //  		Public Functions
 // ==================================
 
-void Entity::init() {
+void Entity::init(std::string _piece) {
 	this->vx = 0;
 	this->vy = 0;
 	this->dir = -1;
-	this->frame = 0;
 	this->doStep = 0;
 	this->turn = false;
 
 	this->initSprite();
-	this->setAnimation("stand");
+
+	if (_piece == "King") {
+		this->setAnimation("King");
+		this->piece = "King";
+	}
+	else if (_piece == "Queen") {
+		this->setAnimation("Queen");
+		this->piece = "Queen";
+	}
+	else if (_piece == "Bishop") {
+		this->setAnimation("Bishop");
+		this->piece = "Bishop";
+	}
+	else if (_piece == "Knight") {
+		this->setAnimation("Knight");
+		this->piece = "Knight";
+	}
+	else if (_piece == "Rook") {
+		this->setAnimation("Rook");
+		this->piece = "Rook";
+	}
+	else if (_piece == "Pawn") {
+		this->setAnimation("Pawn");
+		this->piece = "Pawn";
+	}
 }
 
 void Entity::update(float _dt) {
@@ -47,10 +70,14 @@ void Entity::collision(float _dt) {
 }
 
 void Entity::initSprite() {
-
+	this->image.loadFromFile("assets/pieces.png");
+	this->image.createMaskFromColor(sf::Color(0x6f6d51ff));
+	this->image.createMaskFromColor(sf::Color(0xf9303dff));
+	this->texture.loadFromImage(this->image);
+	this->sprite.setTexture(this->texture);
 }
 
-void Entity::setAnimation(const char* _animation) {
+void Entity::setAnimation(std::string _animation) {
 
 }
 

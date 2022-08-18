@@ -16,36 +16,36 @@ Enemy::Enemy() {
 // ===================================
 
 void Enemy::movement(float _dt) {
-	int _rand = std::rand() % 4;
-	switch (_rand) {
-		case 0:
-			this->dir = 0;
-			this->doStep = true;
-			break;
-		case 1:
-			this->dir = 1;
-			this->doStep = true;
-			break;
-		case 2:
-			this->dir = 2;
-			this->doStep = true;
-			break;
-		case 3:
-			this->dir = 3;
-			this->doStep = true;
-			break;
-	}
+	int _rand;
+	if (this->piece == "King")
+		_rand = std::rand() % 4;
+	else if (this->piece == "Queen")
+		_rand = std::rand() % 8;
+	else if (this->piece == "Bishop")
+		_rand = std::rand() % 4;
+	else if (this->piece == "Knight")
+		_rand = std::rand() % 8;
+	else if (this->piece == "Rook")
+		_rand = std::rand() % 4;
+	else if (this->piece == "Pawn")
+		_rand = 0;
+	printf("_rand = %d\n", _rand);
+	printf("dir = %d\n", this->dir);
+	this->dir = _rand;
+	this->doStep = true;
 }
 
-void Enemy::initSprite() {
-	this->image.loadFromFile("assets/pieces.png");
-	this->image.createMaskFromColor(sf::Color(0x6f6d51ff));
-	this->image.createMaskFromColor(sf::Color(0xf9303dff));
-	this->texture.loadFromImage(this->image);
-	this->sprite.setTexture(this->texture);
-}
-
-void Enemy::setAnimation(const char* _animation) {
-	frame = 0;
-	this->clipTexture(85, 31, 12, 28, false);
+void Enemy::setAnimation(std::string _animation) {
+	if (_animation == "King")
+		this->clipTexture(85, 31, 12, 28, false);
+	else if (_animation == "Queen")
+		this->clipTexture(71, 31, 12, 28, false);
+	else if (_animation == "Bishop")
+		this->clipTexture(43, 31, 12, 28, false);
+	else if (_animation == "Knight")
+		this->clipTexture(29, 31, 12, 28, false);
+	else if (_animation == "Rook")
+		this->clipTexture(57, 31, 12, 28, false);
+	else if (_animation == "Pawn")
+		this->clipTexture(15, 31, 12, 28, false);
 }
