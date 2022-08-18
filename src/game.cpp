@@ -177,11 +177,9 @@ void Game::update() {
 			int _length = 0, _maxLength = 0;
 			switch (this->level.entity[i]->dir) {
 				case 0:		// ================ Up ================
-					printf("Goind inside game.cpp logic\n");
 					// Randomizing how far the piece will go
 					while (this->level.mapLayerCollision[this->level.entity[i]->y-_maxLength+1][this->level.entity[i]->x] == 0) {
 						_maxLength++;
-						printf("Going inside while\n");
 					}
 					_length = std::rand() % _maxLength;
 
@@ -196,11 +194,9 @@ void Game::update() {
 					this->level.entity[i]->y--;
 					break;
 				case 1:		// ================ Down ================
-					printf("Goind inside game.cpp logic\n");
 					// Randomizing how far the piece will go
 					while (this->level.mapLayerCollision[this->level.entity[i]->y+_maxLength+1][this->level.entity[i]->x] == 0) {
 						_maxLength++;
-						printf("Going inside while\n");
 					}
 					_length = std::rand() % _maxLength;
 
@@ -216,11 +212,9 @@ void Game::update() {
 						this->level.entity[i]->y++;
 					break;
 				case 2:		// ================ Left ================
-					printf("Goind inside game.cpp logic\n");
 					// Randomizing how far the piece will go
 					while (this->level.mapLayerCollision[this->level.entity[i]->y+1][this->level.entity[i]->x-_maxLength] == 0) {
 						_maxLength++;
-						printf("Going inside while\n");
 					}
 					_length = std::rand() % _maxLength;
 
@@ -236,11 +230,9 @@ void Game::update() {
 						this->level.entity[i]->x--;
 					break;
 				case 3:		// ================ Right ================
-					printf("Goind inside game.cpp logic\n");
 					// Randomizing how far the piece will go
 					while (this->level.mapLayerCollision[this->level.entity[i]->y+1][this->level.entity[i]->x+_maxLength] == 0) {
 						_maxLength++;
-						printf("Going inside while\n");
 					}
 					_length = std::rand() % _maxLength;
 
@@ -256,11 +248,9 @@ void Game::update() {
 						this->level.entity[i]->x++;
 					break;
 				case 4:		// ================ Up-Right ================
-					printf("Goind inside game.cpp logic\n");
 					// Randomizing how far the piece will go
 					while (this->level.mapLayerCollision[this->level.entity[i]->y-_maxLength+1][this->level.entity[i]->x+_maxLength] == 0) {
 						_maxLength++;
-						printf("Going inside while\n");
 					}
 					_length = std::rand() % _maxLength;
 
@@ -278,11 +268,9 @@ void Game::update() {
 					}
 					break;
 				case 5:		// ================ Up-Left ================
-					printf("Goind inside game.cpp logic\n");
 					// Randomizing how far the piece will go
 					while (this->level.mapLayerCollision[this->level.entity[i]->y-_maxLength+1][this->level.entity[i]->x-_maxLength] == 0) {
 						_maxLength++;
-						printf("Going inside while\n");
 					}
 					_length = std::rand() % _maxLength;
 
@@ -300,11 +288,9 @@ void Game::update() {
 					}
 					break;
 				case 6:		// ================ Down-Right ================
-					printf("Goind inside game.cpp logic\n");
 					// Randomizing how far the piece will go
 					while (this->level.mapLayerCollision[this->level.entity[i]->y+_maxLength+1][this->level.entity[i]->x+_maxLength] == 0) {
 						_maxLength++;
-						printf("Going inside while\n");
 					}
 					_length = std::rand() % _maxLength;
 
@@ -322,11 +308,9 @@ void Game::update() {
 					}
 					break;
 				case 7:		// ================ Down-Left ================
-					printf("Goind inside game.cpp logic\n");
 					// Randomizing how far the piece will go
 					while (this->level.mapLayerCollision[this->level.entity[i]->y+_maxLength+1][this->level.entity[i]->x-_maxLength] == 0) {
 						_maxLength++;
-						printf("Going inside while\n");
 					}
 					_length = std::rand() % _maxLength;
 

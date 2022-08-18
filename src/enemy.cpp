@@ -29,8 +29,6 @@ void Enemy::movement(float _dt) {
 		_rand = std::rand() % 4;
 	else if (this->piece == "Pawn")
 		_rand = 0;
-	printf("_rand = %d\n", _rand);
-	printf("dir = %d\n", this->dir);
 	this->dir = _rand;
 	this->doStep = true;
 }
