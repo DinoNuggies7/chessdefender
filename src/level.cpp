@@ -9,12 +9,10 @@ void Level::init(int _levelID) {
 	switch (_levelID) {
 		case 0:
 			this->entity.push_back(new Player);
-			/*
 			int _rand = std::rand() % 4 + 1;
 			for (int i = 0; i < _rand; i++) {
 				this->entity.push_back(new Enemy);
-			}*/
-			this->entity.push_back(new Enemy);
+			}
 			break;
 	}
 	this->entities = this->entity.size();
@@ -41,11 +39,12 @@ void Level::init(int _levelID) {
 		pLayer = pLayer->NextSiblingElement("layer");
 	}
 
-	std::string gid_list = pData->GetText();
+	const char* gid_list = pData->GetText();
+	size_t gid_listSize = strlen (gid_list); 
 	std::stringstream value;
 	value.str("");
 	int row = 0;
-	for(int i = 0; i < gid_list.length(); i++) {
+	for(int i = 0; i < gid_listSize; i++) {
 		if(gid_list[i] == ',') {
 			value.str("");
 			int j = 1;
@@ -104,7 +103,7 @@ void Level::initEntities() {
 	for (int i = 0; i < this->entities; i++) {
 		if (i == 0)
 			this->entity[i]->init("King");
-		else {/*
+		else {
 			int _rand = std::rand() % 6;
 			if (_rand == 0)
 				this->entity[i]->init("King");
@@ -117,8 +116,7 @@ void Level::initEntities() {
 			else if (_rand == 4)
 				this->entity[i]->init("Rook");
 			else if (_rand == 5)
-				this->entity[i]->init("Pawn");*/
-			this->entity[i]->init("Queen");
+				this->entity[i]->init("Pawn");
 		}
 		this->entity[i]->initiative = std::rand() % 15 + 1;
 	}
