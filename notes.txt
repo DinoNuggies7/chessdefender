@@ -16,6 +16,7 @@
 				-- (Done!) Wrapped in a Level Class
 			-- (Done!) Draw Entities with Higher Y Values on Top of Entities with Lower Y Values
 
+			-- (Working...) Add Mouse Controls
 			-- (Working...) Add More Playable Pieces
 
 			-- Add Randomly Generated Maps (Randomly sized rooms strung together Zelda 1 style)
