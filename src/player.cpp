@@ -15,6 +15,45 @@ Player::Player() {
 // ===================================
 
 void Player::movement(float _dt) {
+
+	if (this->kMouseL) {
+		if (this->kMouse.x > Global::WIN_WIDTH / 2 + 4 and this->kMouse.x < Global::WIN_WIDTH / 2 + 30 and this->kMouse.y > Global::WIN_HEIGHT / 2 + 4 and this->kMouse.y < Global::WIN_HEIGHT / 2 + 32) {
+			this->isSelected = true;
+		}
+	}
+	else {
+		if (this->isSelected) {
+			if (this->kMouse.x > Global::WIN_WIDTH / 2 + 4 and this->kMouse.x < Global::WIN_WIDTH / 2 + 30 and this->kMouse.y < Global::WIN_HEIGHT / 2 + 4) { // Up
+				this->kUpP = true;
+			}
+			else if (this->kMouse.x > Global::WIN_WIDTH / 2 + 4 and this->kMouse.x < Global::WIN_WIDTH / 2 + 30 and this->kMouse.y > Global::WIN_HEIGHT / 2 + 32) { // Down
+				this->kDownP = true;
+			}
+			else if (this->kMouse.x < Global::WIN_WIDTH / 2 + 4 and this->kMouse.y > Global::WIN_HEIGHT / 2 + 4 and this->kMouse.y < Global::WIN_HEIGHT / 2 + 32) { // Left
+				this->kLeftP = true;
+			}
+			else if (this->kMouse.x > Global::WIN_WIDTH / 2 + 30 and this->kMouse.y > Global::WIN_HEIGHT / 2 + 4 and this->kMouse.y < Global::WIN_HEIGHT / 2 + 32) { // Right
+				this->kRightP = true;
+			}
+		}
+		else {
+			this->kUpP = false;
+			this->kDownP = false;
+			this->kLeftP = false;
+			this->kRightP = false;
+		}
+		this->isSelected = false;
+	}
+
+	if (this->isSelected) {
+		this->offsetX = this->kMouse.x / 2 - 248;
+		this->offsetY = this->kMouse.y / 2 - 143;
+	}
+	else {
+		this->offsetX = 0;
+		this->offsetY = 0;
+	}
+	
 	if (this->piece == "King") {
 		if (this->kUpP) {
 			this->dir = 0;

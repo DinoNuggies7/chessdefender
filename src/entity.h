@@ -13,13 +13,13 @@
 class Entity : public Input {
 public:
 	void init(std::string _piece);
-	void update(float _dt);
-	void render(sf::RenderWindow*& _window);
+	void update(sf::RenderWindow& _window, float _dt);
+	void render(sf::RenderWindow& _window);
 
-	bool doStep, turn, inCheck;
+	bool doStep, turn, inCheck, isSelected;
 	int initiative, dir;
 	std::string team, piece;
-	float x, y, vx, vy;
+	float x, y, vx, vy, offsetX, offsetY;
 protected:
 	void physics(float _dt);
 	virtual void movement(float _dt);

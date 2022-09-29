@@ -13,7 +13,7 @@
 class Level {
 public:
 	void init(int _levelID);
-	void render(sf::RenderWindow* _window, int _layer);
+	void render(sf::RenderWindow& _window, int _layer);
 
 	int entities, playerID;
 	std::vector<Entity*> entity;

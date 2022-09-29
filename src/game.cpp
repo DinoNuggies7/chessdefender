@@ -21,7 +21,7 @@ Game::Game() {
 
 Game::~Game() {
 	// Freeing up memory because pointers
-	delete this->window;
+	//delete this->window;
 	for (int i = 0; i < this->level.entities; i++) {
 		delete this->level.entity[i];
 		printf("Deleted Entity, ID: %d\n", i);
@@ -29,7 +29,7 @@ Game::~Game() {
 }
 
 bool Game::running() {
-	return this->window->isOpen(); // Just for neatness
+	return this->window.isOpen(); // Just for neatness
 }
 
 void Game::update() {
@@ -60,7 +60,7 @@ void Game::update() {
 	this->entityCounter = 0;
 	for (int i = 0; i < this->level.entities; i++) {
 		// Call the update function for every entity
-		this->level.entity[i]->update(this->dt);
+		this->level.entity[i]->update(this->window, this->dt);
 
 		// The King piece's moves
 		if (this->level.entity[i]->piece == "King") {
@@ -191,7 +191,7 @@ void Game::update() {
 						}
 					}
 					// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-					this->level.entity[i]->y--;
+					this->level.entity[i]->y -= _length;
 					break;
 				case 1:		// ================ Down ================
 					// Randomizing how far the piece will go
@@ -209,7 +209,7 @@ void Game::update() {
 					}
 					// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
 					if (this->level.mapLayerCollision[this->level.entity[i]->y+2][this->level.entity[i]->x] == 0)
-						this->level.entity[i]->y++;
+						this->level.entity[i]->y += _length;
 					break;
 				case 2:		// ================ Left ================
 					// Randomizing how far the piece will go
@@ -227,7 +227,7 @@ void Game::update() {
 					}
 					// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
 					if (this->level.mapLayerCollision[this->level.entity[i]->y+1][this->level.entity[i]->x-1] == 0)
-						this->level.entity[i]->x--;
+						this->level.entity[i]->x -= _length;
 					break;
 				case 3:		// ================ Right ================
 					// Randomizing how far the piece will go
@@ -245,7 +245,7 @@ void Game::update() {
 					}
 					// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
 					if (this->level.mapLayerCollision[this->level.entity[i]->y+1][this->level.entity[i]->x+1] == 0)
-						this->level.entity[i]->x++;
+						this->level.entity[i]->x += _length;
 					break;
 				case 4:		// ================ Up-Right ================
 					// Randomizing how far the piece will go
@@ -263,8 +263,8 @@ void Game::update() {
 					}
 					// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
 					if (this->level.mapLayerCollision[this->level.entity[i]->y][this->level.entity[i]->x+1] == 0) {
-						this->level.entity[i]->x++;
-						this->level.entity[i]->y--;
+						this->level.entity[i]->x += _length;
+						this->level.entity[i]->y -= _length;
 					}
 					break;
 				case 5:		// ================ Up-Left ================
@@ -283,8 +283,8 @@ void Game::update() {
 					}
 					// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
 					if (this->level.mapLayerCollision[this->level.entity[i]->y][this->level.entity[i]->x-1] == 0) {
-						this->level.entity[i]->x--;
-						this->level.entity[i]->y--;
+						this->level.entity[i]->x -= _length;
+						this->level.entity[i]->y -= _length;
 					}
 					break;
 				case 6:		// ================ Down-Right ================
@@ -303,8 +303,8 @@ void Game::update() {
 					}
 					// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
 					if (this->level.mapLayerCollision[this->level.entity[i]->y+2][this->level.entity[i]->x+1] == 0) {
-						this->level.entity[i]->x++;
-						this->level.entity[i]->y++;
+						this->level.entity[i]->x += _length;
+						this->level.entity[i]->y += _length;
 					}
 					break;
 				case 7:		// ================ Down-Left ================
@@ -323,8 +323,8 @@ void Game::update() {
 					}
 					// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
 					if (this->level.mapLayerCollision[this->level.entity[i]->y+2][this->level.entity[i]->x-1] == 0) {
-						this->level.entity[i]->x--;
-						this->level.entity[i]->y++;
+						this->level.entity[i]->x -= _length;
+						this->level.entity[i]->y += _length;
 					}
 					break;
 			}
@@ -539,8 +539,9 @@ void Game::update() {
 								this->level.entity.erase(this->level.entity.begin()+j);
 						}
 					}
+
 					// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-					this->level.entity[i]->y--;
+					this->level.entity[i]->y -= _length;
 					break;
 				case 1:		// ================ Down ================
 					// Randomizing how far the piece will go
@@ -556,9 +557,10 @@ void Game::update() {
 								this->level.entity.erase(this->level.entity.begin()+j);
 						}
 					}
+
 					// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
 					if (this->level.mapLayerCollision[this->level.entity[i]->y+2][this->level.entity[i]->x] == 0)
-						this->level.entity[i]->y++;
+						this->level.entity[i]->y += _length;
 					break;
 				case 2:		// ================ Left ================
 					// Randomizing how far the piece will go
@@ -574,9 +576,10 @@ void Game::update() {
 								this->level.entity.erase(this->level.entity.begin()+j);
 						}
 					}
+
 					// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
 					if (this->level.mapLayerCollision[this->level.entity[i]->y+1][this->level.entity[i]->x-1] == 0)
-						this->level.entity[i]->x--;
+						this->level.entity[i]->x -= _length;
 					break;
 				case 3:		// ================ Right ================
 					// Randomizing how far the piece will go
@@ -592,9 +595,10 @@ void Game::update() {
 								this->level.entity.erase(this->level.entity.begin()+j);
 						}
 					}
+
 					// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
 					if (this->level.mapLayerCollision[this->level.entity[i]->y+1][this->level.entity[i]->x+1] == 0)
-						this->level.entity[i]->x++;
+						this->level.entity[i]->x += _length;
 					break;
 			}
 		}
@@ -658,7 +662,7 @@ void Game::update() {
 }
 
 void Game::render() {
-	this->window->clear(sf::Color::Black);
+	this->window.clear(sf::Color::Black);
 
 	// Rendering bottom map layers
 	this->level.render(this->window, 0);
@@ -679,7 +683,7 @@ void Game::render() {
 		int _x = this->level.entity[this->level.playerID]->x * 16;
 		int _y = this->level.entity[this->level.playerID]->y * 16;
 		this->view.setCenter(_x, _y);
-		this->window->setView(this->view);
+		this->window.setView(this->view);
 	}
 	else {
 		for (static bool _first = true; _first; _first = false)
@@ -688,14 +692,14 @@ void Game::render() {
 
 	// Rendering all the stored text
 	if (this->textLayer.size() > 0) {
-		this->window->setView(this->window->getDefaultView());
+		this->window.setView(this->window.getDefaultView());
 		for (int i = 0; i < this->textLayer.size(); i++) {
-			this->window->draw(this->textLayer[i]);
+			this->window.draw(this->textLayer[i]);
 		}
-		this->window->setView(this->view);
+		this->window.setView(this->view);
 	}
 
-	this->window->display();
+	this->window.display();
 }
 
 // ===================================
@@ -707,10 +711,10 @@ void Game::initWindow() {
 	this->view.setSize(Global::WIDTH, Global::HEIGHT);
 	this->view.setCenter(Global::WIDTH / 2, Global::HEIGHT / 2);
 	this->videoMode = sf::VideoMode(Global::WIN_WIDTH, Global::WIN_HEIGHT);
-	this->window = new sf::RenderWindow(this->videoMode, "Chess Defender", sf::Style::Titlebar | sf::Style::Close);
-	this->window->setView(this->view);
-	this->window->setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width / 2 - Global::WIN_WIDTH / 2, sf::VideoMode::getDesktopMode().height / 2 - Global::WIN_HEIGHT / 2));
-	this->window->setKeyRepeatEnabled(false);
+	this->window.create(this->videoMode, "Chess Defender", sf::Style::Titlebar | sf::Style::Close);
+	this->window.setView(this->view);
+	this->window.setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width / 2 - Global::WIN_WIDTH / 2, sf::VideoMode::getDesktopMode().height / 2 - Global::WIN_HEIGHT / 2));
+	this->window.setKeyRepeatEnabled(false);
 	this->font.loadFromFile("assets/Ravenna.ttf");
 }
 
@@ -722,14 +726,14 @@ void Game::updateDelta() {
 
 // The regular SFML window events
 void Game::pollEvents() {
-	while (this->window->pollEvent(ev)) {
+	while (this->window.pollEvent(ev)) {
 		switch (this->ev.type) {
 			case sf::Event::Closed:
-				this->window->close();
+				this->window.close();
 				break;
 			case sf::Event::KeyPressed:
 				if (ev.key.code == sf::Keyboard::Escape)
-					this->window->close();
+					this->window.close();
 				break;
 		}
 	}

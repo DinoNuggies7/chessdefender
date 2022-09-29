@@ -4,7 +4,20 @@
 //  Protected Functions
 // =====================
 
-void Input::input() {
+void Input::input(sf::RenderWindow& _window) {
+
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		this->kMouseL = true;
+	else
+		this->kMouseL = false;
+
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
+		this->kMouseR = true;
+	else
+		this->kMouseR = false;
+
+	this->kMouse = sf::Mouse::getPosition(_window);
+/*
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) and !this->kUp)
 		this->kUpP = true;
 	else
@@ -20,7 +33,7 @@ void Input::input() {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) and !this->kRight)
 		this->kRightP = true;
 	else
-		this->kRightP = false;
+		this->kRightP = false;*/
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 		this->kUp = true;

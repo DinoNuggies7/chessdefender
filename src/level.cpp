@@ -83,14 +83,14 @@ void Level::init(int _levelID) {
 	this->initEntities();
 }
 
-void Level::render(sf::RenderWindow* _window, int _layer) {
+void Level::render(sf::RenderWindow& _window, int _layer) {
 	if (!_layer) {
-		_window->draw(this->mapLayerFloor);
-		_window->draw(this->mapLayerWalls1);
-		_window->draw(this->mapLayerWalls2);
+		_window.draw(this->mapLayerFloor);
+		_window.draw(this->mapLayerWalls1);
+		_window.draw(this->mapLayerWalls2);
 	}
 	else {
-		_window->draw(this->mapLayerCeiling);
+		_window.draw(this->mapLayerCeiling);
 	}
 }
 

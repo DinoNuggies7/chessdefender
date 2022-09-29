@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include "entity.h"
+#include "globals.h"
 
 class Player : public Entity {
 public:

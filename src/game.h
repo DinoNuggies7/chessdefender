@@ -30,7 +30,7 @@ private:
 	
 	std::vector<sf::Text> textLayer;
 
-	sf::RenderWindow* window;
+	sf::RenderWindow window;
 	sf::VideoMode videoMode;
 	sf::View view;
 	sf::Event ev;

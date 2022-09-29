@@ -39,13 +39,13 @@ void Entity::init(std::string _piece) {
 	}
 }
 
-void Entity::update(float _dt) {
-	this->input();
+void Entity::update(sf::RenderWindow& _window, float _dt) {
+	this->input(_window);
 	this->physics(_dt);
 }
 
-void Entity::render(sf::RenderWindow*& _window) {
-	_window->draw(this->sprite);
+void Entity::render(sf::RenderWindow& _window) {
+	_window.draw(this->sprite);
 }
 
 // =====================================
@@ -55,7 +55,7 @@ void Entity::render(sf::RenderWindow*& _window) {
 void Entity::physics(float _dt) {
 	this->x += this->vx;
 	this->y += this->vy;
-	this->sprite.setPosition((this->x * 16) + 2, (this->y * 16) - 13);
+	this->sprite.setPosition(this->x * 16 + 2 + this->offsetX, this->y * 16 - 13 + this->offsetY);
 	if (this->turn)
 		this->movement(_dt);
 	this->collision(_dt);
