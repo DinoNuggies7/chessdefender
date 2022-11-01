@@ -23,17 +23,19 @@ void Player::movement(float _dt) {
 	}
 	else {
 		if (this->isSelected) {
-			if (this->kMouse.x > Global::WIN_WIDTH / 2 + 4 and this->kMouse.x < Global::WIN_WIDTH / 2 + 30 and this->kMouse.y < Global::WIN_HEIGHT / 2 + 4) { // Up
-				this->kUpP = true;
-			}
-			else if (this->kMouse.x > Global::WIN_WIDTH / 2 + 4 and this->kMouse.x < Global::WIN_WIDTH / 2 + 30 and this->kMouse.y > Global::WIN_HEIGHT / 2 + 32) { // Down
-				this->kDownP = true;
-			}
-			else if (this->kMouse.x < Global::WIN_WIDTH / 2 + 4 and this->kMouse.y > Global::WIN_HEIGHT / 2 + 4 and this->kMouse.y < Global::WIN_HEIGHT / 2 + 32) { // Left
-				this->kLeftP = true;
-			}
-			else if (this->kMouse.x > Global::WIN_WIDTH / 2 + 30 and this->kMouse.y > Global::WIN_HEIGHT / 2 + 4 and this->kMouse.y < Global::WIN_HEIGHT / 2 + 32) { // Right
-				this->kRightP = true;
+			if (this->piece == "King") {
+				if (this->kMouse.x > Global::WIN_WIDTH / 2 + 4 and this->kMouse.x < Global::WIN_WIDTH / 2 + 30 and this->kMouse.y < Global::WIN_HEIGHT / 2 + 4) { // Up
+					this->kUpP = true;
+				}
+				else if (this->kMouse.x > Global::WIN_WIDTH / 2 + 4 and this->kMouse.x < Global::WIN_WIDTH / 2 + 30 and this->kMouse.y > Global::WIN_HEIGHT / 2 + 32) { // Down
+					this->kDownP = true;
+				}
+				else if (this->kMouse.x < Global::WIN_WIDTH / 2 + 4 and this->kMouse.y > Global::WIN_HEIGHT / 2 + 4 and this->kMouse.y < Global::WIN_HEIGHT / 2 + 32) { // Left
+					this->kLeftP = true;
+				}
+				else if (this->kMouse.x > Global::WIN_WIDTH / 2 + 30 and this->kMouse.y > Global::WIN_HEIGHT / 2 + 4 and this->kMouse.y < Global::WIN_HEIGHT / 2 + 32) { // Right
+					this->kRightP = true;
+				}
 			}
 		}
 		else {

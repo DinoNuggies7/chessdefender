@@ -6,6 +6,7 @@
 #include <SFML/Graphics.hpp>
 
 #include <stdio.h>
+#include <vector>
 #include <random>
 #include <time.h>
 #include <string>
@@ -19,7 +20,7 @@ public:
 	bool doStep, turn, inCheck, isSelected;
 	int initiative, dir;
 	std::string team, piece;
-	float x, y, vx, vy, offsetX, offsetY;
+	float x, y, vx, vy, offsetX, offsetY, moveset[8][2];
 protected:
 	void physics(float _dt);
 	virtual void movement(float _dt);
@@ -27,11 +28,13 @@ protected:
 
 	void initSprite();
 	virtual void setAnimation(std::string _animation);
+	void setMoveset(std::string _piece);
 	void clipTexture(int _x, int _y, int _w, int _h, bool _flip);
 
 	sf::Image image;
 	sf::Texture texture;
 	sf::Sprite sprite;
+	sf::RectangleShape movesetHighlight[8];
 };
 
 #endif

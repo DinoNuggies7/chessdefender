@@ -99,7 +99,7 @@ void Level::render(sf::RenderWindow& _window, int _layer) {
 // ===================================
 
 void Level::initEntities() {
-	// Initializing every entity and randomizing their initiative
+	// Initializing every entity
 	for (int i = 0; i < this->entities; i++) {
 		if (i == 0)
 			this->entity[i]->init("King");
@@ -118,28 +118,30 @@ void Level::initEntities() {
 			else if (_rand == 5)
 				this->entity[i]->init("Pawn");
 		}
-		this->entity[i]->initiative = std::rand() % 15 + 1;
 	}
 
-	std::vector<int> _initiatives;
-	for (int i = 1; i < this->entities; i++) {
-		_initiatives.push_back(i);
+	// Giving every entity a unique initiative
+	std::vector<int> _illigalInit;
+	for (int i = 0; i < this->entities; i++) {
+		int _rand = std::rand() % 15 + 1;
+		bool _loop = true;
+		while (_loop) {
+			_loop = false;
+			for (int j = 0; j < _illigalInit.size(); j++) {
+				if (_rand == _illigalInit[j])
+					_loop = true;
+			}
+		}
+		this->entity[i]->initiative = _rand;
+		_illigalInit.push_back(_rand);
+	}
 
-		// Giving all enemies a random location
+	// Giving all enemies a random location
+	for (int i = 1; i < this->entities; i++) {
 		while (this->mapLayerCollision[this->entity[i]->y+1][this->entity[i]->x] != 0 or this->entity[i]->x == this->entity[0]->x and this->entity[i]->y == this->entity[i]->y) {
 			this->entity[i]->x = std::rand() % 25;
 			this->entity[i]->y = std::rand() % 20;
 		}
-	}
-	 
-	// Making sure that the player has a unique initiative (not permanent)
-	for (int i = 1; i < this->entities; i++) {
-		while (this->entity[0]->initiative == _initiatives[i])
-			this->entity[0]->initiative = std::rand() % 15 + 1;
-		while (this->entity[0]->initiative == _initiatives[i])
-			this->entity[0]->initiative = std::rand() % 15 + 1;
-		while (this->entity[0]->initiative == _initiatives[i])
-			this->entity[0]->initiative = std::rand() % 15 + 1;
 	}
 
 	// Displaying every entity's initiative
