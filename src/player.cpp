@@ -20,16 +20,16 @@ void Player::movement(float _dt) {
 
 	if (this->kMouseLP) {
 		if (this->piece == "King") {
-			if (this->kMouse.x / this->mousePosMod == this->moveset[0][0] and this->kMouse.y / this->mousePosMod == this->moveset[1][0]) {
+			if (int(this->kMouse.x / this->mousePosMod) == this->moveset[0][0] and int(this->kMouse.y / this->mousePosMod) == this->moveset[1][0]) {
 				this->kUpP = true;
 			}
-			else if (this->kMouse.x / this->mousePosMod == this->moveset[0][1] and this->kMouse.y / this->mousePosMod == this->moveset[1][1]) {
+			else if (int(this->kMouse.x / this->mousePosMod) == this->moveset[0][1] and int(this->kMouse.y / this->mousePosMod) == this->moveset[1][1]) {
 				this->kDownP = true;
 			}
-			else if (this->kMouse.x / this->mousePosMod == this->moveset[0][2] and this->kMouse.y / this->mousePosMod == this->moveset[1][2]) {
+			else if (int(this->kMouse.x / this->mousePosMod) == this->moveset[0][2] and int(this->kMouse.y / this->mousePosMod) == this->moveset[1][2]) {
 				this->kLeftP = true;
 			}
-			else if (this->kMouse.x / this->mousePosMod == this->moveset[0][3] and this->kMouse.y / this->mousePosMod == this->moveset[1][3]) {
+			else if (int(this->kMouse.x / this->mousePosMod) == this->moveset[0][3] and int(this->kMouse.y / this->mousePosMod) == this->moveset[1][3]) {
 				this->kRightP = true;
 			}
 		}

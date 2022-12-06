@@ -7,12 +7,12 @@
 
 class Input {
 public:
-	int fullscreen;
+	float fullscreen;
 protected:
 	void input(sf::RenderWindow& _window);
 
 	bool kInput, kUp, kDown, kLeft, kRight, kUpP, kDownP, kLeftP, kRightP, kA, kB, kMouseL, kMouseR, kMouseLP, kMouseRP;
-	int mousePosMod;
+	float mousePosMod;
 	sf::Vector2i kMouse;
 };
 

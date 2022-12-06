@@ -128,7 +128,7 @@ void Game::initWindow(bool _fullscreen) {
 	this->view.setSize(Global::WIDTH, Global::HEIGHT);
 	this->view.setCenter(Global::WIDTH / 2, Global::HEIGHT / 2);
 	if (this->fullscreen) {
-		this->videoMode = sf::VideoMode(0, 0);
+		this->videoMode = sf::VideoMode(this->videoMode.getDesktopMode().width, this->videoMode.getDesktopMode().height);
 		this->window.create(this->videoMode, "Chess Defender", sf::Style::Titlebar | sf::Style::Close | sf::Style::Fullscreen);
 	}
 	else {
@@ -743,12 +743,12 @@ void Game::pollEvents() {
 					this->window.close();
 				if (this->ev.key.code == sf::Keyboard::F11) {
 					if (this->fullscreen) {
-						this->level.entity[this->level.playerID]->fullscreen = 0;
 						this->initWindow(false);
+						this->level.entity[this->level.playerID]->fullscreen = 0;
 					}
 					else {
-						this->level.entity[this->level.playerID]->fullscreen = 1;
 						this->initWindow(true);
+						this->level.entity[this->level.playerID]->fullscreen = float(this->videoMode.width) / Global::WIDTH;
 					}
 				}
 				break;

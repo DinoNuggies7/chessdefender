@@ -120,15 +120,14 @@ void Level::initEntities() {
 		}
 	}
 
-	printf("1\n");
 	// Giving every entity a unique initiative
 	std::vector<int> _illigalInit;
 	for (int i = 0; i < this->entities; i++) {
-		printf("2\n");
+	
 		int _rand = std::rand() % 15 + 1;
 		bool _loop = true;
 		while (_loop) {
-			printf("3\n");
+		
 			_loop = false;
 			for (int j = 0; j < _illigalInit.size(); j++) {
 				if (_rand == _illigalInit[j]) {
@@ -137,12 +136,11 @@ void Level::initEntities() {
 				}
 			}
 		}
-		printf("4\n");
+	
 		this->entity[i]->initiative = _rand;
 		_illigalInit.push_back(_rand);
 	}
 
-	printf("5\n");
 	// Giving all entities a random location
 	for (int i = 1; i < this->entities; i++) {
 		while (this->mapLayerCollision[this->entity[i]->y+1][this->entity[i]->x] != 0 or this->entity[i]->x == this->entity[0]->x and this->entity[i]->y == this->entity[0]->y) {
@@ -151,7 +149,6 @@ void Level::initEntities() {
 		}
 	}
 
-	printf("6\n");
 	// Displaying every entity's initiative
 	printf("| ");
 	for (int i = 0; i < this->entities; i++)

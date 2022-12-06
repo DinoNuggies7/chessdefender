@@ -6,7 +6,10 @@
 
 // For getting Mouse and Keyboard Input
 void Input::input(sf::RenderWindow& _window) {
-	this->mousePosMod = 16 * (Global::WIN_SCALE + this->fullscreen);
+	if (this->fullscreen != 0)
+		this->mousePosMod = 16 * this->fullscreen;
+	else
+		this->mousePosMod = 16 * Global::WIN_SCALE;
 
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) and !this->kMouseL)
 		this->kMouseLP = true;
