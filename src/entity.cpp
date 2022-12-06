@@ -140,7 +140,86 @@ void Entity::collision(std::vector<std::vector<int>>& _mapLayerCollision) {
 		
 	}
 	else if (this->piece == "Knight") {
-		
+		if (_mapLayerCollision[int(this->y)-2+1][int(this->x)-1] == 0) {
+			this->moveset[0].push_back(int(this->x)-1);
+			this->moveset[1].push_back(int(this->y)-2);
+			this->moves++;
+		}
+		else {
+			this->moveset[0].push_back(-1);
+			this->moveset[1].push_back(-1);
+			this->moves++;
+		}
+		if (_mapLayerCollision[int(this->y)-2+1][int(this->x)+1] == 0) {
+			this->moveset[0].push_back(int(this->x)+1);
+			this->moveset[1].push_back(int(this->y)-2);
+			this->moves++;
+		}
+		else {
+			this->moveset[0].push_back(-1);
+			this->moveset[1].push_back(-1);
+			this->moves++;
+		}
+		if (_mapLayerCollision[int(this->y)-1+1][int(this->x)+2] == 0) {
+			this->moveset[0].push_back(int(this->x)+2);
+			this->moveset[1].push_back(int(this->y)-1);
+			this->moves++;
+		}
+		else {
+			this->moveset[0].push_back(-1);
+			this->moveset[1].push_back(-1);
+			this->moves++;
+		}
+		if (_mapLayerCollision[int(this->y)+1+1][int(this->x)+2] == 0) {
+			this->moveset[0].push_back(int(this->x)+2);
+			this->moveset[1].push_back(int(this->y)+1);
+			this->moves++;
+		}
+		else {
+			this->moveset[0].push_back(-1);
+			this->moveset[1].push_back(-1);
+			this->moves++;
+		}
+		if (_mapLayerCollision[int(this->y)+2+1][int(this->x)+1] == 0) {
+			this->moveset[0].push_back(int(this->x)+1);
+			this->moveset[1].push_back(int(this->y)+2);
+			this->moves++;
+		}
+		else {
+			this->moveset[0].push_back(-1);
+			this->moveset[1].push_back(-1);
+			this->moves++;
+		}
+		if (_mapLayerCollision[int(this->y)+2+1][int(this->x)-1] == 0) {
+			this->moveset[0].push_back(int(this->x)-1);
+			this->moveset[1].push_back(int(this->y)+2);
+			this->moves++;
+		}
+		else {
+			this->moveset[0].push_back(-1);
+			this->moveset[1].push_back(-1);
+			this->moves++;
+		}
+		if (_mapLayerCollision[int(this->y)+1+1][int(this->x)-2] == 0) {
+			this->moveset[0].push_back(int(this->x)-2);
+			this->moveset[1].push_back(int(this->y)+1);
+			this->moves++;
+		}
+		else {
+			this->moveset[0].push_back(-1);
+			this->moveset[1].push_back(-1);
+			this->moves++;
+		}
+		if (_mapLayerCollision[int(this->y)-1+1][int(this->x)-2] == 0) {
+			this->moveset[0].push_back(int(this->x)-2);
+			this->moveset[1].push_back(int(this->y)-1);
+			this->moves++;
+		}
+		else {
+			this->moveset[0].push_back(-1);
+			this->moveset[1].push_back(-1);
+			this->moves++;
+		}
 	}
 	else if (this->piece == "Rook") {
 		
@@ -148,6 +227,26 @@ void Entity::collision(std::vector<std::vector<int>>& _mapLayerCollision) {
 	else if (this->piece == "Pawn") {
 		if (_mapLayerCollision[int(this->y)-1+1][int(this->x)] == 0) {
 			this->moveset[0].push_back(int(this->x));
+			this->moveset[1].push_back(int(this->y)-1);
+			this->moves++;
+		}
+		else {
+			this->moveset[0].push_back(-1);
+			this->moveset[1].push_back(-1);
+			this->moves++;
+		}
+		if (_mapLayerCollision[int(this->y)-1+1][int(this->x)-1] == 0) {
+			this->moveset[0].push_back(int(this->x)-1);
+			this->moveset[1].push_back(int(this->y)-1);
+			this->moves++;
+		}
+		else {
+			this->moveset[0].push_back(-1);
+			this->moveset[1].push_back(-1);
+			this->moves++;
+		}
+		if (_mapLayerCollision[int(this->y)-1+1][int(this->x)+1] == 0) {
+			this->moveset[0].push_back(int(this->x)+1);
 			this->moveset[1].push_back(int(this->y)-1);
 			this->moves++;
 		}

@@ -20,17 +20,11 @@ void Player::movement(float _dt) {
 
 	if (this->kMouseLP) {
 		if (this->piece == "King") {
-			if (int(this->kMouse.x / this->mousePosMod) == this->moveset[0][0] and int(this->kMouse.y / this->mousePosMod) == this->moveset[1][0]) {
-				this->kUpP = true;
-			}
-			else if (int(this->kMouse.x / this->mousePosMod) == this->moveset[0][1] and int(this->kMouse.y / this->mousePosMod) == this->moveset[1][1]) {
-				this->kDownP = true;
-			}
-			else if (int(this->kMouse.x / this->mousePosMod) == this->moveset[0][2] and int(this->kMouse.y / this->mousePosMod) == this->moveset[1][2]) {
-				this->kLeftP = true;
-			}
-			else if (int(this->kMouse.x / this->mousePosMod) == this->moveset[0][3] and int(this->kMouse.y / this->mousePosMod) == this->moveset[1][3]) {
-				this->kRightP = true;
+			for (int i = 0; i < this->moves; i++) {
+				if (int(this->kMouse.x / this->mousePosMod) == this->moveset[0][i] and int(this->kMouse.y / this->mousePosMod) == this->moveset[1][i]) {
+					this->doStep = true;
+					this->dir = i;
+				}
 			}
 		}
 		else if (this->piece == "Queen") {
@@ -40,14 +34,28 @@ void Player::movement(float _dt) {
 				
 		}
 		else if (this->piece == "Knight") {
-				
+			for (int i = 0; i < this->moves; i++) {
+				if (int(this->kMouse.x / this->mousePosMod) == this->moveset[0][i] and int(this->kMouse.y / this->mousePosMod) == this->moveset[1][i]) {
+					this->doStep = true;
+					this->dir = i;
+				}
+			}
 		}
 		else if (this->piece == "Rook") {
 				
 		}
 		else if (this->piece == "Pawn") {
-			if (this->kMouse.x > Global::WIN_WIDTH / 2 + 4 and this->kMouse.x < Global::WIN_WIDTH / 2 + 30 and this->kMouse.y < Global::WIN_HEIGHT / 2 + 4) { // Up
-					this->kUpP = true;
+			if (int(this->kMouse.x / this->mousePosMod) == this->moveset[0][0] and int(this->kMouse.y / this->mousePosMod) == this->moveset[1][0]) {
+				this->doStep = true;
+				this->dir = 0;
+			}
+			else if (int(this->kMouse.x / this->mousePosMod) == this->moveset[0][1] and int(this->kMouse.y / this->mousePosMod) == this->moveset[1][1]) {
+				this->doStep = true;
+				this->dir = 1;
+			}
+			else if (int(this->kMouse.x / this->mousePosMod) == this->moveset[0][2] and int(this->kMouse.y / this->mousePosMod) == this->moveset[1][2]) {
+				this->doStep = true;
+				this->dir = 2;
 			}
 		}
 	}
@@ -66,43 +74,6 @@ void Player::movement(float _dt) {
 	else {
 		this->offsetX = 0;
 		this->offsetY = 0;
-	}
-	
-	if (this->piece == "King") {
-		if (this->kUpP) {
-			this->dir = 0;
-			this->doStep = true;
-		}
-		else if (this->kDownP) {
-			this->dir = 1;
-			this->doStep = true;
-		}
-		else if (this->kLeftP) {
-			this->dir = 2;
-			this->doStep = true;
-		}
-		else if (this->kRightP) {
-			this->dir = 3;
-			this->doStep = true;
-		}
-	}
-	else if (this->piece == "Queen") {
-
-	}
-	else if (this->piece == "Bishop") {
-		
-	}
-	else if (this->piece == "Knight") {
-		
-	}
-	else if (this->piece == "Rook") {
-		
-	}
-	else if (this->piece == "Pawn") {
-		if (this->kUpP) {
-			this->dir = 0;
-			this->doStep = true;
-		}
 	}
 }
 

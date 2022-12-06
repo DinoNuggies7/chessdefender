@@ -102,7 +102,7 @@ void Level::initEntities() {
 	// Initializing every entity
 	for (int i = 0; i < this->entities; i++) {
 		if (i == 0)
-			this->entity[i]->init("King");
+			this->entity[i]->init("King"); // The piece that the Player spawns with
 		else {
 			int _rand = 5;//std::rand() % 6;
 			if (_rand == 0)

@@ -545,7 +545,21 @@ void Game::handleEntityMovement(int& _i) {
 					this->level.entity[_i]->y++;
 				}
 				break;
-			case 4:		// ================ Down-Left ================
+			case 4:		// ================ Down-Right ================
+				// Capturing a piece if the moving piece moves on top of said piece
+				for (int j = 0; j < this->level.entities; j++) {
+					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team) {
+						if (this->level.entity[_i]->x + 1 == this->level.entity[j]->x and this->level.entity[_i]->y + 2 == this->level.entity[j]->y)
+							this->level.entity.erase(this->level.entity.begin()+j);
+					}
+				}
+				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
+				if (this->level.mapLayerCollision[this->level.entity[_i]->y+3][this->level.entity[_i]->x+1] == 0) {
+					this->level.entity[_i]->x++;
+					this->level.entity[_i]->y += 2;
+				}
+				break;		
+			case 5:// ================ Down-Left ================
 				// Capturing a piece if the moving piece moves on top of said piece
 				for (int j = 0; j < this->level.entities; j++) {
 					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team) {
@@ -559,35 +573,7 @@ void Game::handleEntityMovement(int& _i) {
 					this->level.entity[_i]->y += 2;
 				}
 				break;
-			case 5:		// ================ Down-Right ================
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entities; j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team) {
-						if (this->level.entity[_i]->x + 1 == this->level.entity[j]->x and this->level.entity[_i]->y + 2 == this->level.entity[j]->y)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				if (this->level.mapLayerCollision[this->level.entity[_i]->y+3][this->level.entity[_i]->x+1] == 0) {
-					this->level.entity[_i]->x++;
-					this->level.entity[_i]->y += 2;
-				}
-				break;
-			case 6:		// ================ Left-Up ================
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entities; j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team) {
-						if (this->level.entity[_i]->x - 2 == this->level.entity[j]->x and this->level.entity[_i]->y - 1 == this->level.entity[j]->y)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				if (this->level.mapLayerCollision[this->level.entity[_i]->y][this->level.entity[_i]->x-2] == 0) {
-					this->level.entity[_i]->x -= 2;
-					this->level.entity[_i]->y--;
-				}
-				break;
-			case 7:		// ================ Left-Down ================
+			case 6:		// ================ Left-Down ================
 				// Capturing a piece if the moving piece moves on top of said piece
 				for (int j = 0; j < this->level.entities; j++) {
 					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team) {
@@ -599,6 +585,20 @@ void Game::handleEntityMovement(int& _i) {
 				if (this->level.mapLayerCollision[this->level.entity[_i]->y+2][this->level.entity[_i]->x-2] == 0) {
 					this->level.entity[_i]->x -= 2;
 					this->level.entity[_i]->y++;
+				}
+				break;		
+			case 7:// ================ Left-Up ================
+				// Capturing a piece if the moving piece moves on top of said piece
+				for (int j = 0; j < this->level.entities; j++) {
+					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team) {
+						if (this->level.entity[_i]->x - 2 == this->level.entity[j]->x and this->level.entity[_i]->y - 1 == this->level.entity[j]->y)
+							this->level.entity.erase(this->level.entity.begin()+j);
+					}
+				}
+				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
+				if (this->level.mapLayerCollision[this->level.entity[_i]->y][this->level.entity[_i]->x-2] == 0) {
+					this->level.entity[_i]->x -= 2;
+					this->level.entity[_i]->y--;
 				}
 				break;
 		}

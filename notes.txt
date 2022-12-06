@@ -23,5 +23,6 @@
 			-- Add Enemy AI (probably just gonna look some up online :P)
 			-- Add Multiplayer (Player2 Class, Player3 Class, etc.)
 			-- Add Some Equipable Weapons >:)
+			
 			-- Add Menu with Background Music
 			-- Add Ambient Sounds for Gameplay
