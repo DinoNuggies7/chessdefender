@@ -18,7 +18,7 @@ void Level::init(int _levelID) {
 	this->entities = this->entity.size();
 
 	// Setting up the map
-	this->map.load("assets/test_map.tmx");
+	this->map.load("assets/level.tmx");
 	this->mapLayerFloor.init(this->map, 0);
 	this->mapLayerWalls1.init(this->map, 1);
 	this->mapLayerWalls2.init(this->map, 2);
@@ -26,7 +26,7 @@ void Level::init(int _levelID) {
 
 	// Loading the collision tiles into the collision map layer
 	tinyxml2::XMLDocument doc;
-	doc.LoadFile("assets/test_map.tmx");
+	doc.LoadFile("assets/level.tmx");
 
 	tinyxml2::XMLElement* mapNode = doc.FirstChildElement("map");
 	tinyxml2::XMLElement* pLayer = mapNode->FirstChildElement("layer");
@@ -104,7 +104,7 @@ void Level::initEntities() {
 		if (i == 0)
 			this->entity[i]->init("King");
 		else {
-			int _rand = std::rand() % 6;
+			int _rand = 5;//std::rand() % 6;
 			if (_rand == 0)
 				this->entity[i]->init("King");
 			else if (_rand == 1)
@@ -120,30 +120,38 @@ void Level::initEntities() {
 		}
 	}
 
+	printf("1\n");
 	// Giving every entity a unique initiative
 	std::vector<int> _illigalInit;
 	for (int i = 0; i < this->entities; i++) {
+		printf("2\n");
 		int _rand = std::rand() % 15 + 1;
 		bool _loop = true;
 		while (_loop) {
+			printf("3\n");
 			_loop = false;
 			for (int j = 0; j < _illigalInit.size(); j++) {
-				if (_rand == _illigalInit[j])
+				if (_rand == _illigalInit[j]) {
 					_loop = true;
+					_rand = std::rand() % 15 + 1;
+				}
 			}
 		}
+		printf("4\n");
 		this->entity[i]->initiative = _rand;
 		_illigalInit.push_back(_rand);
 	}
 
-	// Giving all enemies a random location
+	printf("5\n");
+	// Giving all entities a random location
 	for (int i = 1; i < this->entities; i++) {
-		while (this->mapLayerCollision[this->entity[i]->y+1][this->entity[i]->x] != 0 or this->entity[i]->x == this->entity[0]->x and this->entity[i]->y == this->entity[i]->y) {
-			this->entity[i]->x = std::rand() % 25;
-			this->entity[i]->y = std::rand() % 20;
+		while (this->mapLayerCollision[this->entity[i]->y+1][this->entity[i]->x] != 0 or this->entity[i]->x == this->entity[0]->x and this->entity[i]->y == this->entity[0]->y) {
+			this->entity[i]->x = std::rand() % 30;
+			this->entity[i]->y = std::rand() % 16;
 		}
 	}
 
+	printf("6\n");
 	// Displaying every entity's initiative
 	printf("| ");
 	for (int i = 0; i < this->entities; i++)

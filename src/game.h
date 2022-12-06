@@ -6,7 +6,6 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
-#include <SFML/Window.hpp>
 
 #include <random>
 #include <vector>
@@ -22,7 +21,8 @@ public:
 	void update();
 	void render();
 private:
-	void initWindow();
+	void initWindow(bool _fullscreen);
+	void handleEntityMovement(int& _i);
 	void updateDelta();
 	void pollEvents();
 
@@ -40,7 +40,7 @@ private:
 	Level level;
 
 	float delta, dt;
-	bool gameOver;
+	bool gameOver, fullscreen;
 	int step, entityCounter;
 };
 

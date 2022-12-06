@@ -4,6 +4,7 @@
 //  		Public Functions
 // ==================================
 
+// Constructor
 Enemy::Enemy() {
 	this->team = "Enemy";
 	this->x = 0;
@@ -15,6 +16,7 @@ Enemy::Enemy() {
 //  		Private Functions
 // ===================================
 
+// For Deciding a Move to make (Will add more chess logic at some point, so it's not just random)
 void Enemy::movement(float _dt) {
 	int _rand;
 	if (this->piece == "King")
@@ -33,6 +35,7 @@ void Enemy::movement(float _dt) {
 	this->doStep = true;
 }
 
+// For changing the Enemy's Sprite
 void Enemy::setAnimation(std::string _animation) {
 	if (_animation == "King")
 		this->clipTexture(85, 31, 12, 28, false);

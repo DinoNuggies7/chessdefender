@@ -14,17 +14,18 @@
 class Entity : public Input {
 public:
 	void init(std::string _piece);
-	void update(sf::RenderWindow& _window, float _dt);
+	void update(sf::RenderWindow& _window, float& _dt, std::vector<std::vector<int>>& _mapLayerCollision);
 	void render(sf::RenderWindow& _window);
 
 	bool doStep, turn, inCheck, isSelected;
-	int initiative, dir;
+	int initiative, dir, moves;
 	std::string team, piece;
-	float x, y, vx, vy, offsetX, offsetY, moveset[8][2];
+	float x, y, vx, vy, offsetX, offsetY;
+	std::vector<int> moveset[2];
 protected:
 	void physics(float _dt);
 	virtual void movement(float _dt);
-	virtual void collision(float _dt);
+	void collision(std::vector<std::vector<int>>& _mapLayerCollision);
 
 	void initSprite();
 	virtual void setAnimation(std::string _animation);
@@ -34,7 +35,7 @@ protected:
 	sf::Image image;
 	sf::Texture texture;
 	sf::Sprite sprite;
-	sf::RectangleShape movesetHighlight[8];
+	std::vector<sf::RectangleShape> movesetHighlight;
 };
 
 #endif
