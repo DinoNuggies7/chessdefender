@@ -16,21 +16,17 @@ Enemy::Enemy() {
 //  		Private Functions
 // ===================================
 
-// For Deciding a Move to make (Will add more chess logic at some point, so it's not just random)
+// For Deciding a Move to make
 void Enemy::movement(float _dt) {
-	int _rand;
-	if (this->piece == "King")
-		_rand = std::rand() % 4;
-	else if (this->piece == "Queen")
-		_rand = std::rand() % 8;
-	else if (this->piece == "Bishop")
-		_rand = std::rand() % 4;
-	else if (this->piece == "Knight")
-		_rand = std::rand() % 8;
-	else if (this->piece == "Rook")
-		_rand = std::rand() % 4;
-	else if (this->piece == "Pawn")
-		_rand = 0;
+	int _rand = -1;
+
+	for (int i = 0; i < this->moves; i++) {
+		if (this->canTake[0][i] != 0 and this->canTake[1][i] != 0)
+			_rand = i;
+	}
+	if (_rand == -1)
+		_rand = std::rand() % this->moves;
+
 	this->dir = _rand;
 	this->doStep = true;
 }

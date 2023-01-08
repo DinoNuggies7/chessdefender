@@ -7,5 +7,6 @@ all:
 	ccache g++ -c src/entity.cpp -o build/entity.o
 	ccache g++ -c src/player.cpp -o build/player.o
 	ccache g++ -c src/enemy.cpp -o build/enemy.o
-	ccache g++ build/main.o build/game.o build/level.o build/input.o build/entity.o build/player.o build/enemy.o -lsfml-graphics -lsfml-window -lsfml-system -ltmxlite -ltinyxml2
+	ccache g++ -c src/door.cpp -o build/door.o
+	ccache g++ build/main.o build/game.o build/level.o build/input.o build/entity.o build/player.o build/enemy.o build/door.o -lsfml-graphics -lsfml-window -lsfml-system -ltmxlite -ltinyxml2
 	./a.out

@@ -13,23 +13,25 @@
 
 class Entity : public Input {
 public:
-	void init(std::string _piece);
+	~Entity();
+
+	void init(std::string entity);
 	void update(sf::RenderWindow& _window, float& _dt, std::vector<std::vector<int>>& _mapLayerCollision);
 	void render(sf::RenderWindow& _window);
 
-	bool doStep, turn, inCheck, isSelected;
+	bool doStep, turn, inCheck;
 	int initiative, dir, moves;
 	std::string team, piece;
-	float x, y, vx, vy, offsetX, offsetY;
+	float x, y, offsetX, offsetY;
 	std::vector<int> moveset[2];
+	std::vector<int> canTake[2];
 protected:
 	void physics(float _dt);
 	virtual void movement(float _dt);
 	void collision(std::vector<std::vector<int>>& _mapLayerCollision);
 
-	void initSprite();
+	void initSprite(std::string _file);
 	virtual void setAnimation(std::string _animation);
-	void setMoveset(std::string _piece);
 	void clipTexture(int _x, int _y, int _w, int _h, bool _flip);
 
 	sf::Image image;

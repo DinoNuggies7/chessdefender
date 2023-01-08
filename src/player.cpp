@@ -7,8 +7,8 @@
 // Constructer
 Player::Player() {
 	this->team = "Player";
-	this->x = 5;
-	this->y = 8;
+	this->x = 14;
+	this->y = 7;
 }
 
 // ===================================
@@ -17,63 +17,32 @@ Player::Player() {
 
 // General Input and Deciding which Move to do
 void Player::movement(float _dt) {
-
 	if (this->kMouseLP) {
-		if (this->piece == "King") {
-			for (int i = 0; i < this->moves; i++) {
-				if (int(this->kMouse.x / this->mousePosMod) == this->moveset[0][i] and int(this->kMouse.y / this->mousePosMod) == this->moveset[1][i]) {
-					this->doStep = true;
-					this->dir = i;
-				}
-			}
-		}
-		else if (this->piece == "Queen") {
-
-			}
-		else if (this->piece == "Bishop") {
-				
-		}
-		else if (this->piece == "Knight") {
-			for (int i = 0; i < this->moves; i++) {
-				if (int(this->kMouse.x / this->mousePosMod) == this->moveset[0][i] and int(this->kMouse.y / this->mousePosMod) == this->moveset[1][i]) {
-					this->doStep = true;
-					this->dir = i;
-				}
-			}
-		}
-		else if (this->piece == "Rook") {
-				
-		}
-		else if (this->piece == "Pawn") {
-			if (int(this->kMouse.x / this->mousePosMod) == this->moveset[0][0] and int(this->kMouse.y / this->mousePosMod) == this->moveset[1][0]) {
+		for (int i = 0; i < this->moves; i++) {
+			if (int(this->kMouse.x / this->mousePosMod) == this->moveset[0][i] and int(this->kMouse.y / this->mousePosMod) == this->moveset[1][i]) {
 				this->doStep = true;
-				this->dir = 0;
-			}
-			else if (int(this->kMouse.x / this->mousePosMod) == this->moveset[0][1] and int(this->kMouse.y / this->mousePosMod) == this->moveset[1][1]) {
-				this->doStep = true;
-				this->dir = 1;
-			}
-			else if (int(this->kMouse.x / this->mousePosMod) == this->moveset[0][2] and int(this->kMouse.y / this->mousePosMod) == this->moveset[1][2]) {
-				this->doStep = true;
-				this->dir = 2;
+				this->dir = i;
 			}
 		}
 	}
-	else {
-		this->kUpP = false;
-		this->kDownP = false;
-		this->kLeftP = false;
-		this->kRightP = false;
-	}
-	this->isSelected = false;
-
-	if (this->isSelected) {
-		this->offsetX = this->kMouse.x / 2 - 248;
-		this->offsetY = this->kMouse.y / 2 - 143;
-	}
-	else {
-		this->offsetX = 0;
-		this->offsetY = 0;
+	// so I don't have to click a lot at night, which is really loud
+	if (this->piece == "King") {
+		if (this->kUpP) {
+			this->doStep = true;
+			this->dir = 1;
+		}
+		else if (this->kRightP) {
+			this->doStep = true;
+			this->dir = 3;
+		}
+		else if (this->kDownP) {
+			this->doStep = true;
+			this->dir = 5;
+		}
+		else if (this->kLeftP) {
+			this->doStep = true;
+			this->dir = 7;
+		}
 	}
 }
 

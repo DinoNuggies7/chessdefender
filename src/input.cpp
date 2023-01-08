@@ -1,8 +1,18 @@
 #include "input.h"
 
-// =====================
-//  Protected Functions
-// =====================
+// ==================================
+//  		Public Functions
+// ==================================
+
+Input::Input() {
+	if (!Global::START_FULLSCREEN)
+		this->fullscreen = Global::WIN_SCALE;
+}
+
+
+// =====================================
+//  		Protected Functions
+// =====================================
 
 // For getting Mouse and Keyboard Input
 void Input::input(sf::RenderWindow& _window) {
@@ -32,7 +42,7 @@ void Input::input(sf::RenderWindow& _window) {
 		this->kMouseR = false;
 
 	this->kMouse = sf::Mouse::getPosition(_window);
-/*
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) and !this->kUp)
 		this->kUpP = true;
 	else
@@ -48,27 +58,22 @@ void Input::input(sf::RenderWindow& _window) {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) and !this->kRight)
 		this->kRightP = true;
 	else
-		this->kRightP = false;*/
+		this->kRightP = false;
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) or this->kUpP)
 		this->kUp = true;
 	else
 		this->kUp = false;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) or this->kDownP)
 		this->kDown = true;
 	else
 		this->kDown = false;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) or this->kRightP)
 		this->kLeft = true;
 	else
 		this->kLeft = false;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) or this->kLeftP)
 		this->kRight = true;
 	else
 		this->kRight = false;
-
-	if (this->kUp or this->kDown or this->kLeft or this->kRight)
-		this->kInput = true;
-	else
-		this->kInput = false;
 }

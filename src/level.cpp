@@ -4,19 +4,150 @@
 //  		Public Functions
 // ==================================
 
-void Level::init(int _levelID) {
-	// Spawning entities
-	switch (_levelID) {
-		case 0:
-			this->entity.push_back(new Player);
-			int _rand = std::rand() % 4 + 1;
-			for (int i = 0; i < _rand; i++) {
-				this->entity.push_back(new Enemy);
+void Level::init(int _levelID, int _door0, int _door1, int _door2, int _door3) {
+	// Spawns enemies depending on how deep you are in the dungeon
+	if (_levelID == 0) {
+		for (static bool _first = true; _first; _first = false)
+			this->entity.push_back(new Player());
+	}
+	else {/*
+		if (this->room[_levelID][0] == 0) {
+			for (int i = 0; i < _levelID; i++) {
+				this->entity.push_back(new Enemy());
+				printf("Enemy created\n");
 			}
+		}*/
+		if (_levelID == 1)
+			this->entity.push_back(new Enemy());
+	}
+
+	// Initializes Collision
+	this->initCollision();
+
+	// Initialize Doors
+	this->initDoors(_door0, _door1, _door2, _door3);
+
+	// Initialize Enitities
+	this->initEntities();
+}
+
+void Level::render(sf::RenderWindow& _window, int _layer) {
+	if (!_layer) {
+		_window.draw(this->mapLayerFloor);
+		_window.draw(this->mapLayerWalls1);
+		_window.draw(this->mapLayerWalls2);
+	}
+	else {
+		_window.draw(this->mapLayerCeiling);
+	}
+}
+
+void Level::initDoors(int _door0, int _door1, int _door2, int _door3) {
+	printf("initDoors\n");
+	// Removes previous doors and clear collision layer of door locations BACKWORDS
+	for (int i = this->entity.size()-1; i > 0; i--) {
+		if (this->entity[i]->piece == "DoorTop") {
+			this->entity.erase(this->entity.begin()+i);
+			printf("Deleted Door on Top, ID: %d\n", i);
+		}
+		else if (this->entity[i]->piece == "DoorRight") {
+			this->entity.erase(this->entity.begin()+i);
+			printf("Deleted Door on Right, ID: %d\n", i);
+		}
+		else if (this->entity[i]->piece == "DoorBottom") {
+			this->entity.erase(this->entity.begin()+i);
+			printf("Deleted Door on Bottom, ID: %d\n", i);
+		}
+		else if (this->entity[i]->piece == "DoorLeft") {
+			this->entity.erase(this->entity.begin()+i);
+			printf("Deleted Door on Left, ID: %d\n", i);
+		}
+	}
+	this->mapLayerCollision[0+1][14] = 0;
+	this->mapLayerCollision[0+1][15] = 0;
+	this->mapLayerCollision[7+1][29] = 0;
+	this->mapLayerCollision[8+1][29] = 0;
+	this->mapLayerCollision[15+1][14] = 0;
+	this->mapLayerCollision[15+1][15] = 0;
+	this->mapLayerCollision[8+1][0] = 0;
+	this->mapLayerCollision[7+1][0] = 0;
+
+	// Spawns doors and adds the two segments of the doors to the collision layer
+	if (_door0 == -1) {
+		this->entity.push_back(new Door(0));
+		this->mapLayerCollision[0+1][14] = 1;
+		this->mapLayerCollision[0+1][15] = 1;
+		printf("one\n");
+	}
+	if (_door1 == -1) {
+		this->entity.push_back(new Door(1));
+		this->mapLayerCollision[7+1][29] = 1;
+		this->mapLayerCollision[8+1][29] = 1;
+		printf("two\n");
+	}
+	if (_door2 == -1) {
+		this->entity.push_back(new Door(2));
+		this->mapLayerCollision[15+1][14] = 1;
+		this->mapLayerCollision[15+1][15] = 1;
+		printf("three\n");
+	}
+	if (_door3 == -1) {
+		this->entity.push_back(new Door(3));
+		this->mapLayerCollision[8+1][0] = 1;
+		this->mapLayerCollision[7+1][0] = 1;
+		printf("four\n");
+	}
+}
+
+void Level::randomizeRoomGen(int& _warp0, int& _warp1, int& _warp2) {
+	int _rand = std::rand() & 6;
+	switch (_rand) {
+		case 0:
+			_warp0 = this->currentRoom + 1;
+			_warp1 = this->currentRoom + 2;
+			_warp2 = this->currentRoom + 3;
+			break;
+		case 1:
+			_warp0 = this->currentRoom + 1;
+			_warp1 = this->currentRoom + 3;
+			_warp2 = this->currentRoom + 2;
+			break;
+		case 2:
+			_warp0 = this->currentRoom + 2;
+			_warp1 = this->currentRoom + 1;
+			_warp2 = this->currentRoom + 3;
+			break;
+		case 3:
+			_warp0 = this->currentRoom + 2;
+			_warp1 = this->currentRoom + 3;
+			_warp2 = this->currentRoom + 1;
+			break;
+		case 4:
+			_warp0 = this->currentRoom + 3;
+			_warp1 = this->currentRoom + 1;
+			_warp2 = this->currentRoom + 2;
+			break;
+		case 5:
+			_warp0 = this->currentRoom + 3;
+			_warp1 = this->currentRoom + 2;
+			_warp2 = this->currentRoom + 1;
 			break;
 	}
-	this->entities = this->entity.size();
+}
 
+void Level::generateRoom(int _warp0, int _warp1, int _warp2, int _warp3, int _clear) {
+	this->room[0].push_back(_clear);
+	this->room[1].push_back(_warp0);
+	this->room[2].push_back(_warp1);
+	this->room[3].push_back(_warp2);
+	this->room[4].push_back(_warp3);
+}
+
+// ===================================
+//  		Private Functions
+// ===================================
+
+void Level::initCollision() {
 	// Setting up the map
 	this->map.load("assets/level.tmx");
 	this->mapLayerFloor.init(this->map, 0);
@@ -48,9 +179,8 @@ void Level::init(int _levelID) {
 		if(gid_list[i] == ',') {
 			value.str("");
 			int j = 1;
-			while (gid_list[i-j] != ',' and i - j > 0) {
+			while (gid_list[i-j] != ',' and i - j > 0)
 				j++;
-			}
 			j--;
 			value.str("");
 			while (j > 0) {
@@ -60,14 +190,12 @@ void Level::init(int _levelID) {
 			}
 			this->mapLayerCollision[row].push_back(std::stoi(value.str()));
 			value.str("");
-		}
-		
+		}	
 		else if(gid_list[i] == '\n') {
 			value.str("");
 			int j = 1;
-			while (gid_list[i-j] != ',') {
+			while (gid_list[i-j] != ',')
 				j++;
-			}
 			j--;
 			value.str("");
 			while (j > 0) {
@@ -78,80 +206,82 @@ void Level::init(int _levelID) {
 			row++;
 		}
 	}
-
-	// Initializing enitities
-	this->initEntities();
 }
-
-void Level::render(sf::RenderWindow& _window, int _layer) {
-	if (!_layer) {
-		_window.draw(this->mapLayerFloor);
-		_window.draw(this->mapLayerWalls1);
-		_window.draw(this->mapLayerWalls2);
-	}
-	else {
-		_window.draw(this->mapLayerCeiling);
-	}
-}
-
-// ===================================
-//  		Private Functions
-// ===================================
 
 void Level::initEntities() {
+	// Updates the amount of entities in the room
+	this->entities = this->entity.size();
+
+	// Updates Level::playerID
+	for (int i = 0; i < this->entities; i++) {
+		if (this->entity[i]->team == "Player")
+			this->playerID = i;
+	}
+
 	// Initializing every entity
 	for (int i = 0; i < this->entities; i++) {
-		if (i == 0)
-			this->entity[i]->init("King"); // The piece that the Player spawns with
+		if (this->entity[i]->team != "Object") {
+			if (i == this->playerID) {
+				for (static bool _first0 = true; _first0; _first0 = false)
+					this->entity[i]->init("King"); // The piece that the Player spawns with
+			}
+			else if (i != this->playerID) {
+				int _rand = 5;//std::rand() % 6;
+				if (_rand == 0)
+					this->entity[i]->init("King");
+				else if (_rand == 1)
+					this->entity[i]->init("Queen");
+				else if (_rand == 2)
+					this->entity[i]->init("Bishop");
+				else if (_rand == 3)
+					this->entity[i]->init("Knight");
+				else if (_rand == 4)
+					this->entity[i]->init("Rook");
+				else if (_rand == 5)
+					this->entity[i]->init("Pawn");
+			}
+		}
 		else {
-			int _rand = 5;//std::rand() % 6;
-			if (_rand == 0)
-				this->entity[i]->init("King");
-			else if (_rand == 1)
-				this->entity[i]->init("Queen");
-			else if (_rand == 2)
-				this->entity[i]->init("Bishop");
-			else if (_rand == 3)
-				this->entity[i]->init("Knight");
-			else if (_rand == 4)
-				this->entity[i]->init("Rook");
-			else if (_rand == 5)
-				this->entity[i]->init("Pawn");
+			this->entity[i]->init("Door");
 		}
 	}
 
 	// Giving every entity a unique initiative
 	std::vector<int> _illigalInit;
 	for (int i = 0; i < this->entities; i++) {
-	
-		int _rand = std::rand() % 15 + 1;
-		bool _loop = true;
-		while (_loop) {
-		
-			_loop = false;
-			for (int j = 0; j < _illigalInit.size(); j++) {
-				if (_rand == _illigalInit[j]) {
-					_loop = true;
-					_rand = std::rand() % 15 + 1;
+		if (this->entity[i]->team != "Object") {
+			int _rand = std::rand() % 19 + 1;
+			bool _loop = true;
+			while (_loop) {
+			
+				_loop = false;
+				for (int j = 0; j < _illigalInit.size(); j++) {
+					if (_rand == _illigalInit[j]) {
+						_loop = true;
+						_rand = std::rand() % 19 + 1;
+					}
 				}
 			}
+			this->entity[i]->initiative = _rand;
+			_illigalInit.push_back(_rand);
 		}
-	
-		this->entity[i]->initiative = _rand;
-		_illigalInit.push_back(_rand);
 	}
 
-	// Giving all entities a random location
+	// Giving all enemies a random location
 	for (int i = 1; i < this->entities; i++) {
-		while (this->mapLayerCollision[this->entity[i]->y+1][this->entity[i]->x] != 0 or this->entity[i]->x == this->entity[0]->x and this->entity[i]->y == this->entity[0]->y) {
-			this->entity[i]->x = std::rand() % 30;
-			this->entity[i]->y = std::rand() % 16;
+		if (this->entity[i]->team != "Object") {
+			while (this->mapLayerCollision[this->entity[i]->y+1][this->entity[i]->x] != 0 or this->entity[i]->x == this->entity[0]->x and this->entity[i]->y == this->entity[0]->y) {
+				this->entity[i]->x = std::rand() % 27 + 1;
+				this->entity[i]->y = std::rand() % 13 + 1;
+			}
 		}
 	}
 
 	// Displaying every entity's initiative
 	printf("| ");
-	for (int i = 0; i < this->entities; i++)
-		printf("%d | ", this->entity[i]->initiative);
+	for (int i = 0; i < this->entities; i++) {
+		if (this->entity[i]->team != "Object")
+			printf("%d | ", this->entity[i]->initiative);
+	}
 	printf("\n");
 }

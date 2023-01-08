@@ -1,28 +1,30 @@
-		#=================================#
-		|  _______          _____         |
-		| |__   __|        |  __ \        |
-		|    | | ___ ______| |  | | ___   |
-		|    | |/ _ \______| |  | |/ _ \  |
-		|    | | (_) |     | |__| | (_) | |
-		|    |_|\___/      |_____/ \___/  |
-		#=================================#
-			-- (Done!) Add Player Class (Player1 basically)
+	#=================================#
+	|  _______          _____         |
+	| |__   __|        |  __ \        |
+	|    | | ___ ______| |  | | ___   |
+	|    | |/ _ \______| |  | |/ _ \  |
+	|    | | (_) |     | |__| | (_) | |
+	|    |_|\___/      |_____/ \___/  |
+	#=================================#
+
+				==== Finished ====
+			-- (Done!) Add Player Class (Player 1 basically)
 			-- (Done!) Add dummy Enemy Class (for testing collision and such)
 			-- (Done!) Add Basic Collision for Entities ('capturing' pieces and such)
 			-- (Done!) Add Map Support and Level Class
-				-- (Done!) Drawing Maps
-				-- (Done!) Camera that Follows the Player (I have no idea how this would work with multiplayer x_x)
-				-- (Done!) Collision for Map Elements
-				-- (Done!) Wrapped in a Level Class
 			-- (Done!) Draw Entities with Higher Y Values on Top of Entities with Lower Y Values
+			-- (Done!) Add Mouse Controls
 
-			-- (Working...) Add Mouse Controls
+				==== Currently Working ====
 			-- (Working...) Add More Playable Pieces
+			-- (Working...) Refactoring Entity Managment
+			-- (Working...) Add Enemy AI (probably just gonna look some up online :P)
 
+				==== To-Do ====
 			-- Add Randomly Generated Maps (Randomly sized rooms strung together Zelda 1 style)
-			-- Add Enemy AI (probably just gonna look some up online :P)
-			-- Add Multiplayer (Player2 Class, Player3 Class, etc.)
 			-- Add Some Equipable Weapons >:)
+			-- Add Multiplayer (idk man, this seems to be the most difficult step)
 			
+				==== Polish ====
 			-- Add Menu with Background Music
 			-- Add Ambient Sounds for Gameplay
