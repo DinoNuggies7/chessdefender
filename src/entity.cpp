@@ -70,9 +70,9 @@ void Entity::render(sf::RenderWindow& _window) {
 	if (this->team == "Player") {
 		this->movesetHighlight.clear();
 		for (int i = 0; i < this->moves; i++) {
-			this->movesetHighlight.push_back(sf::RectangleShape(sf::Vector2f(13, 13)));
+			this->movesetHighlight.push_back(sf::RectangleShape(sf::Vector2f(16, 16)));
 			this->movesetHighlight[i].setFillColor(sf::Color(25, 255, 25, 25));
-			this->movesetHighlight[i].setPosition(this->moveset[0][i] * 16 + 1, this->moveset[1][i] * 16 + 1);
+			this->movesetHighlight[i].setPosition(this->moveset[0][i] * 16, this->moveset[1][i] * 16);
 			_window.draw(this->movesetHighlight[i]);
 		}
 	}
