@@ -7,18 +7,15 @@
 void Level::init(int _levelID, int _door0, int _door1, int _door2, int _door3) {
 	// Spawns enemies depending on how deep you are in the dungeon
 	if (_levelID == 0) {
-		for (static bool _first = true; _first; _first = false)
-			this->entity.push_back(new Player());
+		this->entity.push_back(new Player());
 	}
-	else {/*
-		if (this->room[_levelID][0] == 0) {
+	else {
+		if (this->room[0][_levelID] == 0) {
 			for (int i = 0; i < _levelID; i++) {
 				this->entity.push_back(new Enemy());
 				printf("Enemy created\n");
 			}
-		}*/
-		if (_levelID == 1)
-			this->entity.push_back(new Enemy());
+		}
 	}
 
 	// Initializes Collision
@@ -43,24 +40,10 @@ void Level::render(sf::RenderWindow& _window, int _layer) {
 }
 
 void Level::initDoors(int _door0, int _door1, int _door2, int _door3) {
-	printf("initDoors\n");
 	// Removes previous doors and clear collision layer of door locations BACKWORDS
 	for (int i = this->entity.size()-1; i > 0; i--) {
-		if (this->entity[i]->piece == "DoorTop") {
+		if (this->entity[i]->team == "Object") {
 			this->entity.erase(this->entity.begin()+i);
-			printf("Deleted Door on Top, ID: %d\n", i);
-		}
-		else if (this->entity[i]->piece == "DoorRight") {
-			this->entity.erase(this->entity.begin()+i);
-			printf("Deleted Door on Right, ID: %d\n", i);
-		}
-		else if (this->entity[i]->piece == "DoorBottom") {
-			this->entity.erase(this->entity.begin()+i);
-			printf("Deleted Door on Bottom, ID: %d\n", i);
-		}
-		else if (this->entity[i]->piece == "DoorLeft") {
-			this->entity.erase(this->entity.begin()+i);
-			printf("Deleted Door on Left, ID: %d\n", i);
 		}
 	}
 	this->mapLayerCollision[0+1][14] = 0;
@@ -96,6 +79,14 @@ void Level::initDoors(int _door0, int _door1, int _door2, int _door3) {
 		this->mapLayerCollision[8+1][0] = 1;
 		this->mapLayerCollision[7+1][0] = 1;
 		printf("four\n");
+	}
+
+	// Update `Level::playerID` with the index of the player entity
+	this->playerID = -1;
+	for (int i = 0; i < this->entities; i++) {
+		if (this->entity[i]->team == "Player") {
+			this->playerID = i;
+		}
 	}
 }
 
@@ -221,12 +212,12 @@ void Level::initEntities() {
 	// Initializing every entity
 	for (int i = 0; i < this->entities; i++) {
 		if (this->entity[i]->team != "Object") {
-			if (i == this->playerID) {
+			if (this->entity[i]->team == "Player") {
 				for (static bool _first0 = true; _first0; _first0 = false)
 					this->entity[i]->init("King"); // The piece that the Player spawns with
 			}
-			else if (i != this->playerID) {
-				int _rand = 5;//std::rand() % 6;
+			else if (this->entity[i]->team == "Enemy") {
+				int _rand = 4;//std::rand() % 6;
 				if (_rand == 0)
 					this->entity[i]->init("King");
 				else if (_rand == 1)

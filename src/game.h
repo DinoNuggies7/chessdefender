@@ -22,11 +22,12 @@ public:
 	void render();
 private:
 	void initWindow(bool _fullscreen);
+	void handleLevel();
 	void handleEntityMovement(int& _i);
 	void updateDelta();
 	void pollEvents();
 
-	void print(std::string _string, int _x = 0, int _y = 0, int _size = 24, sf::Color _color = sf::Color::Black);
+	void print(std::string _string, int _x = 0, int _y = 0, int _size = 24, int _shadowOffset = 2, sf::Color _color = sf::Color::Black);
 	
 	std::vector<sf::Text> textLayer;
 

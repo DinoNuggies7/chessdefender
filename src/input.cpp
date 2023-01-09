@@ -68,11 +68,11 @@ void Input::input(sf::RenderWindow& _window) {
 		this->kDown = true;
 	else
 		this->kDown = false;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) or this->kRightP)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) or this->kLeftP)
 		this->kLeft = true;
 	else
 		this->kLeft = false;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) or this->kLeftP)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) or this->kRightP)
 		this->kRight = true;
 	else
 		this->kRight = false;

@@ -27,19 +27,19 @@ void Player::movement(float _dt) {
 	}
 	// so I don't have to click a lot at night, which is really loud
 	if (this->piece == "King") {
-		if (this->kUpP) {
+		if (this->kUp) {
 			this->doStep = true;
 			this->dir = 1;
 		}
-		else if (this->kRightP) {
+		else if (this->kRight) {
 			this->doStep = true;
 			this->dir = 3;
 		}
-		else if (this->kDownP) {
+		else if (this->kDown) {
 			this->doStep = true;
 			this->dir = 5;
 		}
-		else if (this->kLeftP) {
+		else if (this->kLeft) {
 			this->doStep = true;
 			this->dir = 7;
 		}

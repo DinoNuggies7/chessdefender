@@ -18,16 +18,22 @@ Enemy::Enemy() {
 
 // For Deciding a Move to make
 void Enemy::movement(float _dt) {
-	int _rand = -1;
+	int _dir = -1;
+	this->dirLengthX = 1;
+	this->dirLengthY = 1;
 
 	for (int i = 0; i < this->moves; i++) {
-		if (this->canTake[0][i] != 0 and this->canTake[1][i] != 0)
-			_rand = i;
+		if (this->canTake[0][i] != 0 and this->canTake[1][i] != 0) {
+			_dir = i;
+			this->dirLengthX = this->x - this->canTake[0][i];
+			this->dirLengthY = this->y - this->canTake[1][i];
+		}
 	}
-	if (_rand == -1)
-		_rand = std::rand() % this->moves;
 
-	this->dir = _rand;
+	if (_dir == -1)
+		_dir = std::rand() % this->moves;
+
+	this->dir = _dir;
 	this->doStep = true;
 }
 

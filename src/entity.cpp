@@ -61,13 +61,18 @@ void Entity::update(sf::RenderWindow& _window, float& _dt, std::vector<std::vect
 
 // Drawing the Entity's Sprite to the Window
 void Entity::render(sf::RenderWindow& _window) {
+	// Setting the Sprite
+	if (this->team != "Object")
+		this->sprite.setPosition(this->x * 16 + 2 + this->offsetX, this->y * 16 - 13 + this->offsetY);
+	else
+		this->sprite.setPosition(this->x * 16, this->y * 16);
 	// Rendering Highlights for Possible Moves
 	if (this->team == "Player") {
 		this->movesetHighlight.clear();
 		for (int i = 0; i < this->moves; i++) {
-			this->movesetHighlight.push_back(sf::RectangleShape(sf::Vector2f(16, 16)));
+			this->movesetHighlight.push_back(sf::RectangleShape(sf::Vector2f(13, 13)));
 			this->movesetHighlight[i].setFillColor(sf::Color(25, 255, 25, 25));
-			this->movesetHighlight[i].setPosition(this->moveset[0][i] * 16, this->moveset[1][i] * 16);
+			this->movesetHighlight[i].setPosition(this->moveset[0][i] * 16 + 1, this->moveset[1][i] * 16 + 1);
 			_window.draw(this->movesetHighlight[i]);
 		}
 	}
@@ -82,11 +87,6 @@ void Entity::render(sf::RenderWindow& _window) {
 
 // General Physics
 void Entity::physics(float _dt) {
-	if (this->team != "Object")
-		this->sprite.setPosition(this->x * 16 + 2 + this->offsetX, this->y * 16 - 13 + this->offsetY);
-	else
-		this->sprite.setPosition(this->x * 16, this->y * 16);
-
 	if (this->turn)
 		this->movement(_dt);
 }
@@ -267,7 +267,46 @@ void Entity::collision(std::vector<std::vector<int>>& _mapLayerCollision) {
 		}
 	}
 	else if (this->piece == "Rook") {
-		
+		if (this->y - 1 > -1 and this->x > -1 and _mapLayerCollision[int(this->y)-1+1][int(this->x)] == 0) { // Up
+			this->moveset[0].push_back(int(this->x));
+			this->moveset[1].push_back(int(this->y)-1);
+			this->moves++;
+		}
+		else {
+			this->moveset[0].push_back(-1);
+			this->moveset[1].push_back(-1);
+			this->moves++;
+		}
+		if (this->y > -1 and this->x + 1 > -1 and _mapLayerCollision[int(this->y)+1][int(this->x)+1] == 0) { // Right
+			this->moveset[0].push_back(int(this->x)+1);
+			this->moveset[1].push_back(int(this->y));
+			this->moves++;
+		}
+		else {
+			this->moveset[0].push_back(-1);
+			this->moveset[1].push_back(-1);
+			this->moves++;
+		}
+		if (this->y + 1 > -1 and this->x > -1 and this->y + 1 < 16 and  _mapLayerCollision[int(this->y)+1+1][int(this->x)] == 0) { // Down
+			this->moveset[0].push_back(int(this->x));
+			this->moveset[1].push_back(int(this->y)+1);
+			this->moves++;
+		}
+		else {
+			this->moveset[0].push_back(-1);
+			this->moveset[1].push_back(-1);
+			this->moves++;
+		}
+		if (this->y > -1 and this->x - 1 > -1 and _mapLayerCollision[int(this->y)+1][int(this->x)-1] == 0) { // Left
+			this->moveset[0].push_back(int(this->x)-1);
+			this->moveset[1].push_back(int(this->y));
+			this->moves++;
+		}
+		else {
+			this->moveset[0].push_back(-1);
+			this->moveset[1].push_back(-1);
+			this->moves++;
+		}
 	}
 	else if (this->piece == "Pawn") {
 		if (_mapLayerCollision[int(this->y)-1+1][int(this->x)-1] == 0 and this->y - 1 > -1 and this->x - 1 > -1) { // Up Left

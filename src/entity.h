@@ -20,7 +20,7 @@ public:
 	void render(sf::RenderWindow& _window);
 
 	bool doStep, turn, inCheck;
-	int initiative, dir, moves;
+	int initiative, dir, dirLengthX, dirLengthY, moves;
 	std::string team, piece;
 	float x, y, offsetX, offsetY;
 	std::vector<int> moveset[2];
