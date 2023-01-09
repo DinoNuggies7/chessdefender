@@ -219,7 +219,7 @@ void Game::handleLevel() {
 
 void Game::handleEntityMovement(int& _i) {
 	int _offsetOffset = this->videoMode.width / Global::WIDTH;
-	float _moveSpeed = 0.03 * _offsetOffset;
+	float _moveSpeed = 0.04 * _offsetOffset;
 
 	// The King piece's moves
 	if (this->level.entity[_i]->piece == "King") {
