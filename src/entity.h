@@ -16,7 +16,7 @@ public:
 	~Entity();
 
 	void init(std::string entity);
-	void update(sf::RenderWindow& _window, float& _dt, std::vector<std::vector<int>>& _mapLayerCollision);
+	void update(sf::RenderWindow& _window, bool& _focused, float& _dt, std::vector<std::vector<int>>& _mapLayerCollision);
 	void render(sf::RenderWindow& _window);
 
 	bool doStep, turn, inCheck;

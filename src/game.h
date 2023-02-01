@@ -41,7 +41,7 @@ private:
 	Level level;
 
 	float delta, dt;
-	bool gameOver, fullscreen;
+	bool gameOver, fullscreen, focused;
 	int step, entityCounter;
 };
 

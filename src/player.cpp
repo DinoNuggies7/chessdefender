@@ -9,6 +9,7 @@ Player::Player() {
 	this->team = "Player";
 	this->x = 14;
 	this->y = 7;
+	this->dir = -1;
 }
 
 // ===================================
@@ -17,7 +18,7 @@ Player::Player() {
 
 // General Input and Deciding which Move to do
 void Player::movement(float _dt) {
-	if (this->kMouseLP) {
+	if (this->kMouseL) {
 		for (int i = 0; i < this->moves; i++) {
 			if (int(this->kMouse.x / this->mousePosMod) == this->moveset[0][i] and int(this->kMouse.y / this->mousePosMod) == this->moveset[1][i]) {
 				this->doStep = true;

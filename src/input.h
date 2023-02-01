@@ -11,7 +11,7 @@ public:
 
 	float fullscreen;
 protected:
-	void input(sf::RenderWindow& _window);
+	void input(sf::RenderWindow& _window, bool& _focused);
 
 	bool kUp, kDown, kLeft, kRight, kUpP, kDownP, kLeftP, kRightP, kA, kB, kMouseL, kMouseR, kMouseLP, kMouseRP;
 	float mousePosMod;

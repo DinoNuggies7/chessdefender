@@ -19,7 +19,7 @@ public:
 	void randomizeRoomGen(int& _warp0, int& _warp1, int& _warp2);
 	void generateRoom(int _warp0, int _warp1, int _warp2, int _warp3, int _clear);
 
-	int entities, playerID, currentRoom;
+	int playerID, currentRoom;
 	std::vector<Entity*> entity;
 	std::vector<int> room[5];
 	std::vector<std::vector<int>> mapLayerCollision;
