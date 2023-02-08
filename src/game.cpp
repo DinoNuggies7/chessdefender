@@ -219,6 +219,7 @@ void Game::handleEntityMovement(int& _i) {
 	int _offsetOffset = this->videoMode.width / Global::WIDTH;
 	float _moveSpeed = 2 * _offsetOffset;
 
+	// Deleting an Entity if it gets out of bounds (shouldn't be happening but it is anyways)
 	if (this->level.entity[_i]->x < 0 and this->level.entity[_i]->y < 0 or this->level.entity[_i]->x > 29 and this->level.entity[_i]->y > 15)
 		this->level.entity.erase(this->level.entity.begin()+_i);
 
