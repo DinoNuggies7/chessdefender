@@ -14,9 +14,9 @@
 			-- (Done!) Add Map Support and Level Class
 			-- (Done!) Draw Entities with Higher Y Values on Top of Entities with Lower Y Values
 			-- (Done!) Add Mouse Controls
-			-- (Done!) Refactoring Entity Managment
 
 				==== Currently Working ====
+			-- (Working...) Refactoring Entity Managment
 			-- (Working...) Add More Playable Pieces
 			-- (Working...) Add Enemy AI (probably just gonna look some up online :P)
 

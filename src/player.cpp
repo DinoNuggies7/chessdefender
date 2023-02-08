@@ -26,25 +26,6 @@ void Player::movement(float _dt) {
 			}
 		}
 	}
-	// so I don't have to click a lot at night, which is really loud
-	if (this->piece == "King") {
-		if (this->kUp) {
-			this->doStep = true;
-			this->dir = 1;
-		}
-		else if (this->kRight) {
-			this->doStep = true;
-			this->dir = 3;
-		}
-		else if (this->kDown) {
-			this->doStep = true;
-			this->dir = 5;
-		}
-		else if (this->kLeft) {
-			this->doStep = true;
-			this->dir = 7;
-		}
-	}
 }
 
 // For Changing the Player's Sprite

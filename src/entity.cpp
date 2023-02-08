@@ -6,7 +6,13 @@
 
 // Deconstructor
 Entity::~Entity() {
-	
+	this->x = -1;
+	this->y = -1;
+	this->dir = -1;
+	this->turn = false;
+	this->offsetX = 0;
+	this->offsetY = 0;
+	this->piece = "";
 }
 
 // Standard Initializations
@@ -75,7 +81,7 @@ void Entity::render(sf::RenderWindow& _window) {
 			this->movesetHighlight[i].setPosition(this->moveset[0][i] * 16, this->moveset[1][i] * 16);
 			int _x = this->movesetHighlight[i].getPosition().x / 16;
 			int _y = this->movesetHighlight[i].getPosition().y / 16;
-			if (_x > 0 and _y > 0 and _x < 30 and _y < 16)
+			if (_x > -1 and _y > 0 and _x < 30 and _y < 16)
 				_window.draw(this->movesetHighlight[i]);
 		}
 	}
@@ -100,7 +106,7 @@ void Entity::collision(std::vector<std::vector<int>>& _mapLayerCollision) {
 	this->moveset[1].clear();
 	this->moves = 0;
 	if (this->piece == "King") {
-		if (this->y - 1 > 0 and this->x - 1 > 0 and _mapLayerCollision[int(this->y)-1+1][int(this->x)-1] == 0) { // Up Left
+		if (this->y - 1 > -1 and this->x - 1 > -1 and _mapLayerCollision[int(this->y)-1+1][int(this->x)-1] == 0) { // Up Left
 			this->moveset[0].push_back(int(this->x)-1);
 			this->moveset[1].push_back(int(this->y)-1);
 			this->moves++;
@@ -110,7 +116,7 @@ void Entity::collision(std::vector<std::vector<int>>& _mapLayerCollision) {
 			this->moveset[1].push_back(-1);
 			this->moves++;
 		}
-		if (this->y - 1 > 0 and this->x > 0 and _mapLayerCollision[int(this->y)-1+1][int(this->x)] == 0) { // Up
+		if (this->y - 1 > -1 and _mapLayerCollision[int(this->y)-1+1][int(this->x)] == 0) { // Up
 			this->moveset[0].push_back(int(this->x));
 			this->moveset[1].push_back(int(this->y)-1);
 			this->moves++;
@@ -120,7 +126,7 @@ void Entity::collision(std::vector<std::vector<int>>& _mapLayerCollision) {
 			this->moveset[1].push_back(-1);
 			this->moves++;
 		}
-		if (this->y - 1 > 0 and this->x + 1 > 0 and _mapLayerCollision[int(this->y)-1+1][int(this->x)+1] == 0) { // Up Right
+		if (this->y - 1 > -1 and this->x + 1 > -1 and _mapLayerCollision[int(this->y)-1+1][int(this->x)+1] == 0) { // Up Right
 			this->moveset[0].push_back(int(this->x)+1);
 			this->moveset[1].push_back(int(this->y)-1);
 			this->moves++;
@@ -130,7 +136,7 @@ void Entity::collision(std::vector<std::vector<int>>& _mapLayerCollision) {
 			this->moveset[1].push_back(-1);
 			this->moves++;
 		}
-		if (this->y > 0 and this->x + 1 > 0 and _mapLayerCollision[int(this->y)+1][int(this->x)+1] == 0) { // Right
+		if (this->x + 1 > -1 and _mapLayerCollision[int(this->y)+1][int(this->x)+1] == 0) { // Right
 			this->moveset[0].push_back(int(this->x)+1);
 			this->moveset[1].push_back(int(this->y));
 			this->moves++;
@@ -140,7 +146,7 @@ void Entity::collision(std::vector<std::vector<int>>& _mapLayerCollision) {
 			this->moveset[1].push_back(-1);
 			this->moves++;
 		}
-		if (this->y + 1 > 0 and this->x + 1 > 0 and this->y + 1 < 16 and _mapLayerCollision[int(this->y)+1+1][int(this->x)+1] == 0) { // Down Right
+		if (this->y + 1 < 16 and this->x + 1 < 30 and _mapLayerCollision[int(this->y)+1+1][int(this->x)+1] == 0) { // Down Right
 			this->moveset[0].push_back(int(this->x)+1);
 			this->moveset[1].push_back(int(this->y)+1);
 			this->moves++;
@@ -150,7 +156,7 @@ void Entity::collision(std::vector<std::vector<int>>& _mapLayerCollision) {
 			this->moveset[1].push_back(-1);
 			this->moves++;
 		}
-		if (this->y + 1 > 0 and this->x > 0 and this->y + 1 < 15 and  _mapLayerCollision[int(this->y)+1+1][int(this->x)] == 0) { // Down
+		if (this->y + 1 < 16 and _mapLayerCollision[int(this->y)+1+1][int(this->x)] == 0) { // Down
 			this->moveset[0].push_back(int(this->x));
 			this->moveset[1].push_back(int(this->y)+1);
 			this->moves++;
@@ -160,7 +166,7 @@ void Entity::collision(std::vector<std::vector<int>>& _mapLayerCollision) {
 			this->moveset[1].push_back(-1);
 			this->moves++;
 		}
-		if (this->y + 1 > 0 and this->x - 1 > 0 and this->y + 1 < 15 and  _mapLayerCollision[int(this->y)+1+1][int(this->x)-1] == 0) { // Down Left
+		if (this->y + 1 < 16 and this->x - 1 > -1 and _mapLayerCollision[int(this->y)+1+1][int(this->x)-1] == 0) { // Down Left
 			this->moveset[0].push_back(int(this->x)-1);
 			this->moveset[1].push_back(int(this->y)+1);
 			this->moves++;
@@ -170,7 +176,7 @@ void Entity::collision(std::vector<std::vector<int>>& _mapLayerCollision) {
 			this->moveset[1].push_back(-1);
 			this->moves++;
 		}
-		if (this->y > 0 and this->x - 1 > 0 and _mapLayerCollision[int(this->y)+1][int(this->x)-1] == 0) { // Left
+		if (this->x - 1 > -1 and _mapLayerCollision[int(this->y)+1][int(this->x)-1] == 0) { // Left
 			this->moveset[0].push_back(int(this->x)-1);
 			this->moveset[1].push_back(int(this->y));
 			this->moves++;
@@ -185,7 +191,130 @@ void Entity::collision(std::vector<std::vector<int>>& _mapLayerCollision) {
 
 	}
 	else if (this->piece == "Bishop") {
-		
+		for (int i = 1; true; i++) {
+			if (this->y - i > 0 and this->x - i > -1 and _mapLayerCollision[int(this->y)-i+1][int(this->x)-i] == 0) { // Up left
+				bool _stop = false;
+				for (int j = 0; j < this->canTake[0].size(); j++) {
+					if (this->canTake[0][j] == this->x-i and this->canTake[1][j] == this->y-i) {
+						this->moveset[0].push_back(int(this->x)-i);
+						this->moveset[1].push_back(int(this->y)-i);
+						this->moves++;
+						_stop = true;
+						break;
+					}
+				}
+				if (!_stop) {
+					this->moveset[0].push_back(int(this->x)-i);
+					this->moveset[1].push_back(int(this->y)-i);
+					this->moves++;
+				}
+				else {
+					this->moveset[0].push_back(-1);
+					this->moveset[1].push_back(-1);
+					this->moves++;
+					break;
+				}
+			}
+			else {
+				this->moveset[0].push_back(-1);
+				this->moveset[1].push_back(-1);
+				this->moves++;
+				break;
+			}	
+		}
+		for (int i = 1; true; i++) {
+			if (this->y - i > -1 and this->x + i < 30 and _mapLayerCollision[int(this->y)-i+1][int(this->x)+i] == 0) { // Up Right
+				bool _stop = false;
+				for (int j = 0; j < this->canTake[0].size(); j++) {
+					if (this->canTake[0][j] == this->x+i and this->canTake[1][j] == this->y-i) {
+						this->moveset[0].push_back(int(this->x)+i);
+						this->moveset[1].push_back(int(this->y)-i);
+						this->moves++;
+						_stop = true;
+						break;
+					}
+				}
+				if (!_stop) {
+					this->moveset[0].push_back(int(this->x)+i);
+					this->moveset[1].push_back(int(this->y)-i);
+					this->moves++;
+				}
+				else {
+					this->moveset[0].push_back(-1);
+					this->moveset[1].push_back(-1);
+					this->moves++;
+					break;
+				}
+			}
+			else {
+				this->moveset[0].push_back(-1);
+				this->moveset[1].push_back(-1);
+				this->moves++;
+				break;
+			}
+		}
+		for (int i = 1; true; i++) {
+			if (this->y + i < 16 and this->x + i < 30 and _mapLayerCollision[int(this->y)+i+1][int(this->x)+i] == 0) { // Down Right
+				bool _stop = false;
+				for (int j = 0; j < this->canTake[0].size(); j++) {
+					if (this->canTake[0][j] == this->x+i and this->canTake[1][j] == this->y+i) {
+						this->moveset[0].push_back(int(this->x)+i);
+						this->moveset[1].push_back(int(this->y)+i);
+						this->moves++;
+						_stop = true;
+						break;
+					}
+				}
+				if (!_stop) {
+					this->moveset[0].push_back(int(this->x)+i);
+					this->moveset[1].push_back(int(this->y)+i);
+					this->moves++;
+				}
+				else {
+					this->moveset[0].push_back(-1);
+					this->moveset[1].push_back(-1);
+					this->moves++;
+					break;
+				}
+			}
+			else {
+				this->moveset[0].push_back(-1);
+				this->moveset[1].push_back(-1);
+				this->moves++;
+				break;
+			}
+		}
+		for (int i = 1; true; i++) {
+			if (this->y + i < 16 and this->x - i > -1 and _mapLayerCollision[int(this->y)+i+1][int(this->x)-i] == 0) { // Down Left
+				bool _stop = false;
+				for (int j = 0; j < this->canTake[0].size(); j++) {
+					if (this->canTake[0][j] == this->x-i and this->canTake[1][j] == this->y+i) {
+						this->moveset[0].push_back(int(this->x)-i);
+						this->moveset[1].push_back(int(this->y)+i);
+						this->moves++;
+						_stop = true;
+						break;
+					}
+				}
+				if (!_stop) {
+					this->moveset[0].push_back(int(this->x)-i);
+					this->moveset[1].push_back(int(this->y)+i);
+					this->moves++;
+				}
+				else {
+					this->moveset[0].push_back(-1);
+					this->moveset[1].push_back(-1);
+					this->moves++;
+					break;
+				}
+			}
+			else {
+				this->moveset[0].push_back(-1);
+				this->moveset[1].push_back(-1);
+				this->moves++;
+				break;
+			}
+		}
 	}
 	else if (this->piece == "Knight") {
 		if (this->y - 2 > 0 and this->x - 1 > 0 and _mapLayerCollision[int(this->y)-2+1][int(this->x)-1] == 0) { // Up Left
@@ -271,7 +400,7 @@ void Entity::collision(std::vector<std::vector<int>>& _mapLayerCollision) {
 	}
 	else if (this->piece == "Rook") {
 		for (int i = 1; true; i++) {
-			if (this->y - i > -1 and this->x > -1 and _mapLayerCollision[int(this->y)-i+1][int(this->x)] == 0) { // Up
+			if (this->y - i > -1 and _mapLayerCollision[int(this->y)-i+1][int(this->x)] == 0) { // Up
 				bool _stop = false;
 				for (int j = 0; j < this->canTake[0].size(); j++) {
 					if (this->canTake[0][j] == this->x and this->canTake[1][j] == this->y-i) {
@@ -302,7 +431,7 @@ void Entity::collision(std::vector<std::vector<int>>& _mapLayerCollision) {
 			}	
 		}
 		for (int i = 1; true; i++) {
-			if (this->y > -1 and this->x + i > -1 and _mapLayerCollision[int(this->y)+1][int(this->x)+i] == 0) { // Right
+			if (this->x + i < 30 and _mapLayerCollision[int(this->y)+1][int(this->x)+i] == 0) { // Right
 				bool _stop = false;
 				for (int j = 0; j < this->canTake[0].size(); j++) {
 					if (this->canTake[0][j] == this->x+i and this->canTake[1][j] == this->y) {
@@ -333,7 +462,7 @@ void Entity::collision(std::vector<std::vector<int>>& _mapLayerCollision) {
 			}
 		}
 		for (int i = 1; true; i++) {
-			if (this->y + i > -1 and this->x > -1 and this->y + i < 16 and _mapLayerCollision[int(this->y)+i+1][int(this->x)] == 0) { // Down
+			if (this->y + i < 16 and _mapLayerCollision[int(this->y)+i+1][int(this->x)] == 0) { // Down
 				bool _stop = false;
 				for (int j = 0; j < this->canTake[0].size(); j++) {
 					if (this->canTake[0][j] == this->x and this->canTake[1][j] == this->y+i) {
@@ -364,7 +493,7 @@ void Entity::collision(std::vector<std::vector<int>>& _mapLayerCollision) {
 			}
 		}
 		for (int i = 1; true; i++) {
-			if (this->y > -1 and this->x - i > -1 and _mapLayerCollision[int(this->y)+1][int(this->x)-i] == 0) { // Left
+			if (this->x - i > -1 and _mapLayerCollision[int(this->y)+1][int(this->x)-i] == 0) { // Left
 				bool _stop = false;
 				for (int j = 0; j < this->canTake[0].size(); j++) {
 					if (this->canTake[0][j] == this->x-i and this->canTake[1][j] == this->y) {
@@ -396,7 +525,7 @@ void Entity::collision(std::vector<std::vector<int>>& _mapLayerCollision) {
 		}
 	}
 	else if (this->piece == "Pawn") {
-		if (_mapLayerCollision[int(this->y)-1+1][int(this->x)-1] == 0 and this->y - 1 > -1 and this->x - 1 > -1) { // Up Left
+		if (this->y - 1 > -1 and this->x - 1 > -1 and _mapLayerCollision[int(this->y)-1+1][int(this->x)-1] == 0) { // Up Left
 			this->moveset[0].push_back(int(this->x)-1);
 			this->moveset[1].push_back(int(this->y)-1);
 			this->moves++;
@@ -406,7 +535,7 @@ void Entity::collision(std::vector<std::vector<int>>& _mapLayerCollision) {
 			this->moveset[1].push_back(-1);
 			this->moves++;
 		}
-		if (_mapLayerCollision[int(this->y)-1+1][int(this->x)] == 0 and this->y - 1 > -1 and this->x > -1) { // Up
+		if (this->y - 1 > -1 and _mapLayerCollision[int(this->y)-1+1][int(this->x)] == 0) { // Up
 			this->moveset[0].push_back(int(this->x));
 			this->moveset[1].push_back(int(this->y)-1);
 			this->moves++;
@@ -416,7 +545,7 @@ void Entity::collision(std::vector<std::vector<int>>& _mapLayerCollision) {
 			this->moveset[1].push_back(-1);
 			this->moves++;
 		}
-		if (_mapLayerCollision[int(this->y)-1+1][int(this->x)+1] == 0 and this->y - 1 > -1 and this->x + 1 > -1) { // Up Right
+		if (this->y - 1 > -1 and this->x + 1 < 30 and _mapLayerCollision[int(this->y)-1+1][int(this->x)+1] == 0) { // Up Right
 			this->moveset[0].push_back(int(this->x)+1);
 			this->moveset[1].push_back(int(this->y)-1);
 			this->moves++;

@@ -27,6 +27,7 @@ void Enemy::movement(float _dt) {
 			_dir = i;
 			this->dirLengthX = this->x - this->canTake[0][i];
 			this->dirLengthY = this->y - this->canTake[1][i];
+			printf("Taking a piece\n");
 		}
 	}
 

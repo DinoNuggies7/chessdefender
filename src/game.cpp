@@ -219,420 +219,179 @@ void Game::handleEntityMovement(int& _i) {
 	int _offsetOffset = this->videoMode.width / Global::WIDTH;
 	float _moveSpeed = 2 * _offsetOffset;
 
+	if (this->level.entity[_i]->x < 0 and this->level.entity[_i]->y < 0 or this->level.entity[_i]->x > 29 and this->level.entity[_i]->y > 15)
+		this->level.entity.erase(this->level.entity.begin()+_i);
+
 	// The King piece's moves
 	if (this->level.entity[_i]->piece == "King") {
-		switch (this->level.entity[_i]->dir) {
-			case 0:		// ================ Up-Left ================
-				// Smoothly moving the piece
-				while (this->level.entity[_i]->offsetX > -16 or this->level.entity[_i]->offsetY > -16) {
+		if (this->level.entity[_i]->dir != -1) {
+			if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y) {
+				// Smoothly moving the piece Up Left
+				while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
 					this->updateDelta();
 					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
 					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
 					this->render();
 				}
-				this->level.entity[_i]->offsetX = 0;
-				this->level.entity[_i]->offsetY = 0;
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->x - 1 == this->level.entity[j]->x and this->level.entity[_i]->y - 1 == this->level.entity[j]->y)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				if (this->level.mapLayerCollision[this->level.entity[_i]->y][this->level.entity[_i]->x-1] == 0) {
-					this->level.entity[_i]->x--;
-					this->level.entity[_i]->y--;
-				}
-				break;
-			case 1:		// ================ Up ================
-				// Smoothly moving the piece
-				while (this->level.entity[_i]->offsetY > -16) {
+			}
+
+			else if (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y) {
+				// Smoothly moving the piece Up
+				while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
 					this->updateDelta();
 					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
 					this->render();
 				}
-				this->level.entity[_i]->offsetX = 0;
-				this->level.entity[_i]->offsetY = 0;
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->y - 1 == this->level.entity[j]->y and this->level.entity[_i]->x == this->level.entity[j]->x)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				if (this->level.mapLayerCollision[this->level.entity[_i]->y][this->level.entity[_i]->x] == 0)
-					this->level.entity[_i]->y--;
-				break;
-			case 2:		// ================ Up-Right ================
-				// Smoothly moving the piece
-				while (this->level.entity[_i]->offsetX < 16 or this->level.entity[_i]->offsetY > -16) {
+			}
+
+			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y) {
+				// Smoothly moving the piece Up Right
+				while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
 					this->updateDelta();
 					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
 					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
 					this->render();
 				}
-				this->level.entity[_i]->offsetX = 0;
-				this->level.entity[_i]->offsetY = 0;
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->x + 1 == this->level.entity[j]->x and this->level.entity[_i]->y - 1 == this->level.entity[j]->y)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				if (this->level.mapLayerCollision[this->level.entity[_i]->y][this->level.entity[_i]->x+1] == 0) {
-					this->level.entity[_i]->x++;
-					this->level.entity[_i]->y--;
-				}
-				break;
-			case 3:		// ================ Right ================
-				// Smoothly moving the piece
-				while (this->level.entity[_i]->offsetX < 16) {
+			}
+
+			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x) {
+				// Smoothly moving the piece Right
+				while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
 					this->updateDelta();
 					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
 					this->render();
 				}
-				this->level.entity[_i]->offsetX = 0;
-				this->level.entity[_i]->offsetY = 0;
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->x + 1 == this->level.entity[j]->x and this->level.entity[_i]->y == this->level.entity[j]->y)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				if (this->level.mapLayerCollision[this->level.entity[_i]->y+1][this->level.entity[_i]->x+1] == 0)
-					this->level.entity[_i]->x++;
-				break;
-			case 4:		// ================ Down-Right ================
-				// Smoothly moving the piece
-				while (this->level.entity[_i]->offsetX < 16 or this->level.entity[_i]->offsetY < 16) {
+			}
+
+			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] > this->level.entity[_i]->y) {
+				// Smoothly moving the piece Down Right
+				while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
 					this->updateDelta();
 					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
 					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
 					this->render();
 				}
-				this->level.entity[_i]->offsetX = 0;
-				this->level.entity[_i]->offsetY = 0;
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->x + 1 == this->level.entity[j]->x and this->level.entity[_i]->y + 1 == this->level.entity[j]->y)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				if (this->level.mapLayerCollision[this->level.entity[_i]->y+2][this->level.entity[_i]->x+1] == 0) {
-					this->level.entity[_i]->x++;
-					this->level.entity[_i]->y++;
-				}
-				break;
-			case 5:		// ================ Down ================
-				// Smoothly moving the piece
-				while (this->level.entity[_i]->offsetY < 16) {
+			}
+
+			else if (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] > this->level.entity[_i]->y) {
+				// Smoothly moving the piece Down
+				while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
 					this->updateDelta();
 					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
 					this->render();
 				}
-				this->level.entity[_i]->offsetX = 0;
-				this->level.entity[_i]->offsetY = 0;
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->y + 1 == this->level.entity[j]->y and this->level.entity[_i]->x == this->level.entity[j]->x)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				if (this->level.mapLayerCollision[this->level.entity[_i]->y+2][this->level.entity[_i]->x] == 0)
-					this->level.entity[_i]->y++;
-				break;
-			case 6:		// ================ Down-Left ================
-				// Smoothly moving the piece
-				while (this->level.entity[_i]->offsetX > -16 or this->level.entity[_i]->offsetY < 16) {
+			}
+
+			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] > this->level.entity[_i]->y) {
+				// Smoothly moving the piece Down Left
+				while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
 					this->updateDelta();
 					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
 					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
 					this->render();
 				}
-				this->level.entity[_i]->offsetX = 0;
-				this->level.entity[_i]->offsetY = 0;
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->x - 1 == this->level.entity[j]->x and this->level.entity[_i]->y + 1 == this->level.entity[j]->y)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				if (this->level.mapLayerCollision[this->level.entity[_i]->y+2][this->level.entity[_i]->x-1] == 0) {
-					this->level.entity[_i]->x--;
-					this->level.entity[_i]->y++;
-				}
-				break;
-			case 7:		// ================ Left ================
-				// Smoothly moving the piece
-				while (this->level.entity[_i]->offsetX > -16) {
+			}
+
+			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x) {
+				// Smoothly moving the piece Left
+				while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
 					this->updateDelta();
 					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
 					this->render();
 				}
-				this->level.entity[_i]->offsetX = 0;
-				this->level.entity[_i]->offsetY = 0;
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->x - 1 == this->level.entity[j]->x and this->level.entity[_i]->y == this->level.entity[j]->y)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				if (this->level.mapLayerCollision[this->level.entity[_i]->y+1][this->level.entity[_i]->x-1] == 0)
-					this->level.entity[_i]->x--;
-				break;
+			}
+			this->level.entity[_i]->x = this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir];
+			this->level.entity[_i]->y = this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir];
+			this->level.entity[_i]->offsetX = 0;
+			this->level.entity[_i]->offsetY = 0;
+		}
+
+		// Capturing a piece if the moving piece moves on top of said piece
+		for (int j = 0; j < this->level.entity.size(); j++) {
+			if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
+				if (this->level.entity[_i]->x == this->level.entity[j]->x and this->level.entity[_i]->y == this->level.entity[j]->y)
+					this->level.entity.erase(this->level.entity.begin()+j);
+			}
 		}
 	}
 
 	// The Queen piece's moves
 	else if (this->level.entity[_i]->piece == "Queen") {
-		int _length = 0, _maxLength = 0;
-		switch (this->level.entity[_i]->dir) {
-			case 0:		// ================ Up ================
-				// Randomizing how far the piece will go
-				while (this->level.mapLayerCollision[this->level.entity[_i]->y-_maxLength+1][this->level.entity[_i]->x] == 0) {
-					_maxLength++;
-				}
-				_length = std::rand() % _maxLength;
 
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->y - _length == this->level.entity[j]->y and this->level.entity[_i]->x == this->level.entity[j]->x)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				this->level.entity[_i]->y -= _length;
-				break;
-			case 1:		// ================ Down ================
-				// Randomizing how far the piece will go
-				while (this->level.mapLayerCollision[this->level.entity[_i]->y+_maxLength+1][this->level.entity[_i]->x] == 0) {
-					_maxLength++;
-				}
-				_length = std::rand() % _maxLength;
-
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->y + _length == this->level.entity[j]->y and this->level.entity[_i]->x == this->level.entity[j]->x)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				if (this->level.mapLayerCollision[this->level.entity[_i]->y+2][this->level.entity[_i]->x] == 0)
-					this->level.entity[_i]->y += _length;
-				break;
-			case 2:		// ================ Left ================
-				// Randomizing how far the piece will go
-				while (this->level.mapLayerCollision[this->level.entity[_i]->y+1][this->level.entity[_i]->x-_maxLength] == 0) {
-					_maxLength++;
-				}
-				_length = std::rand() % _maxLength;
-
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->x - _length == this->level.entity[j]->x and this->level.entity[_i]->y == this->level.entity[j]->y)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				if (this->level.mapLayerCollision[this->level.entity[_i]->y+1][this->level.entity[_i]->x-1] == 0)
-					this->level.entity[_i]->x -= _length;
-				break;
-			case 3:		// ================ Right ================
-				// Randomizing how far the piece will go
-				while (this->level.mapLayerCollision[this->level.entity[_i]->y+1][this->level.entity[_i]->x+_maxLength] == 0) {
-					_maxLength++;
-				}
-				_length = std::rand() % _maxLength;
-
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->x + _length == this->level.entity[j]->x and this->level.entity[_i]->y == this->level.entity[j]->y)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				if (this->level.mapLayerCollision[this->level.entity[_i]->y+1][this->level.entity[_i]->x+1] == 0)
-					this->level.entity[_i]->x += _length;
-				break;
-			case 4:		// ================ Up-Right ================
-				// Randomizing how far the piece will go
-				while (this->level.mapLayerCollision[this->level.entity[_i]->y-_maxLength+1][this->level.entity[_i]->x+_maxLength] == 0) {
-					_maxLength++;
-				}
-				_length = std::rand() % _maxLength;
-
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->x + _length == this->level.entity[j]->x and this->level.entity[_i]->y - _length == this->level.entity[j]->y)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				if (this->level.mapLayerCollision[this->level.entity[_i]->y][this->level.entity[_i]->x+1] == 0) {
-					this->level.entity[_i]->x += _length;
-					this->level.entity[_i]->y -= _length;
-				}
-				break;
-			case 5:		// ================ Up-Left ================
-				// Randomizing how far the piece will go
-				while (this->level.mapLayerCollision[this->level.entity[_i]->y-_maxLength+1][this->level.entity[_i]->x-_maxLength] == 0) {
-					_maxLength++;
-				}
-				_length = std::rand() % _maxLength;
-
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->x - _length == this->level.entity[j]->x and this->level.entity[_i]->y - _length == this->level.entity[j]->y)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				if (this->level.mapLayerCollision[this->level.entity[_i]->y][this->level.entity[_i]->x-1] == 0) {
-					this->level.entity[_i]->x -= _length;
-					this->level.entity[_i]->y -= _length;
-				}
-				break;
-			case 6:		// ================ Down-Right ================
-				// Randomizing how far the piece will go
-				while (this->level.mapLayerCollision[this->level.entity[_i]->y+_maxLength+1][this->level.entity[_i]->x+_maxLength] == 0) {
-					_maxLength++;
-				}
-				_length = std::rand() % _maxLength;
-
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->x + _length == this->level.entity[j]->x and this->level.entity[_i]->y + _length == this->level.entity[j]->y)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				if (this->level.mapLayerCollision[this->level.entity[_i]->y+2][this->level.entity[_i]->x+1] == 0) {
-					this->level.entity[_i]->x += _length;
-					this->level.entity[_i]->y += _length;
-				}
-				break;
-			case 7:		// ================ Down-Left ================
-				// Randomizing how far the piece will go
-				while (this->level.mapLayerCollision[this->level.entity[_i]->y+_maxLength+1][this->level.entity[_i]->x-_maxLength] == 0) {
-					_maxLength++;
-				}
-				_length = std::rand() % _maxLength;
-
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->x - _length == this->level.entity[j]->x and this->level.entity[_i]->y + _length == this->level.entity[j]->y)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				if (this->level.mapLayerCollision[this->level.entity[_i]->y+2][this->level.entity[_i]->x-1] == 0) {
-					this->level.entity[_i]->x -= _length;
-					this->level.entity[_i]->y += _length;
-				}
-				break;
-		}
 	}
+
 	else if (this->level.entity[_i]->piece == "Bishop") {
-		int _length = 0, _maxLength = 0;
-		switch (this->level.entity[_i]->dir) {
-			case 0:		// ================ Up-Left ================
-				// Randomizing how far the piece will go
-				while (this->level.mapLayerCollision[this->level.entity[_i]->y-_maxLength+1][this->level.entity[_i]->x-_maxLength] == 0) {
-					_maxLength++;
+		// Checking for pieces around this one and if there are then set Entity::canTake[][] to wherever this piece is
+		this->level.entity[_i]->canTake[0].clear();
+		this->level.entity[_i]->canTake[1].clear();
+		for (int t = 0; t < this->level.entity[_i]->moves; t++) {
+			for (int j = 0; j < this->level.entity.size(); j++) {
+				if (this->level.entity[_i]->moveset[0][t] == this->level.entity[j]->x and this->level.entity[_i]->moveset[1][t] == this->level.entity[j]->y and this->level.entity[j]->team != this->level.entity[_i]->team and this->level.entity[j]->team != "Object") {
+					this->level.entity[_i]->canTake[0].push_back(this->level.entity[_i]->moveset[0][t]);
+					this->level.entity[_i]->canTake[1].push_back(this->level.entity[_i]->moveset[1][t]);
 				}
-				_length = std::rand() % _maxLength;
+				else {
+					this->level.entity[_i]->canTake[0].push_back(0);
+					this->level.entity[_i]->canTake[1].push_back(0);
+				}
+			}
+		}
+		// Handling Entity Movement Choice
+		if (this->level.entity[_i]->dir != -1) {
+			if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y) {
+				// Smoothly moving the piece Up Left
+				while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
+					this->updateDelta();
+					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
+					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
+					this->render();
+				}
+			}
+			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y) {
+				// Smoothly moving the piece Up Right
+				while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
+					this->updateDelta();
+					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
+					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
+					this->render();
+				}
+			}
+			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] > this->level.entity[_i]->y) {
+				// Smoothly moving the piece Down Right
+				while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
+					this->updateDelta();
+					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
+					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
+					this->render();
+				}
+			}
+			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] > this->level.entity[_i]->y) {
+				// Smoothly moving the piece Down Left
+				while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
+					this->updateDelta();
+					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
+					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
+					this->render();
+				}
+			}
+			this->level.entity[_i]->x = this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir];
+			this->level.entity[_i]->y = this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir];
+			this->level.entity[_i]->offsetX = 0;
+			this->level.entity[_i]->offsetY = 0;
+		}
 
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->x - _length == this->level.entity[j]->x and this->level.entity[_i]->y - _length == this->level.entity[j]->y)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				this->level.entity[_i]->x -= _length;
-				this->level.entity[_i]->y -= _length;
-				break;
-			case 1:		// ================ Up-Right ================
-				// Randomizing how far the piece will go
-				while (this->level.mapLayerCollision[this->level.entity[_i]->y-_maxLength+1][this->level.entity[_i]->x+_maxLength] == 0) {
-					_maxLength++;
-				}
-				_length = std::rand() % _maxLength;
-				
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->x + _length == this->level.entity[j]->x and this->level.entity[_i]->y - _length == this->level.entity[j]->y)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				this->level.entity[_i]->x += _length;
-				this->level.entity[_i]->y -= _length;
-				break;
-			case 2:		// ================ Down-Right ================
-				// Randomizing how far the piece will go
-				while (this->level.mapLayerCollision[this->level.entity[_i]->y+_maxLength+1][this->level.entity[_i]->x+_maxLength] == 0) {
-					_maxLength++;
-				}
-				_length = std::rand() % _maxLength;
-
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->x + _length == this->level.entity[j]->x and this->level.entity[_i]->y + _length == this->level.entity[j]->y)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				this->level.entity[_i]->x += _length;
-				this->level.entity[_i]->y += _length;
-				break;
-			case 3:		// ================ Down-Left ================
-				// Randomizing how far the piece will go
-				while (this->level.mapLayerCollision[this->level.entity[_i]->y+_maxLength+1][this->level.entity[_i]->x-_maxLength] == 0) {
-					_maxLength++;
-				}
-				_length = std::rand() % _maxLength;
-
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->x - _length == this->level.entity[j]->x and this->level.entity[_i]->y + _length == this->level.entity[j]->y)
-							this->level.entity.erase(this->level.entity.begin()+j);
-						}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				this->level.entity[_i]->x -= _length;
-				this->level.entity[_i]->y += _length;
-				break;
+		// Capturing a piece if the moving piece moves on top of said piece
+		for (int j = 0; j < this->level.entity.size(); j++) {
+			if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
+				if (this->level.entity[_i]->x == this->level.entity[j]->x and this->level.entity[_i]->y == this->level.entity[j]->y)
+					this->level.entity.erase(this->level.entity.begin()+j);
+			}
 		}
 	}
 	else if (this->level.entity[_i]->piece == "Knight") {
 		// Checking for pieces around this one and if there are then set Entity::canTake[][] to wherever this piece is
+		this->level.entity[_i]->canTake[0].clear();
+		this->level.entity[_i]->canTake[1].clear();
 		for (int t = 0; t < this->level.entity[_i]->moves; t++) {
 			for (int j = 0; j < this->level.entity.size(); j++) {
 				if (this->level.entity[_i]->moveset[0][t] == this->level.entity[j]->x and this->level.entity[_i]->moveset[1][t] == this->level.entity[j]->y and this->level.entity[j]->team != this->level.entity[_i]->team and this->level.entity[j]->team != "Object") {
@@ -648,8 +407,8 @@ void Game::handleEntityMovement(int& _i) {
 
 		// Handling Entity Movement Choice
 		switch (this->level.entity[_i]->dir) {
-			case 0:		// Up Left
-				// Smoothly moving the piece
+			case 0:
+				// Smoothly moving the piece Up Left
 				while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
 					this->updateDelta();
 					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
@@ -661,8 +420,8 @@ void Game::handleEntityMovement(int& _i) {
 					this->render();
 				}
 				break;
-			case 1:		// Up Right
-				// Smoothly moving the piece
+			case 1:
+				// Smoothly moving the piece Up Right
 				while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
 					this->updateDelta();
 					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
@@ -674,8 +433,8 @@ void Game::handleEntityMovement(int& _i) {
 					this->render();
 				}
 				break;
-			case 2:		// Right Up
-				// Smoothly moving the piece
+			case 2:
+				// Smoothly moving the piece Right Up
 				while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
 					this->updateDelta();
 					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
@@ -687,8 +446,8 @@ void Game::handleEntityMovement(int& _i) {
 					this->render();
 				}
 				break;
-			case 3:		// Right Down
-				// Smoothly moving the piece
+			case 3:
+				// Smoothly moving the piece Right Down
 				while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
 					this->updateDelta();
 					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
@@ -700,8 +459,8 @@ void Game::handleEntityMovement(int& _i) {
 					this->render();
 				}
 				break;
-			case 4:		// Down Right
-				// Smoothly moving the piece
+			case 4:
+				// Smoothly moving the piece Down Right
 				while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
 					this->updateDelta();
 					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
@@ -713,8 +472,8 @@ void Game::handleEntityMovement(int& _i) {
 					this->render();
 				}
 				break;
-			case 5:		// Down Left
-				// Smoothly moving the piece
+			case 5:
+				// Smoothly moving the piece Down Left
 				while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
 					this->updateDelta();
 					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
@@ -726,8 +485,8 @@ void Game::handleEntityMovement(int& _i) {
 					this->render();
 				}
 				break;
-			case 6:		// Left Down
-				// Smoothly moving the piece
+			case 6:
+				// Smoothly moving the piece Left Down
 				while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
 					this->updateDelta();
 					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
@@ -739,8 +498,8 @@ void Game::handleEntityMovement(int& _i) {
 					this->render();
 				}
 				break;
-			case 7:		// Left Up
-				// Smoothly moving the piece
+			case 7:
+				// Smoothly moving the piece Left Up
 				while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
 					this->updateDelta();
 					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
@@ -759,9 +518,19 @@ void Game::handleEntityMovement(int& _i) {
 			this->level.entity[_i]->offsetX = 0;
 			this->level.entity[_i]->offsetY = 0;
 		}
+
+		// Capturing a piece if the moving piece moves on top of said piece
+		for (int j = 0; j < this->level.entity.size(); j++) {
+			if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
+				if (this->level.entity[_i]->x == this->level.entity[j]->x and this->level.entity[_i]->y == this->level.entity[j]->y)
+					this->level.entity.erase(this->level.entity.begin()+j);
+			}
+		}
 	}
 	else if (this->level.entity[_i]->piece == "Rook") {
 		// Checking for pieces around this one and if there are then set Entity::canTake[][] to wherever this piece is
+		this->level.entity[_i]->canTake[0].clear();
+		this->level.entity[_i]->canTake[1].clear();
 		for (int t = 0; t < this->level.entity[_i]->moves; t++) {
 			for (int j = 0; j < this->level.entity.size(); j++) {
 				if (this->level.entity[_i]->moveset[0][t] == this->level.entity[j]->x and this->level.entity[_i]->moveset[1][t] == this->level.entity[j]->y and this->level.entity[j]->team != this->level.entity[_i]->team and this->level.entity[j]->team != "Object") {
@@ -774,35 +543,34 @@ void Game::handleEntityMovement(int& _i) {
 				}
 			}
 		}
-
 		// Handling Entity Movement Choice
 		if (this->level.entity[_i]->dir != -1) {
-			if (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y) {  // Up
-				// Smoothly moving the piece
+			if (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y) {
+				// Smoothly moving the piece Up
 				while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
 					this->updateDelta();
 					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
 					this->render();
 				}
 			}
-			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x) { // Right
-				// Smoothly moving the piece
+			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x) {
+				// Smoothly moving the piece Right
 				while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
 					this->updateDelta();
 					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
 					this->render();
 				}
 			}
-			else if (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] > this->level.entity[_i]->y) { // Down
-				// Smoothly moving the piece
+			else if (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] > this->level.entity[_i]->y) {
+				// Smoothly moving the piece Down
 				while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
 					this->updateDelta();
 					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
 					this->render();
 				}
 			}
-			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x) { // Left
-				// Smoothly moving the piece
+			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x) {
+				// Smoothly moving the piece Left
 				while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
 					this->updateDelta();
 					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
@@ -826,9 +594,11 @@ void Game::handleEntityMovement(int& _i) {
 
 	else if (this->level.entity[_i]->piece == "Pawn") {
 		// Checking for pieces around this one and if there are then set Entity::canTake[][] to wherever this piece is
+		this->level.entity[_i]->canTake[0].clear();
+		this->level.entity[_i]->canTake[1].clear();
 		for (int t = 0; t < this->level.entity[_i]->moves; t++) {
 			for (int j = 0; j < this->level.entity.size(); j++) {
-				if (this->level.entity[_i]->moveset[0][t] == this->level.entity[j]->x and this->level.entity[_i]->moveset[1][t] == this->level.entity[j]->y and this->level.entity[j]->team == "Player") {
+				if (this->level.entity[_i]->moveset[0][t] == this->level.entity[j]->x and this->level.entity[_i]->moveset[1][t] == this->level.entity[j]->y and this->level.entity[j]->team != this->level.entity[_i]->team and this->level.entity[j]->team != "Object") {
 					this->level.entity[_i]->canTake[0].push_back(this->level.entity[_i]->moveset[0][t]);
 					this->level.entity[_i]->canTake[1].push_back(this->level.entity[_i]->moveset[1][t]);
 				}
@@ -839,6 +609,48 @@ void Game::handleEntityMovement(int& _i) {
 			}
 		}
 
+		// Handling Entity movement choices
+		if (this->level.entity[_i]->dir != -1) {
+			if (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y and this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x) {
+				// Smoothly moving the piece Up Left
+				while (this->level.entity[_i]->offsetX > -16 or this->level.entity[_i]->offsetY > -16) {
+					this->updateDelta();
+					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
+					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
+					this->render();
+				}
+			}
+			else if (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y and this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] == this->level.entity[_i]->x) {
+				// Smoothly moving the piece Up
+				while (this->level.entity[_i]->offsetY > -16) {
+					this->updateDelta();
+					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
+					this->render();
+				}
+			}
+			else if (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y and this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x) {
+				// Smoothly moving the piece Up Right
+				while (this->level.entity[_i]->offsetX < 16 or this->level.entity[_i]->offsetY > -16) {
+					this->updateDelta();
+					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
+					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
+					this->render();
+				}
+			}
+			this->level.entity[_i]->x = this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir];
+			this->level.entity[_i]->y = this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir];
+			this->level.entity[_i]->offsetX = 0;
+			this->level.entity[_i]->offsetY = 0;
+		}
+
+		// Capturing a piece if the moving piece moves on top of said piece
+		for (int j = 0; j < this->level.entity.size(); j++) {
+			if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
+				if (this->level.entity[_i]->x == this->level.entity[j]->x and this->level.entity[_i]->y == this->level.entity[j]->y)
+					this->level.entity.erase(this->level.entity.begin()+j);
+			}
+		}
+		
 		// Promoting Pawn if it gets to the end of the room
 		if (this->level.entity[_i]->y < 2) {
 			int _rand = std::rand() % 3;
@@ -853,76 +665,6 @@ void Game::handleEntityMovement(int& _i) {
 					this->level.entity[_i]->init("Rook");
 					break;
 			}
-		}
-
-		// Handling Entity movement choices
-		switch (this->level.entity[_i]->dir) {
-			case 0:		// ================ Up Left ================
-				// Smoothly moving the piece
-				while (this->level.entity[_i]->offsetX > -16 or this->level.entity[_i]->offsetY > -16) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
-					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
-					this->render();
-				}
-				this->level.entity[_i]->offsetX = 0;
-				this->level.entity[_i]->offsetY = 0;
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->x - 1 == this->level.entity[j]->x and this->level.entity[_i]->y - 1 == this->level.entity[j]->y)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				if (this->level.mapLayerCollision[this->level.entity[_i]->y-1+1][this->level.entity[_i]->x-1] == 0) {
-					this->level.entity[_i]->y--;
-					this->level.entity[_i]->x--;
-				}
-				break;
-			case 1:		// ================ Up ================
-				// Smoothly moving the piece
-				while (this->level.entity[_i]->offsetY > -16) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
-					this->render();
-				}
-				this->level.entity[_i]->offsetX = 0;
-				this->level.entity[_i]->offsetY = 0;
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->y - 1 == this->level.entity[j]->y and this->level.entity[_i]->x == this->level.entity[j]->x)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				if (this->level.mapLayerCollision[this->level.entity[_i]->y-1+1][this->level.entity[_i]->x] == 0)
-					this->level.entity[_i]->y--;
-				break;
-			case 2:		// ================ Up Right ================
-				// Smoothly moving the piece
-				while (this->level.entity[_i]->offsetX < 16 or this->level.entity[_i]->offsetY > -16) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
-					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
-					this->render();
-				}
-				this->level.entity[_i]->offsetX = 0;
-				this->level.entity[_i]->offsetY = 0;
-				// Capturing a piece if the moving piece moves on top of said piece
-				for (int j = 0; j < this->level.entity.size(); j++) {
-					if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-						if (this->level.entity[_i]->x + 1 == this->level.entity[j]->x and this->level.entity[_i]->y - 1 == this->level.entity[j]->y)
-							this->level.entity.erase(this->level.entity.begin()+j);
-					}
-				}
-				// Checking for collision ahead of the piece before moving it, then moving it if there isn't a wall
-				if (this->level.mapLayerCollision[this->level.entity[_i]->y-1+1][this->level.entity[_i]->x+1] == 0) {
-					this->level.entity[_i]->y--;
-					this->level.entity[_i]->x++;
-				}
-				break;
 		}
 	}
 }

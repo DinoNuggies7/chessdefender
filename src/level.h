@@ -15,6 +15,7 @@ class Level {
 public:
 	void init(int _levelID, int _door0 = true, int _door1 = true, int _door2 = true, int _door3 = true);
 	void render(sf::RenderWindow& _window, int _layer);
+	void spawnEntity(std::string _entity);
 	void initDoors(int _door0 = true, int _door1 = true, int _door2 = true, int _door3 = true);
 	void randomizeRoomGen(int& _warp0, int& _warp1, int& _warp2);
 	void generateRoom(int _warp0, int _warp1, int _warp2, int _warp3, int _clear);
