@@ -14,10 +14,11 @@
 			-- (Done!) Add Map Support and Level Class
 			-- (Done!) Draw Entities with Higher Y Values on Top of Entities with Lower Y Values
 			-- (Done!) Add Mouse Controls
+			-- (Done!) Fix North Door from not being Deleted
+			-- (Done!) Add More Playable Pieces
 
 				==== Currently Working ====
-			-- (Working...) Refactoring Entity Managment
-			-- (Working...) Add More Playable Pieces
+			-- (Working...) Refactoring Entity Management
 			-- (Working...) Add Enemy AI (probably just gonna look some up online :P)
 
 				==== To-Do ====

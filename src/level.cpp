@@ -45,7 +45,7 @@ void Level::spawnEntity(std::string _entity) {
 
 void Level::initDoors(int _door0, int _door1, int _door2, int _door3) {
 	// Removes previous doors and clear collision layer of door locations BACKWORDS
-	for (int i = this->entity.size()-1; i > 0; i--) {
+	for (int i = this->entity.size()-1; i > -1; i--) {
 		if (this->entity[i]->team == "Object") {
 			this->entity.erase(this->entity.begin()+i);
 		}
@@ -220,7 +220,7 @@ void Level::initEntities() {
 		if (this->entity[i]->team != "Object") {
 			if (this->entity[i]->team == "Player") {
 				for (static bool _first0 = true; _first0; _first0 = false)
-					this->entity[i]->init("Pawn"); // The piece that the Player spawns with
+					this->entity[i]->init("Queen"); // The piece that the Player spawns with
 			}
 			else if (this->entity[i]->team == "Enemy") {
 				int _rand = 5;//std::rand() % 6;
