@@ -220,7 +220,7 @@ void Level::initEntities() {
 		if (this->entity[i]->team != "Object") {
 			if (this->entity[i]->team == "Player") {
 				for (static bool _first0 = true; _first0; _first0 = false)
-					this->entity[i]->init("Queen"); // The piece that the Player spawns with
+					this->entity[i]->init("Pawn"); // The piece that the Player spawns with
 			}
 			else if (this->entity[i]->team == "Enemy") {
 				int _rand = 5;//std::rand() % 6;

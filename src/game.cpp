@@ -217,7 +217,7 @@ void Game::handleLevel() {
 
 void Game::handleEntityMovement(int& _i) {
 	int _offsetOffset = this->videoMode.width / Global::WIDTH;
-	float _moveSpeed = 2 * _offsetOffset;
+	float _moveSpeed = 0.5 * _offsetOffset;
 
 	// Deleting an Entity if it gets out of bounds (shouldn't be happening but it is anyways)
 	if (this->level.entity[_i]->x < 0 and this->level.entity[_i]->y < 0 or this->level.entity[_i]->x > 29 and this->level.entity[_i]->y > 15)
@@ -241,72 +241,182 @@ void Game::handleEntityMovement(int& _i) {
 
 	// Handling chosen Entity Movement
 	if (this->level.entity[_i]->dir != -1) {
-		if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y) {
-			// Smoothly moving the piece Up Left
-			while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
-				this->updateDelta();
-				this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
-				this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
-				this->render();
+		if (this->level.entity[_i]->piece == "Knight") {
+			switch (this->level.entity[_i]->dir) {
+				case 0:
+					// Smoothly moving the piece Up Left
+					while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
+						this->updateDelta();
+						this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
+						this->render();
+					}
+					while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
+						this->updateDelta();
+						this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
+						this->render();
+					}
+					break;
+				case 1:
+					// Smoothly moving the piece Up Right
+					while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
+						this->updateDelta();
+						this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
+						this->render();
+					}
+					while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
+						this->updateDelta();
+						this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
+						this->render();
+					}
+					break;
+				case 2:
+					// Smoothly moving the piece Right Up
+					while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
+						this->updateDelta();
+						this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
+						this->render();
+					}
+					while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
+						this->updateDelta();
+						this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
+						this->render();
+					}
+					break;
+				case 3:
+					// Smoothly moving the piece Right Down
+					while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
+						this->updateDelta();
+						this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
+						this->render();
+					}
+					while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
+						this->updateDelta();
+						this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
+						this->render();
+					}
+					break;
+				case 4:
+					// Smoothly moving the piece Down Right
+					while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
+						this->updateDelta();
+						this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
+						this->render();
+					}
+					while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
+						this->updateDelta();
+						this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
+						this->render();
+					}
+					break;
+				case 5:
+					// Smoothly moving the piece Down Left
+					while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
+						this->updateDelta();
+						this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
+						this->render();
+					}
+					while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
+						this->updateDelta();
+						this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
+						this->render();
+					}
+					break;
+				case 6:
+					// Smoothly moving the piece Left Down
+					while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
+						this->updateDelta();
+						this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
+						this->render();
+					}
+					while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
+						this->updateDelta();
+						this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
+						this->render();
+					}
+					break;
+				case 7:
+					// Smoothly moving the piece Left Up
+					while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
+						this->updateDelta();
+						this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
+						this->render();
+					}
+					while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
+						this->updateDelta();
+						this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
+						this->render();
+					}
+					break;
 			}
 		}
-		else if (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y and this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] == this->level.entity[_i]->x) {
-			// Smoothly moving the piece Up
-			while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
-				this->updateDelta();
-				this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
-				this->render();
+		else {
+			if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y) {
+				// Smoothly moving the piece Up Left
+				while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
+					this->updateDelta();
+					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
+					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
+					this->render();
+				}
 			}
-		}
-		else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y) {
-			// Smoothly moving the piece Up Right
-			while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
-				this->updateDelta();
-				this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
-				this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
-				this->render();
+			else if (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y and this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] == this->level.entity[_i]->x) {
+				// Smoothly moving the piece Up
+				while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
+					this->updateDelta();
+					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
+					this->render();
+				}
 			}
-		}
-		else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] == this->level.entity[_i]->y) {
-			// Smoothly moving the piece Right
-			while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
-				this->updateDelta();
-				this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
-				this->render();
+			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y) {
+				// Smoothly moving the piece Up Right
+				while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
+					this->updateDelta();
+					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
+					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
+					this->render();
+				}
 			}
-		}
-		else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] > this->level.entity[_i]->y) {
-			// Smoothly moving the piece Down Right
-			while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
-				this->updateDelta();
-				this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
-				this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
-				this->render();
+			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] == this->level.entity[_i]->y) {
+				// Smoothly moving the piece Right
+				while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
+					this->updateDelta();
+					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
+					this->render();
+				}
 			}
-		}
-		else if (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] > this->level.entity[_i]->y and this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] == this->level.entity[_i]->x) {
-			// Smoothly moving the piece Down
-			while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
-				this->updateDelta();
-				this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
-				this->render();
+			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] > this->level.entity[_i]->y) {
+				// Smoothly moving the piece Down Right
+				while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
+					this->updateDelta();
+					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
+					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
+					this->render();
+				}
 			}
-		}
-		else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] > this->level.entity[_i]->y) {
-			// Smoothly moving the piece Down Left
-			while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
-				this->updateDelta();
-				this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
-				this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
-				this->render();
+			else if (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] > this->level.entity[_i]->y and this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] == this->level.entity[_i]->x) {
+				// Smoothly moving the piece Down
+				while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
+					this->updateDelta();
+					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
+					this->render();
+				}
 			}
-		}
-		else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] == this->level.entity[_i]->y) {
-			// Smoothly moving the piece Left
-			while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
-				this->updateDelta();
-				this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
-				this->render();
+			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] > this->level.entity[_i]->y) {
+				// Smoothly moving the piece Down Left
+				while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
+					this->updateDelta();
+					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
+					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
+					this->render();
+				}
+			}
+			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] == this->level.entity[_i]->y) {
+				// Smoothly moving the piece Left
+				while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
+					this->updateDelta();
+					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
+					this->render();
+				}
 			}
 		}
 
@@ -341,454 +451,6 @@ void Game::handleEntityMovement(int& _i) {
 			}
 		}
 	}
-
-	/*
-	// The King piece's moves
-	if (this->level.entity[_i]->piece == "King") {
-		if (this->level.entity[_i]->dir != -1) {
-			if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y) {
-				// Smoothly moving the piece Up Left
-				while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
-					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
-					this->render();
-				}
-			}
-
-			else if (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y) {
-				// Smoothly moving the piece Up
-				while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
-					this->render();
-				}
-			}
-
-			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y) {
-				// Smoothly moving the piece Up Right
-				while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
-					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
-					this->render();
-				}
-			}
-
-			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x) {
-				// Smoothly moving the piece Right
-				while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
-					this->render();
-				}
-			}
-
-			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] > this->level.entity[_i]->y) {
-				// Smoothly moving the piece Down Right
-				while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
-					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
-					this->render();
-				}
-			}
-
-			else if (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] > this->level.entity[_i]->y) {
-				// Smoothly moving the piece Down
-				while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
-					this->render();
-				}
-			}
-
-			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] > this->level.entity[_i]->y) {
-				// Smoothly moving the piece Down Left
-				while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
-					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
-					this->render();
-				}
-			}
-
-			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x) {
-				// Smoothly moving the piece Left
-				while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
-					this->render();
-				}
-			}
-			this->level.entity[_i]->x = this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir];
-			this->level.entity[_i]->y = this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir];
-			this->level.entity[_i]->offsetX = 0;
-			this->level.entity[_i]->offsetY = 0;
-		}
-
-		// Capturing a piece if the moving piece moves on top of said piece
-		for (int j = 0; j < this->level.entity.size(); j++) {
-			if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-				if (this->level.entity[_i]->x == this->level.entity[j]->x and this->level.entity[_i]->y == this->level.entity[j]->y)
-					this->level.entity.erase(this->level.entity.begin()+j);
-			}
-		}
-	}
-
-	// The Queen piece's moves
-	else if (this->level.entity[_i]->piece == "Queen") {
-
-	}
-
-	else if (this->level.entity[_i]->piece == "Bishop") {
-		// Checking for pieces around this one and if there are then set Entity::canTake[][] to wherever this piece is
-		this->level.entity[_i]->canTake[0].clear();
-		this->level.entity[_i]->canTake[1].clear();
-		for (int t = 0; t < this->level.entity[_i]->moves; t++) {
-			for (int j = 0; j < this->level.entity.size(); j++) {
-				if (this->level.entity[_i]->moveset[0][t] == this->level.entity[j]->x and this->level.entity[_i]->moveset[1][t] == this->level.entity[j]->y and this->level.entity[j]->team != this->level.entity[_i]->team and this->level.entity[j]->team != "Object") {
-					this->level.entity[_i]->canTake[0].push_back(this->level.entity[_i]->moveset[0][t]);
-					this->level.entity[_i]->canTake[1].push_back(this->level.entity[_i]->moveset[1][t]);
-				}
-				else {
-					this->level.entity[_i]->canTake[0].push_back(0);
-					this->level.entity[_i]->canTake[1].push_back(0);
-				}
-			}
-		}
-		// Handling Entity Movement Choice
-		if (this->level.entity[_i]->dir != -1) {
-			if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y) {
-				// Smoothly moving the piece Up Left
-				while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
-					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
-					this->render();
-				}
-			}
-			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y) {
-				// Smoothly moving the piece Up Right
-				while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
-					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
-					this->render();
-				}
-			}
-			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] > this->level.entity[_i]->y) {
-				// Smoothly moving the piece Down Right
-				while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
-					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
-					this->render();
-				}
-			}
-			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x and this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] > this->level.entity[_i]->y) {
-				// Smoothly moving the piece Down Left
-				while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
-					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
-					this->render();
-				}
-			}
-			this->level.entity[_i]->x = this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir];
-			this->level.entity[_i]->y = this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir];
-			this->level.entity[_i]->offsetX = 0;
-			this->level.entity[_i]->offsetY = 0;
-		}
-
-		// Capturing a piece if the moving piece moves on top of said piece
-		for (int j = 0; j < this->level.entity.size(); j++) {
-			if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-				if (this->level.entity[_i]->x == this->level.entity[j]->x and this->level.entity[_i]->y == this->level.entity[j]->y)
-					this->level.entity.erase(this->level.entity.begin()+j);
-			}
-		}
-	}
-	else if (this->level.entity[_i]->piece == "Knight") {
-		// Checking for pieces around this one and if there are then set Entity::canTake[][] to wherever this piece is
-		this->level.entity[_i]->canTake[0].clear();
-		this->level.entity[_i]->canTake[1].clear();
-		for (int t = 0; t < this->level.entity[_i]->moves; t++) {
-			for (int j = 0; j < this->level.entity.size(); j++) {
-				if (this->level.entity[_i]->moveset[0][t] == this->level.entity[j]->x and this->level.entity[_i]->moveset[1][t] == this->level.entity[j]->y and this->level.entity[j]->team != this->level.entity[_i]->team and this->level.entity[j]->team != "Object") {
-					this->level.entity[_i]->canTake[0].push_back(this->level.entity[_i]->moveset[0][t]);
-					this->level.entity[_i]->canTake[1].push_back(this->level.entity[_i]->moveset[1][t]);
-				}
-				else {
-					this->level.entity[_i]->canTake[0].push_back(0);
-					this->level.entity[_i]->canTake[1].push_back(0);
-				}
-			}
-		}
-
-		// Handling Entity Movement Choice
-		switch (this->level.entity[_i]->dir) {
-			case 0:
-				// Smoothly moving the piece Up Left
-				while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
-					this->render();
-				}
-				while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
-					this->render();
-				}
-				break;
-			case 1:
-				// Smoothly moving the piece Up Right
-				while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
-					this->render();
-				}
-				while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
-					this->render();
-				}
-				break;
-			case 2:
-				// Smoothly moving the piece Right Up
-				while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
-					this->render();
-				}
-				while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
-					this->render();
-				}
-				break;
-			case 3:
-				// Smoothly moving the piece Right Down
-				while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
-					this->render();
-				}
-				while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
-					this->render();
-				}
-				break;
-			case 4:
-				// Smoothly moving the piece Down Right
-				while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
-					this->render();
-				}
-				while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
-					this->render();
-				}
-				break;
-			case 5:
-				// Smoothly moving the piece Down Left
-				while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
-					this->render();
-				}
-				while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
-					this->render();
-				}
-				break;
-			case 6:
-				// Smoothly moving the piece Left Down
-				while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
-					this->render();
-				}
-				while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
-					this->render();
-				}
-				break;
-			case 7:
-				// Smoothly moving the piece Left Up
-				while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
-					this->render();
-				}
-				while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
-					this->render();
-				}
-				break;
-		}
-		if (this->level.entity[_i]->dir != -1) {
-			this->level.entity[_i]->x = this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir];
-			this->level.entity[_i]->y = this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir];
-			this->level.entity[_i]->offsetX = 0;
-			this->level.entity[_i]->offsetY = 0;
-		}
-
-		// Capturing a piece if the moving piece moves on top of said piece
-		for (int j = 0; j < this->level.entity.size(); j++) {
-			if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-				if (this->level.entity[_i]->x == this->level.entity[j]->x and this->level.entity[_i]->y == this->level.entity[j]->y)
-					this->level.entity.erase(this->level.entity.begin()+j);
-			}
-		}
-	}
-	else if (this->level.entity[_i]->piece == "Rook") {
-		// Checking for pieces around this one and if there are then set Entity::canTake[][] to wherever this piece is
-		this->level.entity[_i]->canTake[0].clear();
-		this->level.entity[_i]->canTake[1].clear();
-		for (int t = 0; t < this->level.entity[_i]->moves; t++) {
-			for (int j = 0; j < this->level.entity.size(); j++) {
-				if (this->level.entity[_i]->moveset[0][t] == this->level.entity[j]->x and this->level.entity[_i]->moveset[1][t] == this->level.entity[j]->y and this->level.entity[j]->team != this->level.entity[_i]->team and this->level.entity[j]->team != "Object") {
-					this->level.entity[_i]->canTake[0].push_back(this->level.entity[_i]->moveset[0][t]);
-					this->level.entity[_i]->canTake[1].push_back(this->level.entity[_i]->moveset[1][t]);
-				}
-				else {
-					this->level.entity[_i]->canTake[0].push_back(0);
-					this->level.entity[_i]->canTake[1].push_back(0);
-				}
-			}
-		}
-		// Handling Entity Movement Choice
-		if (this->level.entity[_i]->dir != -1) {
-			if (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y) {
-				// Smoothly moving the piece Up
-				while (this->level.entity[_i]->offsetY > 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
-					this->render();
-				}
-			}
-			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x) {
-				// Smoothly moving the piece Right
-				while (this->level.entity[_i]->offsetX < 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
-					this->render();
-				}
-			}
-			else if (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] > this->level.entity[_i]->y) {
-				// Smoothly moving the piece Down
-				while (this->level.entity[_i]->offsetY < 16 * (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] - this->level.entity[_i]->y)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetY += _moveSpeed * this->dt;
-					this->render();
-				}
-			}
-			else if (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x) {
-				// Smoothly moving the piece Left
-				while (this->level.entity[_i]->offsetX > 16 * (this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] - this->level.entity[_i]->x)) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
-					this->render();
-				}
-			}
-			this->level.entity[_i]->x = this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir];
-			this->level.entity[_i]->y = this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir];
-			this->level.entity[_i]->offsetX = 0;
-			this->level.entity[_i]->offsetY = 0;
-		}
-
-		// Capturing a piece if the moving piece moves on top of said piece
-		for (int j = 0; j < this->level.entity.size(); j++) {
-			if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-				if (this->level.entity[_i]->x == this->level.entity[j]->x and this->level.entity[_i]->y == this->level.entity[j]->y)
-					this->level.entity.erase(this->level.entity.begin()+j);
-			}
-		}
-	}
-
-	else if (this->level.entity[_i]->piece == "Pawn") {
-		// Checking for pieces around this one and if there are then set Entity::canTake[][] to wherever this piece is
-		this->level.entity[_i]->canTake[0].clear();
-		this->level.entity[_i]->canTake[1].clear();
-		for (int t = 0; t < this->level.entity[_i]->moves; t++) {
-			for (int j = 0; j < this->level.entity.size(); j++) {
-				if (this->level.entity[_i]->moveset[0][t] == this->level.entity[j]->x and this->level.entity[_i]->moveset[1][t] == this->level.entity[j]->y and this->level.entity[j]->team != this->level.entity[_i]->team and this->level.entity[j]->team != "Object") {
-					this->level.entity[_i]->canTake[0].push_back(this->level.entity[_i]->moveset[0][t]);
-					this->level.entity[_i]->canTake[1].push_back(this->level.entity[_i]->moveset[1][t]);
-				}
-				else {
-					this->level.entity[_i]->canTake[0].push_back(0);
-					this->level.entity[_i]->canTake[1].push_back(0);
-				}
-			}
-		}
-
-		// Handling Entity movement choices
-		if (this->level.entity[_i]->dir != -1) {
-			if (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y and this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] < this->level.entity[_i]->x) {
-				// Smoothly moving the piece Up Left
-				while (this->level.entity[_i]->offsetX > -16 or this->level.entity[_i]->offsetY > -16) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX -= _moveSpeed * this->dt;
-					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
-					this->render();
-				}
-			}
-			else if (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y and this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] == this->level.entity[_i]->x) {
-				// Smoothly moving the piece Up
-				while (this->level.entity[_i]->offsetY > -16) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
-					this->render();
-				}
-			}
-			else if (this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir] < this->level.entity[_i]->y and this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir] > this->level.entity[_i]->x) {
-				// Smoothly moving the piece Up Right
-				while (this->level.entity[_i]->offsetX < 16 or this->level.entity[_i]->offsetY > -16) {
-					this->updateDelta();
-					this->level.entity[_i]->offsetX += _moveSpeed * this->dt;
-					this->level.entity[_i]->offsetY -= _moveSpeed * this->dt;
-					this->render();
-				}
-			}
-			this->level.entity[_i]->x = this->level.entity[_i]->moveset[0][this->level.entity[_i]->dir];
-			this->level.entity[_i]->y = this->level.entity[_i]->moveset[1][this->level.entity[_i]->dir];
-			this->level.entity[_i]->offsetX = 0;
-			this->level.entity[_i]->offsetY = 0;
-		}
-
-		// Capturing a piece if the moving piece moves on top of said piece
-		for (int j = 0; j < this->level.entity.size(); j++) {
-			if (_i != j and this->level.entity[_i]->team != this->level.entity[j]->team and this->level.entity[j]->team != "Object") {
-				if (this->level.entity[_i]->x == this->level.entity[j]->x and this->level.entity[_i]->y == this->level.entity[j]->y)
-					this->level.entity.erase(this->level.entity.begin()+j);
-			}
-		}
-		
-		// Promoting Pawn if it gets to the end of the room
-		if (this->level.entity[_i]->y < 2) {
-			int _rand = std::rand() % 3;
-			switch (_rand) {
-				case 0:
-					this->level.entity[_i]->init("Bishop");
-					break;
-				case 1:
-					this->level.entity[_i]->init("Knight");
-					break;
-				case 2:
-					this->level.entity[_i]->init("Rook");
-					break;
-			}
-		}
-	}
-	*/
 }
 
 // Updated `dt` every frame, just in case I need frame independant animations
